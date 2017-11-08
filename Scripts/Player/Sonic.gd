@@ -5,6 +5,7 @@ var dir = 0
 var speed = 0
 var velocity = 0
 var breaktime = 0
+var sprite_node
 const ACC = 0.046875
 const DEC = 0.5
 const FRIC = ACC
@@ -12,7 +13,7 @@ const TOP = 6
 
 func _ready():
 	set_fixed_process(true)
-	var sprite_anim = get_node("AnimatedSprite")
+	sprite_node = get_node("AnimatedSprite")
 
 func _fixed_process(delta):
 	if xdir:
@@ -20,9 +21,10 @@ func _fixed_process(delta):
 	
 	if Input.is_action_pressed("move_left"):
 		xdir = -1
-		sprite_anim.set_flip_h(true)
+		sprite_node.set_flip_h(true)
 	elif Input.is_action_pressed("move_right"):
 		xdir = 1
+		sprite_node.set_flip_h(false)
 	else:
 		xdir = 0
 	
