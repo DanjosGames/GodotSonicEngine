@@ -13,6 +13,7 @@ const TOP = 6
 func _ready():
 	set_fixed_process (true)
 	var sprite_anim = get_node ("AnimatedSprite")
+	return
 
 func _fixed_process (delta):
 	if (xdir != 0):
