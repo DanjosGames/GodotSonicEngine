@@ -12,10 +12,10 @@ export(int) var Score = 0					# Score.
 
 onready var sprite_anim = get_node ("AnimatedSprite")
 
-const ACC = 0.046875
-const DEC = 0.5
-const FRIC = ACC
-const TOP = 6
+const ACCEL_RATE = 0.046875
+const DECEL_RATE = 0.5
+const FRICTION = ACCEL_RATE
+const TOP_X_SPEED = 6
 
 func _ready():
 	set_fixed_process (true)
@@ -35,11 +35,11 @@ func _fixed_process (delta):
 		xdir = 0
 
 	if (xdir):
-		if (speed < TOP):
-			speed += ACC	# Speed Sonic up until he is at top speed.
+		if (speed < TOP_X_SPEED):
+			speed += ACCEL_RATE	# Speed Sonic up until he is at top speed.
 	else:
 		if (speed > 0):
-			speed -= FRIC	# Slow Sonic down according to the friction rating.
+			speed -= FRICTION	# Slow Sonic down according to the friction rating.
 
 	velocity = (speed * dir)		# Set the velocity for Sonic's movement (sign dir being used to signify direction).
 	move (Vector2 (velocity, 0))	# And move Sonic appropriately.
