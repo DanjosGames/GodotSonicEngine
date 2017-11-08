@@ -20,7 +20,6 @@ func _fixed_process(delta):
 	
 	if Input.is_action_pressed("move_left"):
 		xdir = -1
-		sprite_anim.set_flip_h(true)
 	elif Input.is_action_pressed("move_right"):
 		xdir = 1
 	else:
