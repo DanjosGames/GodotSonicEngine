@@ -13,6 +13,9 @@ texture = ExtResource( 1 )
 
 [node name="Sonic" parent="." instance=ExtResource( 2 )]
 
+Rings = 0
+Score = 0
+
 [node name="hud_layer" parent="." instance=ExtResource( 3 )]
 
 

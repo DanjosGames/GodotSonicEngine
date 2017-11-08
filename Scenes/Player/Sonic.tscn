@@ -46,6 +46,9 @@ collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
+Rings = 0
+Lives = 3
+Score = 0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 

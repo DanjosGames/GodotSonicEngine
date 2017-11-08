@@ -5,7 +5,13 @@ var dir = 0
 var speed = 0
 var velocity = 0
 var breaktime = 0
+
+export(int) var Rings = 0					# Number of rings the player has.
+export(int) var Lives = 3					# Lives left.
+export(int) var Score = 0					# Score.
+
 onready var sprite_anim = get_node ("AnimatedSprite")
+
 const ACC = 0.046875
 const DEC = 0.5
 const FRIC = ACC
@@ -13,6 +19,7 @@ const TOP = 6
 
 func _ready():
 	set_fixed_process (true)
+	print ("Sonic entered the world at ", get_pos ())
 	return
 
 func _fixed_process (delta):
@@ -34,7 +41,7 @@ func _fixed_process (delta):
 		if (speed > 0):
 			speed -= FRIC	# Slow Sonic down according to the friction rating.
 
-	velocity = (speed * dir)		# Set the velocity for Sonic's movement.
+	velocity = (speed * dir)		# Set the velocity for Sonic's movement (sign dir being used to signify direction).
 	move (Vector2 (velocity, 0))	# And move Sonic appropriately.
 
 	return
