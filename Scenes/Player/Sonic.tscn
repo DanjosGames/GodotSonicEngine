@@ -29,9 +29,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="World" type="Node"]
-
-[node name="Sonic" type="KinematicBody2D" parent="."]
+[node name="Sonic" type="KinematicBody2D"]
 
 transform/pos = Vector2( 187.267, 137.037 )
 input/pickable = false
@@ -39,13 +37,29 @@ collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Sonic"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 
 frames = SubResource( 1 )
 animation = "Idle"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = true
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
 
 
