@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://Resources/Graphics/Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Resources/Graphics/Sprites/Rings/Ring_single.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Graphics/Sprites/UI/Sonic_Lives_Icon.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -17,7 +18,7 @@ offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
 
-[node name="Label" type="Label" parent="."]
+[node name="Ring_Count" type="Label" parent="."]
 
 focus/ignore_mouse = true
 focus/stop_mouse = true
@@ -36,8 +37,13 @@ max_lines_visible = -1
 
 [node name="Ring_Symbol" type="Sprite" parent="."]
 
-transform/pos = Vector2( 22.6, 26 )
+transform/pos = Vector2( 22, 26 )
 transform/scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 2 )
+
+[node name="Lives_Symbol" type="Sprite" parent="."]
+
+transform/pos = Vector2( 14, 211 )
+texture = ExtResource( 3 )
 
 
