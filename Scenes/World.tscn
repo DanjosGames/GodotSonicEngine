@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://Resources/Graphics/Backdrops/temp_backdrop.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Player/Sonic.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/hud_layer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Resources/Graphics/Sprites/Levels/temp_platform.png" type="Texture" id=4]
 
 [node name="World" type="Node"]
 
@@ -19,5 +20,10 @@ lives = 3
 score = 0
 
 [node name="hud_layer" parent="." instance=ExtResource( 3 )]
+
+[node name="platform_TEMPORARY" type="Sprite" parent="."]
+
+transform/pos = Vector2( 177, 173 )
+texture = ExtResource( 4 )
 
 
