@@ -46,8 +46,10 @@ func _fixed_process (delta):
 	# Can only move in one direction at a time (so pressing left while holding down right won't work)!
 	if (Input.is_action_pressed ("move_left") && xdir != 1):
 		xdir = -1
+		sprite_anim_node.set_flip_h (true)
 	elif (Input.is_action_pressed ("move_right") && xdir != -1):
 		xdir = 1
+		sprite_anim_node.set_flip_h (false)
 	else:
 		xdir = 0
 
@@ -60,6 +62,11 @@ func _fixed_process (delta):
 	else:
 		if (speed > 0):
 			speed -= FRICTION	# Slow Sonic down according to the friction rating.
+
+	if (speed == 0):
+		change_anim ("Idle")
+	else:
+		change_anim ("Walk")
 
 	velocity = (speed * dir)		# Set the velocity for Sonic's movement (dir being used to signify direction).
 	move (Vector2 (velocity, 0))	# And move Sonic appropriately.
