@@ -2,28 +2,28 @@
 
 [ext_resource path="res://Scripts/Player/Sonic.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Graphics/Sprites/Sonic/Idle/Idle.png" type="Texture" id=2]
-[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Walk/Walk.png" type="Texture" id=3]
-[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Walk/Walk1.png" type="Texture" id=4]
-[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Walk/Walk10.png" type="Texture" id=5]
-[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Walk/Walk11.png" type="Texture" id=6]
-[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Walk/Walk2.png" type="Texture" id=7]
-[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Walk/Walk3.png" type="Texture" id=8]
-[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Walk/Walk4.png" type="Texture" id=9]
-[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Walk/Walk5.png" type="Texture" id=10]
-[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Walk/Walk6.png" type="Texture" id=11]
-[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Walk/Walk7.png" type="Texture" id=12]
-[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Walk/Walk8.png" type="Texture" id=13]
-[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Walk/Walk9.png" type="Texture" id=14]
-[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Jog/Jog.png" type="Texture" id=15]
-[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Jog/Jog1.png" type="Texture" id=16]
-[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Jog/Jog2.png" type="Texture" id=17]
-[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Jog/Jog3.png" type="Texture" id=18]
-[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Jog/Jog4.png" type="Texture" id=19]
-[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Jog/Jog5.png" type="Texture" id=20]
-[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Jog/Jog6.png" type="Texture" id=21]
-[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Jog/Jog7.png" type="Texture" id=22]
-[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Jog/Jog8.png" type="Texture" id=23]
-[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Jog/Jog9.png" type="Texture" id=24]
+[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Jog/Jog.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Jog/Jog1.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Jog/Jog2.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Jog/Jog3.png" type="Texture" id=6]
+[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Jog/Jog4.png" type="Texture" id=7]
+[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Jog/Jog5.png" type="Texture" id=8]
+[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Jog/Jog6.png" type="Texture" id=9]
+[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Jog/Jog7.png" type="Texture" id=10]
+[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Jog/Jog8.png" type="Texture" id=11]
+[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Jog/Jog9.png" type="Texture" id=12]
+[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Walk/Walk.png" type="Texture" id=13]
+[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Walk/Walk1.png" type="Texture" id=14]
+[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Walk/Walk10.png" type="Texture" id=15]
+[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Walk/Walk11.png" type="Texture" id=16]
+[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Walk/Walk2.png" type="Texture" id=17]
+[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Walk/Walk3.png" type="Texture" id=18]
+[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Walk/Walk4.png" type="Texture" id=19]
+[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Walk/Walk5.png" type="Texture" id=20]
+[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Walk/Walk6.png" type="Texture" id=21]
+[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Walk/Walk7.png" type="Texture" id=22]
+[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Walk/Walk8.png" type="Texture" id=23]
+[ext_resource path="res://Resources/Graphics/Sprites/Sonic/Walk/Walk9.png" type="Texture" id=24]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -39,14 +39,14 @@ animations = [ {
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
-"loop": true,
-"name": "Walk",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "Jog",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "Walk",
 "speed": 15.0
 } ]
 

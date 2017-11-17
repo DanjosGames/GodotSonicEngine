@@ -15,6 +15,7 @@ export(int) var score = 0	# Score.
 # sprite_anim contains the animation currently playing.
 onready var sprite_anim_node = get_node ("AnimatedSprite")
 var sprite_anim = ""	# This value is set in _ready because I'm not sure you can guarantee the order "onready var"s execute in.
+var sprite_anim_frames	# Ditto this one.
 
 const ACCEL_RATE = 0.046875
 const DECEL_RATE = 0.5
@@ -24,6 +25,7 @@ const TOP_X_SPEED = 6
 func _ready():
 	print ("Sonic entered the world at ", get_pos ())
 	sprite_anim = sprite_anim_node.get_animation()	# Make sure sprite_anim contains the default animation value on ready.
+	sprite_anim_frames = sprite_anim_node.get_sprite_frames ()
 	set_fixed_process (true)
 	return
 
@@ -36,7 +38,8 @@ func change_anim (new_anim):
 	if (new_anim != sprite_anim):	# This is a new animation...
 		sprite_anim = new_anim		# ...so set sprite_anim to new_anim.
 		sprite_anim_node.set_animation (sprite_anim)	# And make the sprite animation node play the new animation.
-		sprite_anim_node.set_animation_speed(sprite_anim, anim_speed)	#Changes the the speed by frames
+#		sprite_anim_node.set_animation_speed (sprite_anim, anim_speed)	#Changes the the speed by frames
+#		sprite_anim_frames.set_animation_speed (sprite_anim, anim_speed)	#Changes the the speed by frames
 		return (true)
 	return (false)
 
@@ -66,15 +69,15 @@ func _fixed_process (delta):
 			speed -= FRICTION	# Slow Sonic down according to the friction rating.
 
 	#AnimationChange
-	anim_speed = max(4-(abs(speed)), 1)
+#	anim_speed = max(4-(abs(speed)), 1)
 	
 	if (speed == 0):
 		change_anim ("Idle")
 	else:
 		if (speed <= 3):
-			change_anim("Walk")
+			change_anim ("Walk")
 		elif (speed >= 3):
-			change_anim("Jog")
+			change_anim ("Jog")
 
 	velocity = (speed * dir)		# Set the velocity for Sonic's movement (dir being used to signify direction).
 	move (Vector2 (velocity, 0))	# And move Sonic appropriately.
