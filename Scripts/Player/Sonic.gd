@@ -5,6 +5,7 @@ var dir = 0
 var speed = 0
 var velocity = 0
 var break_time = 0
+var anim_speed = 0
 
 export(int) var rings = 0	# Number of rings the player has.
 export(int) var lives = 3	# Lives left.
@@ -35,6 +36,7 @@ func change_anim (new_anim):
 	if (new_anim != sprite_anim):	# This is a new animation...
 		sprite_anim = new_anim		# ...so set sprite_anim to new_anim.
 		sprite_anim_node.set_animation (sprite_anim)	# And make the sprite animation node play the new animation.
+		sprite_anim_node.set_animation_speed(sprite_anim, anim_speed)	#Changes the the speed by frames
 		return (true)
 	return (false)
 
@@ -63,10 +65,16 @@ func _fixed_process (delta):
 		if (speed > 0):
 			speed -= FRICTION	# Slow Sonic down according to the friction rating.
 
+	#AnimationChange
+	anim_speed = max(4-(abs(speed)), 1)
+	
 	if (speed == 0):
 		change_anim ("Idle")
 	else:
-		change_anim ("Walk")
+		if (speed <= 3):
+			change_anim("Walk")
+		elif (speed >= 3):
+			change_anim("Jog")
 
 	velocity = (speed * dir)		# Set the velocity for Sonic's movement (dir being used to signify direction).
 	move (Vector2 (velocity, 0))	# And move Sonic appropriately.
