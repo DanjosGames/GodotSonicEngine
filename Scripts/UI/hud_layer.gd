@@ -14,7 +14,6 @@ func _fixed_process (delta):
 		if (!rings_zero):
 			rings_zero = true
 			tween_node.interpolate_property (get_node ("Ring_Count"), "custom_colors/font_color", Color ("#ff0000"), Color ("#ffff00"), 1.75, tween_node.TRANS_LINEAR, tween_node.EASE_OUT_IN, 0.25)
-			tween_node.set_repeat (true)
 			tween_node.start ()
 	else:
 		rings_zero = false

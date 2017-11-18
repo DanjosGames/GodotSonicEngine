@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=1]
 
-[ext_resource path="res://Scripts/hud_layer.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/UI/hud_layer.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Graphics/Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Resources/Graphics/Sprites/UI/Ring_single.png" type="Texture" id=3]
 [ext_resource path="res://Resources/Graphics/Sprites/UI/Sonic_Lives_Icon.png" type="Texture" id=4]
@@ -43,7 +43,7 @@ max_lines_visible = -1
 
 playback/process_mode = 1
 playback/active = false
-playback/repeat = false
+playback/repeat = true
 playback/speed = 1.0
 
 [node name="Ring_Symbol" type="Sprite" parent="."]
