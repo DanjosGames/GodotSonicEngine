@@ -79,8 +79,15 @@ func _fixed_process (delta):
 
 	### KEEP THESE AT THE BOTTOM OF THE FUNCTION, THESE ACTUALLY DO THE MOVEMENT AFTER EVERYTHING ELSE IS PROCESSED AND CALCULATED.
 	velocity = (speed * move_dir)	# Ensure movement is in the correct direction.
-	print (velocity)				# For debugging purposes.
+#	print (velocity)				# For debugging purposes.
 	move (velocity)					# And move Sonic appropriately.
+
+	if (is_colliding ()):
+		var this_is = get_collider ()
+		if (this_is extends preload ("res://Scripts/Ring.gd")):
+			print ("RING")
+			rings += 1
+			this_is.queue_free ()
 
 	return
 
