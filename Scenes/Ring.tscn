@@ -10,7 +10,7 @@ radius = 18.6599
 
 [node name="Ring" type="KinematicBody2D"]
 
-transform/scale = Vector2( 0.3, 0.3 )
+transform/scale = Vector2( 0.2, 0.2 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( -2.32342, 0, 0, 2.33187, -0.321453, 0.417948 )

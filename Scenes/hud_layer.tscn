@@ -1,15 +1,16 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
-[ext_resource path="res://Resources/Graphics/Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Resources/Graphics/Sprites/UI/Ring_single.png" type="Texture" id=2]
-[ext_resource path="res://Resources/Graphics/Sprites/UI/Sonic_Lives_Icon.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/hud_layer.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Graphics/Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Resources/Graphics/Sprites/UI/Ring_single.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Graphics/Sprites/UI/Sonic_Lives_Icon.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 
 font/size = 16
 font/use_mipmaps = false
 font/use_filter = true
-font/font = ExtResource( 1 )
+font/font = ExtResource( 2 )
 
 [node name="hud_layer" type="CanvasLayer"]
 
@@ -17,6 +18,7 @@ layer = 32
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
+script/script = ExtResource( 1 )
 
 [node name="Ring_Count" type="Label" parent="."]
 
@@ -29,21 +31,30 @@ margin/top = 16.0
 margin/right = 95.0
 margin/bottom = 35.0
 custom_fonts/font = SubResource( 1 )
-text = "TEST"
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
 valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
+[node name="Tween" type="Tween" parent="Ring_Count"]
+
+playback/process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
 [node name="Ring_Symbol" type="Sprite" parent="."]
 
 transform/pos = Vector2( 22, 26 )
 transform/scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="Lives_Symbol" type="Sprite" parent="."]
 
 transform/pos = Vector2( 14, 211 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 

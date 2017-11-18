@@ -82,13 +82,13 @@ func _fixed_process (delta):
 #	print (velocity)				# For debugging purposes.
 	move (velocity)					# And move Sonic appropriately.
 
-	if (is_colliding ()):
-		var this_is = get_collider ()
-		if (this_is extends preload ("res://Scripts/Ring.gd")):
-			print ("RING")
+	if (is_colliding ()):				# Sonic is colliding with something!
+		var this_is = get_collider ()		# Get what it is.
+		if (this_is extends preload ("res://Scripts/Ring.gd")):	# It's a ring, so add to the ring count, update the HUD and then remove it.
 			rings += 1
 			get_node ("../hud_layer/Ring_Count").set_text (var2str (rings))
-			this_is.queue_free ()
+			get_node ("SamplePlayer").play ("RingUp")
+			this_is.ring_got ()
 
 	return
 
