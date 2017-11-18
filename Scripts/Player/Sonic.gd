@@ -25,6 +25,7 @@ const TOP_SPEED = Vector2 (6, 6)	# The fastest Sonic can go.
 
 func _ready():
 	print ("Sonic entered the world at ", get_pos ())
+	checkpoint_pos = get_pos ()	# FOR DEBUGGING ONLY.
 	set_fixed_process (true)
 	return
 
@@ -59,6 +60,7 @@ func _fixed_process (delta):
 
 	if (Input.is_action_pressed ("move_jump")):
 		print ("AAAA")
+		set_pos (checkpoint_pos)	# FOR DEBUGGING ONLY.
 
 	if (dir_sign.x):
 		if (speed.x < TOP_SPEED.x):

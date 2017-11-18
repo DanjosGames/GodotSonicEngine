@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=1]
+[gd_scene load_steps=30 format=1]
 
 [ext_resource path="res://Scripts/Player/Sonic.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Graphics/Sprites/Sonic/Idle/Idle.png" type="Texture" id=2]
@@ -24,7 +24,8 @@
 [ext_resource path="res://Resources/Graphics/Sprites/Sonic/Jog/Jog7.png" type="Texture" id=22]
 [ext_resource path="res://Resources/Graphics/Sprites/Sonic/Jog/Jog8.png" type="Texture" id=23]
 [ext_resource path="res://Resources/Graphics/Sprites/Sonic/Jog/Jog9.png" type="Texture" id=24]
-[ext_resource path="res://Resources/Audio/Sound/RingUp.wav" type="Sample" id=25]
+[ext_resource path="res://Resources/Audio/Sound/Checkpoint.wav" type="Sample" id=25]
+[ext_resource path="res://Resources/Audio/Sound/RingUp.wav" type="Sample" id=26]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -53,11 +54,17 @@ animations = [ {
 
 [sub_resource type="SampleLibrary" id=3]
 
-samples/RingUp = {
+samples/Checkpoint = {
 "db": 0.0,
 "pitch": 1.0,
 "priority": 0,
 "sample": ExtResource( 25 )
+}
+samples/RingUp = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 26 )
 }
 
 [node name="Sonic" type="KinematicBody2D"]
