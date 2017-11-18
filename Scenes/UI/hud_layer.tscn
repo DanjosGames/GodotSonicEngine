@@ -57,4 +57,23 @@ texture = ExtResource( 3 )
 transform/pos = Vector2( 14, 211 )
 texture = ExtResource( 4 )
 
+[node name="Lives_Counter" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 29.0
+margin/top = 201.0
+margin/right = 69.0
+margin/bottom = 220.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "xxx"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 

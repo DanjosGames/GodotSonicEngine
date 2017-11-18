@@ -7,9 +7,9 @@ var velocity = Vector2 (0, 0)
 var brake_time = 0
 var anim_speed = Vector2 (0, 0)
 
-export(int) var rings = 0		# Number of rings the player has.
-export(int) var lives = 3		# Lives left.
-export(int) var score = 0		# Score.
+export(int) var rings = 0 setget set_rings, get_rings		# Number of rings the player has.
+export(int) var lives = 3 setget set_lives, get_lives		# Lives left.
+export(int) var score = 0									# Score.
 export(Vector2) var checkpoint_pos	# Where was the last checkpoint? Make sure to set this to (0, 0) or the start position when on a new level etc.
 
 # Set up sprite_anim and sprite_anim_node. The _node variable points to the animation node, of course.
@@ -26,6 +26,8 @@ const TOP_SPEED = Vector2 (6, 6)	# The fastest Sonic can go.
 func _ready():
 	print ("Sonic entered the world at ", get_pos ())
 	checkpoint_pos = get_pos ()	# FOR DEBUGGING ONLY.
+	get_lives ()
+	get_rings ()
 	set_fixed_process (true)
 	return
 
@@ -87,10 +89,32 @@ func _fixed_process (delta):
 	if (is_colliding ()):				# Sonic is colliding with something!
 		var this_is = get_collider ()		# Get what it is.
 		if (this_is extends preload ("res://Scripts/Ring.gd")):	# It's a ring, so add to the ring count, update the HUD and then remove it.
-			rings += 1
-			get_node ("../hud_layer/Ring_Count").set_text (var2str (rings))
+			self.rings += 1	# Note that the "self." is needed in order to trigger the getter and setter functions!
 			get_node ("SamplePlayer").play ("RingUp")
 			this_is.ring_got ()
 
 	return
 
+# get_ and set_ functions to allow the HUD lives counter to be updated. If the documentation is correct, nothing needs to be done; these
+# variables are automatically called via the setget definition for the variable.
+func get_lives ():
+	if has_node ("../hud_layer/Lives_Counter"):
+		get_node ("../hud_layer/Lives_Counter").set_text (var2str (lives))
+	return (lives)
+
+func set_lives (value):
+	lives = value
+	if has_node ("../hud_layer/Lives_Counter"):
+		get_node ("../hud_layer/Lives_Counter").set_text (var2str (lives))
+	return
+
+func get_rings ():
+	if has_node ("../hud_layer/Ring_Count"):
+		get_node ("../hud_layer/Ring_Count").set_text (var2str (rings))
+	return (rings)
+
+func set_rings (value):
+	rings = value
+	if has_node ("../hud_layer/Ring_Count"):
+		get_node ("../hud_layer/Ring_Count").set_text (var2str (rings))
+	return

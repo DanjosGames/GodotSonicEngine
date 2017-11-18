@@ -32,6 +32,6 @@ transform/pos = Vector2( 111, 144 )
 
 [node name="Checkpoint" parent="." instance=ExtResource( 6 )]
 
-transform/pos = Vector2( 342, 144 )
+transform/pos = Vector2( 350, 140 )
 
 
