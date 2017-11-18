@@ -3,13 +3,13 @@
 [ext_resource path="res://Resources/Graphics/Backdrops/better_temp_background.jpg" type="Texture" id=1]
 [ext_resource path="res://Scenes/Player/Sonic.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/hud_layer.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Resources/Graphics/Sprites/Levels/temp_platform.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/platform_TEST.tscn" type="PackedScene" id=4]
 
 [node name="World" type="Node"]
 
 [node name="backdrop_TEMPORARY" type="Sprite" parent="."]
 
-transform/pos = Vector2( 177, 131 )
+transform/pos = Vector2( 176, 130 )
 transform/scale = Vector2( 2.25, 2.25 )
 texture = ExtResource( 1 )
 
@@ -20,9 +20,8 @@ checkpoint_pos = null
 
 [node name="hud_layer" parent="." instance=ExtResource( 3 )]
 
-[node name="platform_TEMPORARY" type="Sprite" parent="."]
+[node name="platform_TEST" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 177, 173 )
-texture = ExtResource( 4 )
 
 

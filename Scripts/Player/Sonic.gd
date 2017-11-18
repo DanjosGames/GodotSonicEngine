@@ -1,16 +1,16 @@
 extends KinematicBody2D
 
-var move_dir = Vector2 (0, 0)
-var dir_sign = Vector2 (0, 0)
+var dir_sign = Vector2 (0, 0)	# These determine which direction the character is moving in.
+var move_dir = Vector2 (0, 0)	# These do the actual movement based on the direction.
 var speed = Vector2 (0, 0)
 var velocity = Vector2 (0, 0)
-var break_time = 0
-var anim_speed = 0
+var brake_time = 0
+var anim_speed = Vector2 (0, 0)
 
 export(int) var rings = 0		# Number of rings the player has.
 export(int) var lives = 3		# Lives left.
 export(int) var score = 0		# Score.
-export(Vector2) var checkpoint_pos	# Where was the last checkpoint? Make sure to set this to (0, 0) when on a new level etc.
+export(Vector2) var checkpoint_pos	# Where was the last checkpoint? Make sure to set this to (0, 0) or the start position when on a new level etc.
 
 # Set up sprite_anim and sprite_anim_node. The _node variable points to the animation node, of course.
 # sprite_anim contains the animation currently playing.
@@ -21,7 +21,7 @@ onready var sprite_anim_frames = sprite_anim_node.get_sprite_frames ()
 const ACCEL_RATE = 0.046875
 const DECEL_RATE = 0.5
 const FRICTION = ACCEL_RATE
-const TOP_SPEED = Vector2 (6, 6)
+const TOP_SPEED = Vector2 (6, 6)	# The fastest Sonic can go.
 
 func _ready():
 	print ("Sonic entered the world at ", get_pos ())
@@ -43,8 +43,8 @@ func change_anim (new_anim):
 	return (false)
 
 func _fixed_process (delta):
-	if (dir_sign.x != 0):	# If the direction isn't 0, make sure it's consistent.
-		move_dir.x = dir_sign.x	# move_dir.x is used to calculate the direction of movement in the x axis; dir_sign.x is for changing it.
+	if (dir_sign != Vector2 (0, 0)):	# If the direction isn't 0, make sure it's consistent.
+		move_dir = dir_sign		# move_dir is used to calculate and apply the direction of movement; dir_sign is for changing it.
 
 	# Direction is -1 if Sonic is moving left/up, 1 if right/down, and 0 otherwise.
 	# Can only move in one direction at a time (so pressing left while holding down right won't work)!
@@ -68,7 +68,7 @@ func _fixed_process (delta):
 			speed.x -= FRICTION	# Slow Sonic down according to the friction rating.
 
 	#AnimationChange
-#	anim_speed = max(4-(abs(speed.x)), 1)
+#	anim_speed = max (4 - (abs (speed)), 1)
 	
 	if (speed.x > 0 && speed.x < 3):
 		change_anim ("Walk")
@@ -78,9 +78,9 @@ func _fixed_process (delta):
 		change_anim ("Idle")	# This is the default animation.
 
 	### KEEP THESE AT THE BOTTOM OF THE FUNCTION, THESE ACTUALLY DO THE MOVEMENT AFTER EVERYTHING ELSE IS PROCESSED AND CALCULATED.
-	velocity.x = (speed.x * move_dir.x)	# Set the velocity for Sonic's movement on the x axis.
-	velocity.y = (speed.y * move_dir.y)	# Ditto for the y axis.
-	move (Vector2 (velocity.x, velocity.y))	# And move Sonic appropriately.
+	velocity = (speed * move_dir)	# Ensure movement is in the correct direction.
+	print (velocity)				# For debugging purposes.
+	move (velocity)					# And move Sonic appropriately.
 
 	return
 
