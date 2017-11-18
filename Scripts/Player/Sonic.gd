@@ -87,6 +87,7 @@ func _fixed_process (delta):
 		if (this_is extends preload ("res://Scripts/Ring.gd")):
 			print ("RING")
 			rings += 1
+			get_node ("../hud_layer/Ring_Count").set_text (var2str (rings))
 			this_is.queue_free ()
 
 	return
