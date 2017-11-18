@@ -64,6 +64,7 @@ script/script = ExtResource( 1 )
 rings = 0
 lives = 3
 score = 0
+checkpoint_pos = null
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 
