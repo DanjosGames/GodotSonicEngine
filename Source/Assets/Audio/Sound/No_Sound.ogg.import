@@ -1,0 +1,10 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/No_Sound.ogg-ea6659f47b76ab7f4805dbc6d1c10d7a.oggstr"
+
+[params]
+
+loop=false
+loop_offset=0

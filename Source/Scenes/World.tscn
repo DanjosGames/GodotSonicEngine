@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/Player/Sonic.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/UI/hud_layer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/platform_TEST.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Levels/All/Ring.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Levels/All/Checkpoint.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Graphics/Backdrops/better_temp_background.jpg" type="Texture" id=6]
+[ext_resource path="res://Assets/Audio/Music/43-Final_Dreadnought_2.ogg" type="AudioStream" id=7]
+
+[node name="World" type="Node"]
+
+[node name="Sonic" parent="." instance=ExtResource( 1 )]
+
+position = Vector2( 187, 137 )
+
+[node name="hud_layer" parent="." instance=ExtResource( 2 )]
+
+[node name="platform_TEST" parent="." instance=ExtResource( 3 )]
+
+position = Vector2( 177, 173 )
+linear_damp = -1.0
+angular_damp = -1.0
+
+[node name="Ring" parent="." instance=ExtResource( 4 )]
+
+position = Vector2( 111, 144 )
+
+[node name="Checkpoint" parent="." instance=ExtResource( 5 )]
+
+position = Vector2( 350, 140 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+layer = -32
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+scroll_offset = Vector2( 0, 0 )
+scroll_base_offset = Vector2( 0, 0 )
+scroll_base_scale = Vector2( 1, 1 )
+scroll_limit_begin = Vector2( 0, 0 )
+scroll_limit_end = Vector2( 0, 0 )
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+motion_scale = Vector2( 1, 1 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 0, 0 )
+
+[node name="backdrop_TEMPORARY" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+
+position = Vector2( 176, 130 )
+scale = Vector2( 2.25, 2.25 )
+texture = ExtResource( 6 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+stream = ExtResource( 7 )
+volume_db = 0.0
+autoplay = true
+mix_target = 0
+bus = "Master"
+
+
