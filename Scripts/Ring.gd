@@ -7,6 +7,7 @@ func _ready():
 	# Initialization here
 	return
 
+# This doesn't really do much except remove the ring from the scene tree.
 func ring_got ():
 	if (!ring_taken):
 		ring_taken = true

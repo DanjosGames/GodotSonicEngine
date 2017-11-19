@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 onready var tween_node = get_node ("Ring_Count/Tween")
-var rings_zero = false
+var rings_zero = false	# To make sure the flashing animation for no rings is only called as needed.
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -10,6 +10,7 @@ func _ready():
 	pass
 
 func _fixed_process (delta):
+	# Make sure that the ring counter is flashing if the player has no rings, otherwise have it normal.
 	if (str2var (get_node ("Ring_Count").get_text ()) == 0):
 		if (!rings_zero):
 			rings_zero = true

@@ -11,6 +11,8 @@ func _ready():
 
 func enter_checkpoint_body (body):
 	if (!taken && body extends preload ("res://Scripts/Player/Sonic.gd")):
+		# The player has collided with the checkpoint, change the animation and set the checkpoint_pos vector to the checkpoint's position.
+		print ("Checkpoint at ", get_pos (), " crossed.")
 		taken = true
 		get_node ("Sprite/AnimationPlayer").play_backwards ("spin_green")
 		body.checkpoint_pos = get_pos ()
