@@ -44,6 +44,10 @@ func change_anim (new_anim):
 func _input (ev):
 	# Direction is -1 if Sonic is moving left/up, 1 if right/down, and 0 otherwise.
 	# Can only move in one direction at a time (so pressing left while holding down right won't work)!
+
+	if (lives < 0 || !get ("visible")):
+		return
+
 	if (Input.is_action_pressed ("move_left") && dir_sign.x != 1):
 		dir_sign.x = -1
 		sprite_anim_node.set_flip_h (true)

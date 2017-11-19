@@ -10,6 +10,7 @@ extends AudioStreamPlayer
 onready var Sound_Library = {
 	# ADD SOUND EFFECTS HERE.
 	No_Sound = preload ("res://Assets/Audio/Sound/No_Sound.ogg"),	# LEAVE ME HERE. KEEP ME AS THE FIRST ITEM IN THE LIST.
+	Death = preload ("res://Assets/Audio/Sound/Death.ogg"),
 	Ring = preload ("res://Assets/Audio/Sound/RingUp.wav"),
 }
 
