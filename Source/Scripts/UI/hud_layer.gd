@@ -4,8 +4,6 @@ onready var tween_node = get_node ("Ring_Count/Tween")
 var rings_zero = false	# To make sure the flashing animation for no rings is only called as needed.
 
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
 	pass
 
 func _physics_process (delta):

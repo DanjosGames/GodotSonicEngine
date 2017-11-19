@@ -3,8 +3,6 @@ extends Area2D
 var taken = false
 
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
 	get_node ("Sprite/AnimationPlayer").play ("spin_red")
 	self.connect ("body_entered", self, "enter_checkpoint_body")
 	return
