@@ -56,6 +56,8 @@ func _input (ev):
 	if (Input.is_action_pressed ("move_jump")):
 		speed = Vector2(0, 0)					# FOR DEBUGGING ONLY.
 		position = (checkpoint_pos)	# FOR DEBUGGING ONLY.
+	if (Input.is_action_pressed ("ui_select")):			# FOR DEBUGGING ONLY.
+		global_space.add_path_to_node ("res://Scenes/Player/dead_sonic.tscn", "/root/World")
 	return
 
 func _process (delta):
