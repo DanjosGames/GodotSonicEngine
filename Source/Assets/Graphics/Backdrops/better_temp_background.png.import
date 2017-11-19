@@ -2,7 +2,7 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/better_temp_background.jpg-426953ce5bf119d831ebc27adca12fec.stex"
+path="res://.import/better_temp_background.png-c3ba10e1b4753e784ed34474dae6139b.stex"
 
 [params]
 
@@ -11,7 +11,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
