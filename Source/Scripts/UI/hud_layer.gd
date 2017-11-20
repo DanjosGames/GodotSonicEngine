@@ -16,5 +16,5 @@ func _physics_process (delta):
 	else:
 		rings_zero = false
 		tween_node.stop_all ()
-		get_node ("Ring_Count").set ("custom_colors/font_color", Color ("#ffffff"))
+		get_node ("Ring_Count").set ("custom_colors/font_color", Color ("#ffffff"))	# If it's not animated, you need to reset it to normal otherwise it'll stay wherever the tween had got to!
 	return
