@@ -55,6 +55,7 @@ scroll_ignore_camera_zoom = true
 motion_scale = Vector2( 1, 1 )
 motion_offset = Vector2( 0, 0 )
 motion_mirroring = Vector2( 0, 0 )
+_sections_unfolded = [ "Motion" ]
 
 [node name="backdrop_TEMPORARY" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 
