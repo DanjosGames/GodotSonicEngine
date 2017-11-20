@@ -7,14 +7,14 @@ func _ready():
 	sound_player.play_sound ("Death")	# Play the death jingle.
 	$"../Sonic".set ("visible", false)	# Make sure that...
 	$"../Sonic/AnimatedSprite/Camera2D".current = false	# ...the player character is both not visible and that its camera is disabled during the animation.
-	$Tween.connect ("tween_completed", self, "sonic_has_died")
+	$Tween.connect ("tween_completed", self, "player_has_died")
 	$Tween.interpolate_property (get_node ("."), "position", $"../Sonic".position, Vector2 ($"../Sonic".position.x, $"../Sonic".position.y+290), 1.50, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	$Tween.set_repeat (false)
 	$Tween.start ()
 	return
 
 # The animation is now over, so return the player to normal (after resetting various values), set them to a checkpoint position and resume control.
-func sonic_has_died (done, key):
+func player_has_died (done, key):
 	$"../Sonic".lives -=1
 	$"../Sonic".rings = 0
 	$"../Sonic".position = $"../Sonic".checkpoint_pos

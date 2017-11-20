@@ -12,7 +12,7 @@ func _ready():
 # TODO: Something a bit more refined than just restarting the whole program, but for now it'll do.
 func _unhandled_key_input(event):
 	if (event.pressed):
-		get_tree ().set_pause (false)	# Is this a bug? Shouldn't restarting the scene also unpause the game?
+		get_tree ().set_pause (false)	# Is this a bug? Shouldn't restarting the scene tree also unpause the game?
 		queue_free ()	# As this is queued, it'd be better put here than before reloading the main scene again.
 		get_tree ().reload_current_scene()
 	return
