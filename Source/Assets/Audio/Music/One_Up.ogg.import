@@ -7,4 +7,5 @@ path="res://.import/One_Up.ogg-745ef74f735f505088a99a1068d93748.oggstr"
 [params]
 
 loop=false
-loop_offset=0
+loop_begin=0
+loop_end=0
