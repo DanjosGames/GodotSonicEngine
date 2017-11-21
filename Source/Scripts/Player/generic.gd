@@ -3,7 +3,7 @@ extends KinematicBody2D
 export(int) var rings = 0 setget set_rings, get_rings		# Number of rings the player has.
 export(int) var lives = 3 setget set_lives, get_lives		# Lives left.
 export(int) var score = 0 setget set_score, get_score		# Score.
-export(Vector2) var checkpoint_pos	# Where was the last checkpoint?
+export(Vector2) var checkpoint_pos = Vector2(0,0)			# Co-ordinates of the last checkpoint reached.
 
 func _ready ():
 	print ("Generic player funcs initialised.")

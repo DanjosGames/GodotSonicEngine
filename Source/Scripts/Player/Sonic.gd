@@ -20,7 +20,7 @@ var anim_speed = Vector2 (0, 0)
 
 func _ready():
 	print ("Sonic entered the world at ", position)
-	checkpoint_pos = position	# FOR DEBUGGING ONLY. Should be set by the level.
+	checkpoint_pos = position	# FOR DEBUGGING ONLY. Should normally be set by the level.
 	get_lives ()
 	get_rings ()
 	get_score ()
