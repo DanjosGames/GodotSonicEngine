@@ -31,10 +31,3 @@ func play_sound (item = "No_Sound"):
 	# Sound not found, so give an error.
 	print ("ERROR: \"", item, "\" not found!")
 	return (false)
-
-# pause_sound
-# pause_sound (yesno)
-# Pauses the currently playing sound.
-func pause_sound (yesno):
-	pause_mode = yesno
-	return

@@ -25,9 +25,13 @@ position = Vector2( 177, 173 )
 linear_damp = -1.0
 angular_damp = -1.0
 
-[node name="Ring2" parent="." instance=ExtResource( 5 )]
+[node name="Ring00" parent="." instance=ExtResource( 5 )]
 
 position = Vector2( 276, 144 )
+
+[node name="Ring01" parent="." instance=ExtResource( 5 )]
+
+position = Vector2( 108, 144 )
 
 [node name="Checkpoint" parent="." instance=ExtResource( 6 )]
 

@@ -1,6 +1,6 @@
 # This script is set up to use "/root/global_space" in the AutoLoad section of the project settings. This sets a global space for application-wide
-# settings, flags, variables etc. which need to be easily passed around from scene/node to scene/node. It'd probably be a better idea to set up
-# other singletons to use for actually gameplay-related stuff.
+# settings, flags, variables etc. which need to be easily passed around from scene/node to scene/node. It'd be a better idea to set up other
+# singletons to use for actually gameplay-related stuff.
 
 extends Node
 

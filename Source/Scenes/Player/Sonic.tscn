@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/Player/Sonic.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Graphics/Sprites/Sonic/Idle/Idle.png" type="Texture" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://Assets/Graphics/Sprites/Sonic/Jog/07.png" type="Texture" id=22]
 [ext_resource path="res://Assets/Graphics/Sprites/Sonic/Jog/08.png" type="Texture" id=23]
 [ext_resource path="res://Assets/Graphics/Sprites/Sonic/Jog/09.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Audio/Music/One_Up.ogg" type="AudioStream" id=25]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -97,15 +98,12 @@ editor_draw_drag_margin = false
 position = Vector2( 1.28784, 0.429276 )
 shape = SubResource( 2 )
 
-[node name="SamplePlayer" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
-position = Vector2( 1.0732, -0.214645 )
-stream = null
+stream = ExtResource( 25 )
 volume_db = 0.0
 autoplay = false
-max_distance = 2000.0
-attenuation = 1.0
+mix_target = 0
 bus = "Master"
-area_mask = 1
 
 

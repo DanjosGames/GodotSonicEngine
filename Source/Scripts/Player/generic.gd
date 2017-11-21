@@ -19,6 +19,13 @@ func get_lives ():
 	return (lives)
 
 func set_lives (value):
+	if (value < lives):	# Sonic has died!
+		global_space.add_path_to_node ("res://Scenes/UI/dead_sonic.tscn", "/root/World")
+	elif (value > lives):	# Sonic has got an extra life!
+		$"../AudioStreamPlayer".stop ()
+		if (has_node ("AudioStreamPlayer")):
+			$AudioStreamPlayer.stop ()
+			$AudioStreamPlayer.play ()
 	lives = value
 	if (has_node ("../hud_layer/Lives_Counter")):
 		get_node ("../hud_layer/Lives_Counter").set_text (var2str (lives))

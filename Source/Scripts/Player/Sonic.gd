@@ -1,13 +1,5 @@
 extends "res://Scripts/Player/generic.gd"
 
-var dir_sign = Vector2 (0, 0)	# These determine which direction the character is moving in.
-var move_dir = Vector2 (0, 0)	# These do the actual movement based on the direction.
-var speed = Vector2 (0, 0)
-var velocity = Vector2 (0, 0)
-var brake_time = 0
-var anim_speed = Vector2 (0, 0)
-var collision_checker = null
-
 # Set up sprite_anim and sprite_anim_node. The _node variable points to the animation node, of course.
 # sprite_anim contains the animation currently playing.
 onready var sprite_anim_node = get_node ("AnimatedSprite")
@@ -19,12 +11,20 @@ const DECEL_RATE = 0.5
 const FRICTION = ACCEL_RATE
 const TOP_SPEED = Vector2 (6, 6)	# The fastest Sonic can go.
 
+var dir_sign = Vector2 (0, 0)	# These determine which direction the character is moving in.
+var move_dir = Vector2 (0, 0)	# These do the actual movement based on the direction.
+var speed = Vector2 (0, 0)
+var velocity = Vector2 (0, 0)
+var brake_time = 0
+var anim_speed = Vector2 (0, 0)
+
 func _ready():
 	print ("Sonic entered the world at ", position)
-	checkpoint_pos = position	# FOR DEBUGGING ONLY.
+	checkpoint_pos = position	# FOR DEBUGGING ONLY. Should be set by the level.
 	get_lives ()
 	get_rings ()
 	get_score ()
+	$"AudioStreamPlayer".connect ("finished", self, "jingle_finished")
 	return
 
 # change_anim
@@ -57,12 +57,19 @@ func _input (ev):
 	else:
 		dir_sign.x = 0
 
-	if (Input.is_action_pressed ("move_jump")):			# FOR DEBUGGING ONLY.
+	if (Input.is_action_pressed ("DEBUG_resetpos")):			# FOR DEBUGGING ONLY.
+		print ("DEBUG: reset position to ", checkpoint_pos)
 		speed = Vector2(0, 0)
 		position = (checkpoint_pos)
 
-	if (Input.is_action_pressed ("ui_select")):			# FOR DEBUGGING ONLY.
-		global_space.add_path_to_node ("res://Scenes/UI/dead_sonic.tscn", "/root/World")
+	if (Input.is_action_pressed ("DEBUG_kill")):			# FOR DEBUGGING ONLY.
+		print ("DEBUG: Kill")
+		speed = Vector2(0, 0)
+		self.lives -= 1
+
+	if (Input.is_action_pressed ("DEBUG_extralife")):
+		print ("DEBUG: Extra life")
+		self.lives += 1
 	return
 
 func _process (delta):
@@ -91,4 +98,8 @@ func _physics_process (delta):
 	velocity = (speed * move_dir)					# Ensure movement is in the correct direction.
 #	print (velocity)								# FOR DEBUGGING ONLY.
 	move_and_slide (velocity * 60)					# And move Sonic appropriately.
+	return
+
+func jingle_finished ():
+	$"../AudioStreamPlayer".play ()
 	return
