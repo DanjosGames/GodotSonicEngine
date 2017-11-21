@@ -1,8 +1,12 @@
+# Files to ignore.
 Thumbs.db
 thumbs.db
-.import/
 .fscache
-Builds/
 *~
 *.bak
+
+# Directories to ignore.
+.import/
+Builds/
+logs/
 

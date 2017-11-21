@@ -100,6 +100,7 @@ func _physics_process (delta):
 	move_and_slide (velocity * 60)					# And move Sonic appropriately.
 	return
 
+# If whatever AudioStreamPlayer is playing was finished, resume the level's own AudioStreamPlayer.
 func jingle_finished ():
 	$"../AudioStreamPlayer".play ()
 	return

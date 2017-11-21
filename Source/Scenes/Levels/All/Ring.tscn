@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 19.5761
+radius = 9.29151
 
 [node name="Ring" type="Area2D"]
 
@@ -28,15 +28,12 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-position = Vector2( 0.475986, 0.123418 )
 rotation = -3.14159
-scale = Vector2( 0.511171, 0.477778 )
 shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
-position = Vector2( 0, -0.115984 )
+position = Vector2( -1.58112, -0.643023 )
 stream = ExtResource( 3 )
 volume_db = 0.0
 autoplay = false
