@@ -25,10 +25,6 @@ position = Vector2( 177, 173 )
 linear_damp = -1.0
 angular_damp = -1.0
 
-[node name="Ring" parent="." instance=ExtResource( 5 )]
-
-position = Vector2( 111, 144 )
-
 [node name="Ring2" parent="." instance=ExtResource( 5 )]
 
 position = Vector2( 276, 144 )
@@ -55,7 +51,6 @@ scroll_ignore_camera_zoom = true
 motion_scale = Vector2( 1, 1 )
 motion_offset = Vector2( 0, 0 )
 motion_mirroring = Vector2( 0, 0 )
-_sections_unfolded = [ "Motion" ]
 
 [node name="backdrop_TEMPORARY" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 

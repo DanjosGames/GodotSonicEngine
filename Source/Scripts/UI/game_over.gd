@@ -3,7 +3,7 @@ extends Sprite
 func _ready():
 	$"../hud_layer".set ("layer", -99)	# Hide the HUD layer.
 	$"/root/World/AudioStreamPlayer".stop ()
-	$"/root/World/AudioStreamPlayer".stream = preload ("res://Assets/Audio/Music/63_-_Game_Over.ogg")
+	$"/root/World/AudioStreamPlayer".stream = load ("res://Assets/Audio/Music/63_-_Game_Over.ogg")
 	$"/root/World/AudioStreamPlayer".play ()
 	get_tree ().set_pause (true)		# Pause the game in the background.
 	pass

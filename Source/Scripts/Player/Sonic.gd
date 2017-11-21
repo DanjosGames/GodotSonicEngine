@@ -57,9 +57,10 @@ func _input (ev):
 	else:
 		dir_sign.x = 0
 
-	if (Input.is_action_pressed ("move_jump")):
-		speed = Vector2(0, 0)					# FOR DEBUGGING ONLY.
-		position = (checkpoint_pos)	# FOR DEBUGGING ONLY.
+	if (Input.is_action_pressed ("move_jump")):			# FOR DEBUGGING ONLY.
+		speed = Vector2(0, 0)
+		position = (checkpoint_pos)
+
 	if (Input.is_action_pressed ("ui_select")):			# FOR DEBUGGING ONLY.
 		global_space.add_path_to_node ("res://Scenes/UI/dead_sonic.tscn", "/root/World")
 	return
@@ -90,13 +91,4 @@ func _physics_process (delta):
 	velocity = (speed * move_dir)					# Ensure movement is in the correct direction.
 #	print (velocity)								# FOR DEBUGGING ONLY.
 	move_and_slide (velocity * 60)					# And move Sonic appropriately.
-	collision_checker = get_slide_collision (0)
-
-	if (collision_checker):				# Sonic is colliding with something!
-		var this_is = collision_checker.get_collider ()		# Get what it is.
-		print (collision_checker, " collided with ", this_is)		# FOR DEBUGGING ONLY.
-		if (this_is is preload ("res://Scripts/Levels/All/Ring.gd")):	# It's a ring, so add to the ring count and then remove it.
-			self.rings += 1	# Note that the "self." is needed in order to trigger the getter and setter functions!
-			sound_player.play_sound ("Ring")
-			this_is.ring_got ()
 	return
