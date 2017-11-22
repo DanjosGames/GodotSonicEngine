@@ -1,6 +1,8 @@
 # Files to ignore.
 Thumbs.db
 thumbs.db
+ehthumbs.db
+Ehthumbs.db
 .fscache
 *~
 *.bak
