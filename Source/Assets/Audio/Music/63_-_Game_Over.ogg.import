@@ -7,5 +7,4 @@ path="res://.import/63_-_Game_Over.ogg-dc32d8bc66204e9de6a1121e6e134c5d.oggstr"
 [params]
 
 loop=false
-loop_begin=0
-loop_end=0
+loop_offset=0

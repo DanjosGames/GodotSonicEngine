@@ -7,5 +7,4 @@ path="res://.import/43-Final_Dreadnought_2.ogg-38eec67ac2a04ad6fc90fcf91b480976.
 [params]
 
 loop=true
-loop_begin=0
-loop_end=0
+loop_offset=0

@@ -16,9 +16,9 @@ config/icon="res://icon.png"
 
 [autoload]
 
+global_space="*res://Scenes/System/global_space.tscn"
 colour_space="*res://Scenes/System/colour_space.tscn"
 dice_engine="*res://Scenes/System/dice_engine.tscn"
-global_space="*res://Scenes/System/global_space.tscn"
 sound_player="*res://Scenes/System/sound_player.tscn"
 
 [display]
@@ -56,11 +56,3 @@ DEBUG_resetpos=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_
  ]
 DEBUG_extralife=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":51,"unicode":0,"echo":false,"script":null)
  ]
-
-[physics]
-
-2d/thread_model=2
-
-[rendering]
-
-threads/thread_model=2
