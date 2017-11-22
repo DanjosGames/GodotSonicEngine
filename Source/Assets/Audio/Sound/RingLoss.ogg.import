@@ -1,0 +1,10 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/RingLoss.ogg-7819b2bd72eb55ed9e13230efdcfb589.oggstr"
+
+[params]
+
+loop=false
+loop_offset=0

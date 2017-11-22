@@ -10,8 +10,15 @@ export(int) var lives = 3 setget set_lives, get_lives		# Lives left.
 export(int) var score = 0 setget set_score, get_score		# Score.
 export(Vector2) var checkpoint_pos = Vector2(0,0)			# Co-ordinates of the last checkpoint reached.
 
+var dir_sign = Vector2 (0, 0)	# These determine which direction the character is moving in.
+var move_dir = Vector2 (0, 0)	# These do the actual movement based on the direction.
+var speed = Vector2 (0, 0)	# Speed...
+var velocity = Vector2 (0, 0)	# ...is controlled by these vectors.
+var brake_time = 0
+var anim_speed = Vector2 (0, 0)
+
 func _ready ():
-	print ("Generic player funcs initialised.")
+	print ("Generic player functions initialised.")
 	return
 
 ## SETTERS and GETTERS.
@@ -19,7 +26,7 @@ func _ready ():
 # called via the setget definition for the variable (outside of the class; inside it, remember to use self!).
 
 func get_lives ():
-	if (has_node ("../hud_layer/Lives_Counter")):
+	if (has_node ("../hud_layer/Lives_Counter")):	# Make sure the HUD is up to date.
 		get_node ("../hud_layer/Lives_Counter").set_text (var2str (lives))
 	return (lives)
 
@@ -35,22 +42,24 @@ func set_lives (value):
 			$AudioStreamPlayer.stream = load ("res://Assets/Audio/Music/One_Up.ogg")
 			$AudioStreamPlayer.stop ()
 			$AudioStreamPlayer.play ()
-	else:
-		print ("Shouldn't be able to see this!")	# Why are you doing something like "lives = lives"?
 	lives = value
-	if (has_node ("../hud_layer/Lives_Counter")):
-		get_node ("../hud_layer/Lives_Counter").set_text (var2str (lives))
+	if ($"../hud_layer/Lives_Counter"):	# Make sure the HUD is up to date.
+		$"../hud_layer/Lives_Counter".set_text (var2str (lives))
 	return
 
 func get_rings ():
-	if (has_node ("../hud_layer/Ring_Count")):
-		get_node ("../hud_layer/Ring_Count").set_text (var2str (rings))
+	if ($"../hud_layer/Ring_Count"):	# Make sure the HUD is up to date.
+		$"../hud_layer/Ring_Count".set_text (var2str (rings))
 	return (rings)
 
 func set_rings (value):
+	if (value < rings && !(lives < 0 || !get ("visible"))):	# Have lost rings through being hurt, as opposed to insta-kill etc.
+		sound_player.play_sound ("LoseRings")				# Play the jingle.
 	rings = value
-	if (has_node ("../hud_layer/Ring_Count")):
-		get_node ("../hud_layer/Ring_Count").set_text (var2str (rings))
+	if (rings > 0 && (abs (rings/100) == float(rings)/100)):	# Every 100 rings, get a extra life!
+		self.lives += 1
+	if ($"../hud_layer/Ring_Count"):	# Make sure the HUD is up to date.
+		$"../hud_layer/Ring_Count".set_text (var2str (rings))
 	return
 
 func set_score (value):

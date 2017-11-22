@@ -6,13 +6,6 @@ onready var sprite_anim_node = get_node ("AnimatedSprite")
 onready var sprite_anim = sprite_anim_node.get_animation ()	# Make sure sprite_anim contains the default animation value.
 onready var sprite_anim_frames = sprite_anim_node.get_sprite_frames ()
 
-var dir_sign = Vector2 (0, 0)	# These determine which direction the character is moving in.
-var move_dir = Vector2 (0, 0)	# These do the actual movement based on the direction.
-var speed = Vector2 (0, 0)
-var velocity = Vector2 (0, 0)
-var brake_time = 0
-var anim_speed = Vector2 (0, 0)
-
 func _ready():
 	print ("Sonic entered the world at ", position)
 	checkpoint_pos = position	# FOR DEBUGGING ONLY. Should normally be set by the level.
@@ -67,6 +60,15 @@ func _input (ev):
 	if (Input.is_action_pressed ("DEBUG_extralife")):
 		print ("DEBUG: Extra life")
 		self.lives += 1
+
+	if (Input.is_action_pressed ("DEBUG_loserings")):
+		print ("DEBUG: Lose rings")
+		self.rings = 0
+
+	if (Input.is_action_pressed ("DEBUG_gainrings")):
+		print ("DEBUG: Gain rings")
+		self.rings += 10
+
 	return
 
 func _process (delta):
@@ -88,6 +90,7 @@ func _process (delta):
 		change_anim ("Jog")
 	else:
 		change_anim ("Idle")	# This is the default animation.
+
 	return
 
 func _physics_process (delta):

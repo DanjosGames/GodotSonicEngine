@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player/Sonic.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Scenes/Levels/All/Ring.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Levels/All/Checkpoint.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/Graphics/2D/Backdrops/better_temp_background.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Audio/Music/43-Final_Dreadnought_2.ogg" type="AudioStream" id=8]
 
 [node name="World" type="Node"]
 
@@ -64,7 +63,7 @@ texture = ExtResource( 7 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
-stream = ExtResource( 8 )
+stream = null
 volume_db = 0.0
 autoplay = false
 mix_target = 0
