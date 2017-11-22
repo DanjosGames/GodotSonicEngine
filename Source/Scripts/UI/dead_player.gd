@@ -10,7 +10,7 @@ func _ready():
 	$"../Sonic".set ("visible", false)		# Make sure that...
 	$"../Sonic/Camera2D".current = false	# ...the player character is not visible and its camera is disabled during the animation.
 	$Tween.connect ("tween_completed", self, "player_has_died")
-	$Tween.interpolate_property (get_node ("."), "position", position, Vector2 (position.x, position.y+290), 1.50, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	$Tween.interpolate_property ($".", "position", position, Vector2 (position.x, position.y+290), 1.50, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	$Tween.set_repeat (false)
 	$Tween.start ()
 	return
@@ -18,8 +18,6 @@ func _ready():
 # The animation is now over, so return the player to normal (after resetting various values), set them to a checkpoint position and
 # resume control.
 func player_has_died (done, key):
-	$"../Sonic".rings = 0
-	$"../Sonic".position = $"../Sonic".checkpoint_pos
 	$"../Sonic".dir_sign = Vector2 (0,0)
 	$"../Sonic".move_dir = Vector2 (0,0)
 	$"../Sonic".velocity = Vector2 (0,0)

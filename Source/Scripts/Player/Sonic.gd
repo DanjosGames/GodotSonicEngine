@@ -6,11 +6,6 @@ onready var sprite_anim_node = get_node ("AnimatedSprite")
 onready var sprite_anim = sprite_anim_node.get_animation ()	# Make sure sprite_anim contains the default animation value.
 onready var sprite_anim_frames = sprite_anim_node.get_sprite_frames ()
 
-const ACCEL_RATE = 0.046875
-const DECEL_RATE = 0.5
-const FRICTION = ACCEL_RATE
-const TOP_SPEED = Vector2 (6, 6)	# The fastest Sonic can go.
-
 var dir_sign = Vector2 (0, 0)	# These determine which direction the character is moving in.
 var move_dir = Vector2 (0, 0)	# These do the actual movement based on the direction.
 var speed = Vector2 (0, 0)
@@ -21,6 +16,7 @@ var anim_speed = Vector2 (0, 0)
 func _ready():
 	print ("Sonic entered the world at ", position)
 	checkpoint_pos = position	# FOR DEBUGGING ONLY. Should normally be set by the level.
+	TOP_SPEED = Vector2 (6, 6)	# Sonic's maximum speed.
 	get_lives ()
 	get_rings ()
 	get_score ()

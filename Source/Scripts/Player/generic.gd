@@ -1,5 +1,10 @@
 extends KinematicBody2D
 
+const ACCEL_RATE = 0.046875
+const DECEL_RATE = 0.5
+const FRICTION = ACCEL_RATE
+var TOP_SPEED = Vector2 (0, 0)	# The fastest the player can go. Actual values are set in <player_character_name>.gd.
+
 export(int) var rings = 0 setget set_rings, get_rings		# Number of rings the player has.
 export(int) var lives = 3 setget set_lives, get_lives		# Lives left.
 export(int) var score = 0 setget set_score, get_score		# Score.
@@ -19,11 +24,15 @@ func get_lives ():
 	return (lives)
 
 func set_lives (value):
-	if (value < lives):	# Sonic has died!
-		global_space.add_path_to_node ("res://Scenes/UI/dead_sonic.tscn", "/root/World")
-	elif (value > lives):	# Sonic has got an extra life!
-		$"../AudioStreamPlayer".stop ()
+	if (value < lives):	# The player has died! Reset things to default values, set the player's position to the checkpoint etc.
+		rings = 0
+		global_space.add_path_to_node ("res://Scenes/UI/dead_player.tscn", "/root/World")
+		position = checkpoint_pos
+	elif (value > lives):	# The player has got an extra life!
+		if (has_node ("$../AudioStreamPlayer")):
+			$"../AudioStreamPlayer".stop ()
 		if (has_node ("AudioStreamPlayer")):
+			$AudioStreamPlayer.stream = load ("res://Assets/Audio/Music/One_Up.ogg")
 			$AudioStreamPlayer.stop ()
 			$AudioStreamPlayer.play ()
 	lives = value
