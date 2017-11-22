@@ -6,7 +6,7 @@
 [ext_resource path="res://Scenes/Levels/All/platform_TEST.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Levels/All/Ring.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Levels/All/Checkpoint.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Assets/Graphics/Backdrops/better_temp_background.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Graphics/2D/Backdrops/better_temp_background.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Audio/Music/43-Final_Dreadnought_2.ogg" type="AudioStream" id=8]
 
 [node name="World" type="Node"]

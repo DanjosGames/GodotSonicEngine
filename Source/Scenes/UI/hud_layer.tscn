@@ -2,9 +2,9 @@
 
 [ext_resource path="res://Scripts/UI/hud_layer.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Graphics/Fonts/Roboto-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Assets/Graphics/Sprites/UI/Ring_single.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Graphics/Sprites/UI/Sonic_Lives_Icon.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Graphics/Sprites/UI/stopwatch.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Graphics/2D/Sprites/UI/Ring_single.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Graphics/2D/Sprites/UI/Sonic_Lives_Icon.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Graphics/2D/Sprites/UI/stopwatch.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 
