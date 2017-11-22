@@ -4,6 +4,7 @@ thumbs.db
 .fscache
 *~
 *.bak
+.DS_Store
 
 # Directories to ignore.
 .import/

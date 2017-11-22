@@ -28,13 +28,15 @@ func set_lives (value):
 		rings = 0
 		global_space.add_path_to_node ("res://Scenes/UI/dead_player.tscn", "/root/World")
 		position = checkpoint_pos
-	elif (value > lives):	# The player has got an extra life!
-		if (has_node ("$../AudioStreamPlayer")):
+	elif (value > lives):	# The player has got an extra life! Play the relevant music!
+		if ($"../AudioStreamPlayer"):
 			$"../AudioStreamPlayer".stop ()
-		if (has_node ("AudioStreamPlayer")):
+		if ($"AudioStreamPlayer"):
 			$AudioStreamPlayer.stream = load ("res://Assets/Audio/Music/One_Up.ogg")
 			$AudioStreamPlayer.stop ()
 			$AudioStreamPlayer.play ()
+	else:
+		print ("Shouldn't be able to see this!")	# Why are you doing something like "lives = lives"?
 	lives = value
 	if (has_node ("../hud_layer/Lives_Counter")):
 		get_node ("../hud_layer/Lives_Counter").set_text (var2str (lives))

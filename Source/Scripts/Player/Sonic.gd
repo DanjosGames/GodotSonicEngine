@@ -20,7 +20,8 @@ func _ready():
 	get_lives ()
 	get_rings ()
 	get_score ()
-	$"AudioStreamPlayer".connect ("finished", self, "jingle_finished")
+	if ($"AudioStreamPlayer"):
+		$"AudioStreamPlayer".connect ("finished", self, "jingle_finished")
 	return
 
 # change_anim

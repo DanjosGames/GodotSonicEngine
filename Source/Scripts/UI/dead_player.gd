@@ -5,7 +5,7 @@ var game_over_yeah = null	# Used to display the "game over" sprite.
 # Well, the player has had a death, so start the death animation playing.
 func _ready():
 	$"../hud_layer".set ("layer", -99)		# Hide the HUD layer.
-	position = $"../Sonic".position
+	position = $"../Sonic".position			# Set the position of this to where the player is.
 	sound_player.play_sound ("Death")		# Play the death jingle.
 	$"../Sonic".set ("visible", false)		# Make sure that...
 	$"../Sonic/Camera2D".current = false	# ...the player character is not visible and its camera is disabled during the animation.
@@ -24,8 +24,8 @@ func player_has_died (done, key):
 	$"../Sonic".speed = Vector2 (0,0)
 	if ($"../Sonic".lives >= 0):
 		$"../Sonic/Camera2D".current = true			# Not game over yet, so...
-		$"../hud_layer".set ("layer", 32)			# ...reveal the HUD layer.
 		$"../Sonic".set ("visible", true)			# ...re-enable the sprite and camera.
+		$"../hud_layer".set ("layer", 32)			# ...reveal the HUD layer.
 	else:
 		# The game is now over; all lives have been lost.
 		game_over_yeah = global_space.add_path_to_node ("res://Scenes/UI/game_over.tscn", "/root/World")
