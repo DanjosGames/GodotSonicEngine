@@ -37,7 +37,7 @@ func add_path_to_node (Scene_Path = "", Node_to_Add_to = "/root"):
 
 # go_to_scene
 # global_space.go_to_scene (path)
-# Goes to the relevant scene; the scene is a path, so "res://<filename>". You should specify the path as absolute wherever possible.
+# Goes to the relevant scene; the scene is a file, so "res://<filename>". You should specify it as absolute wherever possible.
 # Returns the resultant scene node as well.
 func go_to_scene (path):
 	var s = ResourceLoader.load (path)					# Load and...

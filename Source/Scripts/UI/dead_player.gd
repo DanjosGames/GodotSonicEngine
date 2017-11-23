@@ -4,9 +4,9 @@ var game_over_yeah = null	# Used to display the "game over" sprite.
 
 # Well, the player has had a death, so start the death animation playing.
 func _ready():
+	sound_player.play_sound ("Death")		# Play the death jingle.
 	$"../hud_layer".set ("layer", -99)		# Hide the HUD layer.
 	position = $"../Sonic".position			# Set the position of this to where the player is.
-	sound_player.play_sound ("Death")		# Play the death jingle.
 	$"../Sonic".set ("visible", false)		# Make sure that...
 	$"../Sonic/Camera2D".current = false	# ...the player character is not visible and its camera is disabled during the animation.
 	$Tween.connect ("tween_completed", self, "player_has_died")

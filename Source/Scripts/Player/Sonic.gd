@@ -81,7 +81,7 @@ func _process (delta):
 			speed.x += ACCEL_RATE	# Speed Sonic up until he is at top speed.
 	else:
 		if (speed.x > 0):
-			speed.x -= FRICTION	# Slow Sonic down according to the friction rating.
+			speed.x -= FRICTION		# Slow Sonic down according to the friction rating.
 
 	# Change the animation, depending on what speed the player is moving at.
 	if (speed.x > 0 && speed.x < 3):
@@ -102,5 +102,6 @@ func _physics_process (delta):
 
 # If whatever AudioStreamPlayer is playing was finished, resume the level's own AudioStreamPlayer.
 func jingle_finished ():
-	$"../AudioStreamPlayer".play ()
+	if ($"../AudioStreamPlayer"):
+		$"../AudioStreamPlayer".play ()
 	return
