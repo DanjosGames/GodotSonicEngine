@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/Levels/All/level_generic.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Levels/All/test_level.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Graphics/2D/Backdrops/better_temp_background.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Levels/All/platform_TEST.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Player/player_sonic.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Levels/All/Checkpoint.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Levels/All/Ring.tscn" type="PackedScene" id=7]
+
+[node name="Level" instance=ExtResource( 1 )]
+
+script = ExtResource( 2 )
+
+[node name="test_background" type="Sprite" parent="."]
+
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+
+[node name="platform_TEST" parent="." instance=ExtResource( 4 )]
+
+position = Vector2( 177, 173 )
+linear_damp = -1.0
+angular_damp = -1.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sonic" parent="." instance=ExtResource( 5 )]
+
+[node name="Checkpoint" parent="." instance=ExtResource( 6 )]
+
+position = Vector2( 350, 140 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="rings_group" type="Node2D" parent="."]
+
+[node name="ring_01" parent="rings_group" instance=ExtResource( 7 )]
+
+position = Vector2( 276, 144 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="ring_02" parent="rings_group" instance=ExtResource( 7 )]
+
+position = Vector2( 100, 144 )
+_sections_unfolded = [ "Transform" ]
+
+
