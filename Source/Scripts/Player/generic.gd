@@ -1,5 +1,11 @@
 extends KinematicBody2D
 
+# Set up sprite_anim and sprite_anim_node. The _node variable points to the animation node, of course.
+# sprite_anim contains the animation currently playing.
+onready var sprite_anim_node = get_node ("AnimatedSprite")
+onready var sprite_anim = sprite_anim_node.get_animation ()	# Make sure sprite_anim contains the default animation value.
+onready var sprite_anim_frames = sprite_anim_node.get_sprite_frames ()
+
 const ACCEL_RATE = 0.046875
 const DECEL_RATE = 0.5
 const FRICTION = ACCEL_RATE
@@ -21,6 +27,18 @@ func _ready ():
 	print ("Generic player functions initialised.")
 	return
 
+# change_anim
+# func change_anim (new_anim)
+# Changes the currently playing animation to one specified (by new_anim). Won't change the animation if it's already playing.
+# Returns true if the animation has changed, false otherwise.
+# TODO: Maybe make this function able to change direction animation plays in, etc.?
+func change_anim (new_anim):
+	if (new_anim != sprite_anim):	# This is a new animation...
+		sprite_anim = new_anim		# ...so set sprite_anim to new_anim.
+		sprite_anim_node.set_animation (sprite_anim)	# And make the sprite animation node play the new animation.
+		return (true)
+	return (false)
+
 ## SETTERS and GETTERS.
 # get_ and set_ functions to allow the HUD counters to be updated. Nothing else needs to be done; these variables are automatically
 # called via the setget definition for the variable (outside of the class; inside it, remember to use self!).
@@ -33,7 +51,13 @@ func get_lives ():
 func set_lives (value):
 	if (value < lives):	# The player has died! Reset things to default values, set the player's position to the checkpoint etc.
 		rings = 0
+		dir_sign = Vector2 (0,0)	# Stop...
+		move_dir = Vector2 (0,0)	# ...the...
+		velocity = Vector2 (0,0)	# ...player...
+		speed = Vector2 (0,0)		# ...moving.
+		change_anim ("Die")
 		global_space.add_path_to_node ("res://Scenes/UI/dead_player.tscn", "/root/World")
+		change_anim ("Idle")		# Commenting this line out makes for a fun little bug!
 		position = checkpoint_pos
 	elif (value > lives):	# The player has got an extra life! Play the relevant music (if possible)!
 		if ($"../AudioStreamPlayer"):

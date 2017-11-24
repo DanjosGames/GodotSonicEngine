@@ -1,11 +1,5 @@
 extends "res://Scripts/Player/generic.gd"
 
-# Set up sprite_anim and sprite_anim_node. The _node variable points to the animation node, of course.
-# sprite_anim contains the animation currently playing.
-onready var sprite_anim_node = get_node ("AnimatedSprite")
-onready var sprite_anim = sprite_anim_node.get_animation ()	# Make sure sprite_anim contains the default animation value.
-onready var sprite_anim_frames = sprite_anim_node.get_sprite_frames ()
-
 func _ready():
 	print ("Sonic entered the world at ", position)
 	checkpoint_pos = position	# FOR DEBUGGING ONLY. Should normally be set by the level.
@@ -16,20 +10,6 @@ func _ready():
 	if ($"AudioStreamPlayer"):
 		$"AudioStreamPlayer".connect ("finished", self, "jingle_finished")
 	return
-
-# change_anim
-# func change_anim (new_anim)
-# Changes the currently playing animation to one specified (by new_anim). Won't change the animation if it's already playing.
-# Returns true if the animation has changed, false otherwise.
-# TODO: Maybe make this function able to change direction animation plays in, etc.?
-func change_anim (new_anim):
-	if (new_anim != sprite_anim):	# This is a new animation...
-		sprite_anim = new_anim		# ...so set sprite_anim to new_anim.
-		sprite_anim_node.set_animation (sprite_anim)	# And make the sprite animation node play the new animation.
-#		sprite_anim_node.set_animation_speed (sprite_anim, anim_speed)	#Changes the the speed by frames
-#		sprite_anim_frames.set_animation_speed (sprite_anim, anim_speed)	#Changes the the speed by frames
-		return (true)
-	return (false)
 
 func _input (ev):
 	# Direction is -1 if Sonic is moving left/up, 1 if right/down, and 0 otherwise.
@@ -84,12 +64,13 @@ func _process (delta):
 			speed.x -= FRICTION		# Slow Sonic down according to the friction rating.
 
 	# Change the animation, depending on what speed the player is moving at.
-	if (speed.x > 0 && speed.x < 3):
-		change_anim ("Walk")
-	elif (speed.x >= 3):
-		change_anim ("Jog")
-	else:
-		change_anim ("Idle")	# This is the default animation.
+	if (sprite_anim != "Die"):
+		if (speed.x > 0 && speed.x < 3):
+			change_anim ("Walk")
+		elif (speed.x >= 3):
+			change_anim ("Jog")
+		else:
+			change_anim ("Idle")	# This is the default animation.
 
 	return
 

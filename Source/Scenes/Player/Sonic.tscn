@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/Player/Sonic.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Graphics/2D/Sprites/Players/Sonic/Idle/Idle.png" type="Texture" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://Assets/Graphics/2D/Sprites/Players/Sonic/Jog/07.png" type="Texture" id=22]
 [ext_resource path="res://Assets/Graphics/2D/Sprites/Players/Sonic/Jog/08.png" type="Texture" id=23]
 [ext_resource path="res://Assets/Graphics/2D/Sprites/Players/Sonic/Jog/09.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Graphics/2D/Sprites/Players/Sonic/Die/00.png" type="Texture" id=25]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -42,6 +43,11 @@ animations = [ {
 "loop": true,
 "name": "Jog",
 "speed": 15.0
+}, {
+"frames": [ ExtResource( 25 ) ],
+"loop": true,
+"name": "Die",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]

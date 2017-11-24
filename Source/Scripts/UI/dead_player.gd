@@ -18,10 +18,6 @@ func _ready():
 # The animation is now over, so return the player to normal (after resetting various values), set them to a checkpoint position and
 # resume control.
 func player_has_died (done, key):
-	$"../Sonic".dir_sign = Vector2 (0,0)
-	$"../Sonic".move_dir = Vector2 (0,0)
-	$"../Sonic".velocity = Vector2 (0,0)
-	$"../Sonic".speed = Vector2 (0,0)
 	if ($"../Sonic".lives >= 0):
 		$"../Sonic/Camera2D".current = true			# Not game over yet, so...
 		$"../Sonic".set ("visible", true)			# ...re-enable the sprite and camera.
