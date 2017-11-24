@@ -2,6 +2,7 @@ extends "res://Scripts/Player/generic.gd"
 
 func _ready():
 	print ("Sonic entered the world at ", position)
+	change_anim ("Idle")
 	checkpoint_pos = position	# FOR DEBUGGING ONLY. Should normally be set by the level.
 	TOP_SPEED = Vector2 (6, 6)	# Sonic's maximum speed.
 	get_lives ()

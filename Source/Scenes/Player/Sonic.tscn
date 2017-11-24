@@ -50,11 +50,10 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 11.1816
-height = 20.0
+extents = Vector2( 10, 18.6065 )
 
 [node name="Sonic" type="KinematicBody2D"]
 
@@ -72,12 +71,12 @@ checkpoint_pos = Vector2( 0, 0 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 
 frames = SubResource( 1 )
-animation = "Idle"
+animation = "Die"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
-position = Vector2( 0, -0.5 )
+position = Vector2( 0, 0.5 )
 shape = SubResource( 2 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
