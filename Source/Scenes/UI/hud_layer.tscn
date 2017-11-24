@@ -10,8 +10,9 @@
 
 size = 16
 use_mipmaps = false
-use_filter = true
+use_filter = false
 font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
 
 [node name="hud_layer" type="CanvasLayer"]
 
@@ -44,6 +45,7 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
 
 [node name="Ring_Symbol" type="Sprite" parent="."]
 

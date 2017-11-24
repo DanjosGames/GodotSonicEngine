@@ -8,7 +8,7 @@ func _ready():
 	return
 
 func enter_checkpoint_body (body):
-	if (!taken && body is preload ("res://Scripts/Player/generic.gd")):
+	if (!taken && body is preload ("res://Scripts/Player/player_generic.gd")):
 		# The player has collided with the checkpoint, change the animation and set the checkpoint_pos vector to the checkpoint's position.
 		taken = true
 		$"AudioStreamPlayer2D".play ()

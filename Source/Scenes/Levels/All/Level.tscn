@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Levels/All/Level.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Player/Sonic.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Player/player_sonic.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Levels/All/platform_TEST.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Levels/All/Checkpoint.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Graphics/2D/Backdrops/better_temp_background.png" type="Texture" id=5]
@@ -27,6 +27,7 @@ position = Vector2( 350, 140 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
+editor/display_folded = true
 layer = -32
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -59,6 +60,8 @@ mix_target = 0
 bus = "Master"
 
 [node name="Rings_Group" type="Node" parent="."]
+
+editor/display_folded = true
 
 [node name="Ring00" parent="Rings_Group" instance=ExtResource( 6 )]
 

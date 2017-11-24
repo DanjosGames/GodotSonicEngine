@@ -8,7 +8,7 @@ func _ready():
 	return
 
 func got_ring (body):
-	if (!ring_taken && body is preload ("res://Scripts/Player/generic.gd")):	# Player has picked up the ring!
+	if (!ring_taken && body is preload ("res://Scripts/Player/player_generic.gd")):	# Player has picked up the ring!
 		ring_taken = true
 		visible = false
 		body.rings += 1

@@ -1,4 +1,4 @@
-extends "res://Scripts/Player/generic.gd"
+extends "res://Scripts/Player/player_generic.gd"
 
 func _ready():
 	print ("Sonic entered the world at ", position)
@@ -8,8 +8,6 @@ func _ready():
 	get_lives ()
 	get_rings ()
 	get_score ()
-	if ($"AudioStreamPlayer"):
-		$"AudioStreamPlayer".connect ("finished", self, "jingle_finished")
 	return
 
 func _input (ev):
@@ -82,8 +80,3 @@ func _physics_process (delta):
 	move_and_slide (velocity * 60)					# And move Sonic appropriately.
 	return
 
-# If whatever AudioStreamPlayer is playing was finished, resume the level's own AudioStreamPlayer.
-func jingle_finished ():
-	if ($"/root/Level/Music_Player"):
-		$"/root/Level/Music_Player".play ()
-	return

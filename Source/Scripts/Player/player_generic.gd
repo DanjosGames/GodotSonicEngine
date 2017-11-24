@@ -24,6 +24,8 @@ var brake_time = 0
 var anim_speed = Vector2 (0, 0)
 
 func _ready ():
+	if ($"Jingle_Player"):
+		$"Jingle_Player".connect ("finished", self, "jingle_finished")
 	print ("Generic player functions initialised.")
 	return
 
@@ -38,6 +40,14 @@ func change_anim (new_anim):
 		sprite_anim_node.set_animation (sprite_anim)	# And make the sprite animation node play the new animation.
 		return (true)
 	return (false)
+
+# If whatever Jingle_Player is playing was finished, resume the level's Music_Player.
+func jingle_finished ():
+	if ($"Jingle_Player"):	# Just in case!
+		$"Jingle_Player".stop ()
+	if ($"/root/Level/Music_Player"):
+		$"/root/Level/Music_Player".play ()
+	return
 
 ## SETTERS and GETTERS.
 # get_ and set_ functions to allow the HUD counters to be updated. Nothing else needs to be done; these variables are automatically
@@ -62,10 +72,10 @@ func set_lives (value):
 	elif (value > lives):	# The player has got an extra life! Play the relevant music (if possible)!
 		if ($"/root/Level/Music_Player"):
 			$"/root/Level/Music_Player".stop ()
-		if ($"AudioStreamPlayer"):
-			$"AudioStreamPlayer".stream = load ("res://Assets/Audio/Music/One_Up.ogg")
-			$"AudioStreamPlayer".stop ()
-			$"AudioStreamPlayer".play ()
+		if ($"Jingle_Player"):
+			$"Jingle_Player".stream = load ("res://Assets/Audio/Music/One_Up.ogg")
+			$"Jingle_Player".stop ()
+			$"Jingle_Player".play ()
 	lives = value
 	if ($"../hud_layer/Lives_Counter"):	# Make sure the HUD is up to date.
 		$"../hud_layer/Lives_Counter".set_text (var2str (lives))
@@ -80,8 +90,6 @@ func set_rings (value):
 	if (value < rings && !(lives < 0 || !get ("visible"))):	# Have lost rings through being hurt, as opposed to insta-kill etc.
 		sound_player.play_sound ("LoseRings")				# Play the jingle.
 	rings = value
-	if (rings > 0 && (abs (rings/100) == float(rings)/100)):	# Every 100 rings, get a extra life!
-		self.lives += 1
 	if ($"../hud_layer/Ring_Count"):	# Make sure the HUD is up to date.
 		$"../hud_layer/Ring_Count".set_text (var2str (rings))
 	return
