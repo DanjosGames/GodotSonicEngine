@@ -4,10 +4,10 @@ extends Sprite
 # any key is pressed and restart.
 
 func _ready():
-	if ($"../AudioStreamPlayer"):
-		$"../AudioStreamPlayer".stop ()	# Stop whatever other music is playing, and play the game over music instead.
-		$"../AudioStreamPlayer".stream = load ("res://Assets/Audio/Music/63_-_Game_Over.ogg")
-		$"../AudioStreamPlayer".play ()
+	if ($"/root/Level/Music_Player"):
+		$"/root/Level/Music_Player".stop ()	# Stop whatever other music is playing, and play the game over music instead.
+		$"/root/Level/Music_Player".stream = load ("res://Assets/Audio/Music/63_-_Game_Over.ogg")
+		$"/root/Level/Music_Player".play ()
 	get_tree ().set_pause (true)		# Pause the game in the background.
 	return
 

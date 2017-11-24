@@ -1,14 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Scripts/World.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Levels/All/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player/Sonic.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/UI/hud_layer.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Levels/All/platform_TEST.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Levels/All/Ring.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Levels/All/Checkpoint.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Assets/Graphics/2D/Backdrops/better_temp_background.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Levels/All/platform_TEST.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Levels/All/Checkpoint.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Graphics/2D/Backdrops/better_temp_background.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Levels/All/Ring.tscn" type="PackedScene" id=6]
 
-[node name="World" type="Node"]
+[node name="Level" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -16,23 +15,13 @@ script = ExtResource( 1 )
 
 position = Vector2( 187, 137 )
 
-[node name="hud_layer" parent="." instance=ExtResource( 3 )]
-
-[node name="platform_TEST" parent="." instance=ExtResource( 4 )]
+[node name="platform_TEST" parent="." instance=ExtResource( 3 )]
 
 position = Vector2( 177, 173 )
 linear_damp = -1.0
 angular_damp = -1.0
 
-[node name="Ring00" parent="." instance=ExtResource( 5 )]
-
-position = Vector2( 276, 144 )
-
-[node name="Ring01" parent="." instance=ExtResource( 5 )]
-
-position = Vector2( 108, 144 )
-
-[node name="Checkpoint" parent="." instance=ExtResource( 6 )]
+[node name="Checkpoint" parent="." instance=ExtResource( 4 )]
 
 position = Vector2( 350, 140 )
 
@@ -59,14 +48,24 @@ motion_mirroring = Vector2( 0, 0 )
 
 position = Vector2( 176, 130 )
 scale = Vector2( 2.25, 2.25 )
-texture = ExtResource( 7 )
+texture = ExtResource( 5 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Music_Player" type="AudioStreamPlayer" parent="."]
 
 stream = null
 volume_db = 0.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+
+[node name="Rings_Group" type="Node" parent="."]
+
+[node name="Ring00" parent="Rings_Group" instance=ExtResource( 6 )]
+
+position = Vector2( 276, 144 )
+
+[node name="Ring01" parent="Rings_Group" instance=ExtResource( 6 )]
+
+position = Vector2( 108, 144 )
 
 

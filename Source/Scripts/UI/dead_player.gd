@@ -24,7 +24,7 @@ func player_has_died (done, key):
 		$"../hud_layer".set ("layer", 32)			# ...reveal the HUD layer.
 	else:
 		# The game is now over; all lives have been lost.
-		game_over_yeah = global_space.add_path_to_node ("res://Scenes/UI/game_over.tscn", "/root/World")
+		game_over_yeah = global_space.add_path_to_node ("res://Scenes/UI/game_over.tscn", "/root/Level")
 		game_over_yeah.get_node ("Camera2D").current = true
 		game_over_yeah.position = $"../Sonic/Camera2D".get_camera_position ()
 	queue_free ()	# This instance is no longer required, so delete it.

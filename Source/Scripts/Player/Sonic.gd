@@ -83,6 +83,6 @@ func _physics_process (delta):
 
 # If whatever AudioStreamPlayer is playing was finished, resume the level's own AudioStreamPlayer.
 func jingle_finished ():
-	if ($"../AudioStreamPlayer"):
-		$"../AudioStreamPlayer".play ()
+	if ($"/root/Level/Music_Player"):
+		$"/root/Level/Music_Player".play ()
 	return

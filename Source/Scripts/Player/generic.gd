@@ -56,12 +56,12 @@ func set_lives (value):
 		velocity = Vector2 (0,0)	# ...player...
 		speed = Vector2 (0,0)		# ...moving.
 		change_anim ("Die")
-		global_space.add_path_to_node ("res://Scenes/UI/dead_player.tscn", "/root/World")
+		global_space.add_path_to_node ("res://Scenes/UI/dead_player.tscn", "/root/Level")
 		change_anim ("Idle")		# Commenting this line out makes for a fun little bug!
 		position = checkpoint_pos
 	elif (value > lives):	# The player has got an extra life! Play the relevant music (if possible)!
-		if ($"../AudioStreamPlayer"):
-			$"../AudioStreamPlayer".stop ()
+		if ($"/root/Level/Music_Player"):
+			$"/root/Level/Music_Player".stop ()
 		if ($"AudioStreamPlayer"):
 			$"AudioStreamPlayer".stream = load ("res://Assets/Audio/Music/One_Up.ogg")
 			$"AudioStreamPlayer".stop ()
