@@ -9,7 +9,7 @@ onready var sprite_anim_frames = sprite_anim_node.get_sprite_frames ()
 const ACCEL_RATE = 0.046875
 const DECEL_RATE = 0.5
 const FRICTION = ACCEL_RATE
-var TOP_SPEED = Vector2 (0, 0)	# The fastest the player can go. Actual values are set in <player_character_name>.gd.
+var TOP_SPEED = Vector2 (0, 0)	# The fastest the player can go. Actual values are set in player_<character_name>.gd.
 
 export(int) var rings = 0 setget set_rings, get_rings		# Number of rings the player has.
 export(int) var lives = 3 setget set_lives, get_lives		# Lives left.
