@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path="res://.import/Walk11.png-3106bb1d26b9955aba502047b4f97f4b.stex"
 
+[deps]
+
+source_md5="377199d39fec599876633cbd9cdde3e2"
+
 [params]
 
 compress/mode=0

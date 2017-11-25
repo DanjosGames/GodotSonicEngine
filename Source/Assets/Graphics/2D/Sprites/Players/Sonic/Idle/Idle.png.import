@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path="res://.import/Idle.png-a379dd8c063d0ed83057419ee674bfdb.stex"
 
+[deps]
+
+source_md5="b9b1620e9a8bf53b0f5d13fe9f1a1eb5"
+
 [params]
 
 compress/mode=0

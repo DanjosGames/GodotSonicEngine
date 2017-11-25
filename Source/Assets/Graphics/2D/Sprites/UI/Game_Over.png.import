@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path="res://.import/Game_Over.png-7334e34c9db37ffdfa5cdd0e1d6e5dd6.stex"
 
+[deps]
+
+source_md5="ce1f7a53687ab6a569be44d68d5a0888"
+
 [params]
 
 compress/mode=0

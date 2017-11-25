@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path="res://.import/Checkpoint.png-b90170f48eef205f444e37c87e537e48.stex"
 
+[deps]
+
+source_md5="f7e2ee06331857fb0ee18925e22c0dbf"
+
 [params]
 
 compress/mode=0

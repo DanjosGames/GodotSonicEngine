@@ -6,8 +6,8 @@ onready var sprite_anim_node = get_node ("AnimatedSprite")
 onready var sprite_anim = sprite_anim_node.get_animation ()	# Make sure sprite_anim contains the default animation value.
 onready var sprite_anim_frames = sprite_anim_node.get_sprite_frames ()
 
-const ACCEL_RATE = 0.046875
-const DECEL_RATE = 0.5
+const ACCEL_RATE = 50
+const DECEL_RATE = 30
 const FRICTION = ACCEL_RATE
 var TOP_SPEED = Vector2 (0, 0)	# The fastest the player can go. Actual values are set in player_<character_name>.gd.
 

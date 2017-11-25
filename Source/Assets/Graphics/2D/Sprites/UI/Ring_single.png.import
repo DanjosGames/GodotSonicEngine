@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path="res://.import/Ring_single.png-bbea749e9ed87204c80b43da782c667b.stex"
 
+[deps]
+
+source_md5="1553df4fc762924ee9e8c0bca747662e"
+
 [params]
 
 compress/mode=0

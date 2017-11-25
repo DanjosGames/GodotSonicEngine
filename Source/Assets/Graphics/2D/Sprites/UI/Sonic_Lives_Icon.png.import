@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path="res://.import/Sonic_Lives_Icon.png-2c92907e406f65f75b456bfb106879cc.stex"
 
+[deps]
+
+source_md5="6350cc51808de6bcd6ddf1c20bb6de05"
+
 [params]
 
 compress/mode=0

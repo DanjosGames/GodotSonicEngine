@@ -4,6 +4,10 @@ importer="wav"
 type="AudioStreamSample"
 path="res://.import/RingUp.wav-eaa67ce2a2f29053a4a550edb0492c6b.sample"
 
+[deps]
+
+source_md5="9e874ffedb08d6c9529bc97da05c2e7f"
+
 [params]
 
 force/8_bit=false

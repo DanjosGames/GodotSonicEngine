@@ -4,10 +4,11 @@ func _ready():
 	print ("Sonic entered the world at ", position)
 	change_anim ("Idle")
 	checkpoint_pos = position	# FOR DEBUGGING ONLY. Should normally be set by the level.
-	TOP_SPEED = Vector2 (6, 6)	# Sonic's maximum speed.
+	TOP_SPEED = Vector2 (360, 360)	# Sonic's maximum speed.
 	get_lives ()
 	get_rings ()
 	get_score ()
+	print (TOP_SPEED)
 	return
 
 func _input (ev):
@@ -57,16 +58,15 @@ func _process (delta):
 
 	if (dir_sign.x != 0):
 		if (speed.x < TOP_SPEED.x):
-			speed.x += ACCEL_RATE	# Speed Sonic up until he is at top speed.
+			speed.x += ACCEL_RATE * delta	# Speed Sonic up until he is at top speed.
 	else:
 		if (speed.x > 0):
-			speed.x -= FRICTION		# Slow Sonic down according to the friction rating.
-
+			speed.x -= FRICTION * delta		# Slow Sonic down according to the friction rating.
 	# Change the animation, depending on what speed the player is moving at.
 	if (sprite_anim != "Die"):
-		if (speed.x > 0 && speed.x < 3):
+		if (speed.x > 0 && speed.x < 90):
 			change_anim ("Walk")
-		elif (speed.x >= 3):
+		elif (speed.x >= 90):
 			change_anim ("Jog")
 		else:
 			change_anim ("Idle")	# This is the default animation.
@@ -77,6 +77,6 @@ func _physics_process (delta):
 	## KEEP THESE AT THE BOTTOM OF THE FUNCTION, THESE ACTUALLY DO THE MOVEMENT AFTER EVERYTHING ELSE IS PROCESSED AND CALCULATED.
 	velocity = (speed * move_dir)					# Ensure movement is in the correct direction.
 #	print (velocity)								# FOR DEBUGGING ONLY.
-	move_and_slide (velocity * 60)					# And move Sonic appropriately.
+	move_and_slide (velocity)					# And move Sonic appropriately.
 	return
 
