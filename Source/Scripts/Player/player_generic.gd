@@ -1,8 +1,12 @@
+### GENERIC PLAYER SCRIPT.
+# All the variables, functions etc. that are common to all playable characters go in here.
+# Scripts should always check for nodes extending this script wherever possible.
+
 extends KinematicBody2D
 
 # Set up sprite_anim and sprite_anim_node. The _node variable points to the animation node, of course.
 # sprite_anim contains the animation currently playing.
-onready var sprite_anim_node = get_node ("AnimatedSprite")
+onready var sprite_anim_node = $"AnimatedSprite"
 onready var sprite_anim = sprite_anim_node.get_animation ()	# Make sure sprite_anim contains the default animation value.
 onready var sprite_anim_frames = sprite_anim_node.get_sprite_frames ()
 
@@ -27,6 +31,7 @@ func _ready ():
 	if ($"Jingle_Player"):
 		$"Jingle_Player".connect ("finished", self, "jingle_finished")
 	print ("Generic player functions initialised.")
+	game_space.player_character = $"."	# Figure out who the current player character is...
 	return
 
 # change_anim
@@ -45,7 +50,7 @@ func change_anim (new_anim):
 func jingle_finished ():
 	if ($"Jingle_Player"):	# Just in case!
 		$"Jingle_Player".stop ()
-	if ($"/root/Level/Music_Player"):
+	if ($"/root/Level/Music_Player"):	# Restart the level's music player.
 		$"/root/Level/Music_Player".play ()
 	return
 
@@ -54,8 +59,8 @@ func jingle_finished ():
 # called via the setget definition for the variable (outside of the class; inside it, remember to use self!).
 
 func get_lives ():
-	if ($"../hud_layer/Lives_Counter"):	# Make sure the HUD is up to date.
-		$"../hud_layer/Lives_Counter".set_text (var2str (lives))
+	if ($"/root/Level/hud_layer/Lives_Counter"):	# Make sure the HUD is up to date.
+		$"/root/Level/hud_layer/Lives_Counter".set_text (var2str (lives))
 	return (lives)
 
 func set_lives (value):
@@ -77,13 +82,13 @@ func set_lives (value):
 			$"Jingle_Player".stop ()
 			$"Jingle_Player".play ()
 	lives = value
-	if ($"../hud_layer/Lives_Counter"):	# Make sure the HUD is up to date.
-		$"../hud_layer/Lives_Counter".set_text (var2str (lives))
+	if ($"/root/Level/hud_layer/Lives_Counter"):	# Make sure the HUD is up to date.
+		$"/root/Level/hud_layer/Lives_Counter".set_text (var2str (lives))
 	return
 
 func get_rings ():
-	if ($"../hud_layer/Ring_Count"):	# Make sure the HUD is up to date.
-		$"../hud_layer/Ring_Count".set_text (var2str (rings))
+	if ($"/root/Level/hud_layer/Ring_Count"):	# Make sure the HUD is up to date.
+		$"/root/Level/hud_layer/Ring_Count".set_text (var2str (rings))
 	return (rings)
 
 func set_rings (value):
@@ -94,8 +99,8 @@ func set_rings (value):
 		if (rings >= $"/root/Level".rings_to_collect):	# Got enough rings to get an extra life!
 			$"/root/Level".rings_to_collect += game_space.RINGS_FOR_EXTRA_LIFE
 			self.lives += 1
-	if ($"../hud_layer/Ring_Count"):	# Make sure the HUD is up to date.
-		$"../hud_layer/Ring_Count".set_text (var2str (rings))
+	if ($"/root/Level/hud_layer/Ring_Count"):	# Make sure the HUD is up to date.
+		$"/root/Level/hud_layer/Ring_Count".set_text (var2str (rings))
 	return
 
 func set_score (value):

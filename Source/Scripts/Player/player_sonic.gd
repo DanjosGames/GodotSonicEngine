@@ -1,3 +1,6 @@
+### PLAYABLE CHARACTER: Sonic.
+# Sonic-only functionality goes in here. You should try avoiding referencing this script via collisions etc. unless there is no other option; use player_generic.gd instead.
+
 extends "res://Scripts/Player/player_generic.gd"
 
 func _ready():
@@ -8,7 +11,6 @@ func _ready():
 	get_lives ()
 	get_rings ()
 	get_score ()
-	print (TOP_SPEED)
 	return
 
 func _input (ev):
@@ -37,15 +39,15 @@ func _input (ev):
 		speed = Vector2(0, 0)
 		self.lives -= 1
 
-	if (Input.is_action_pressed ("DEBUG_extralife")):
+	if (Input.is_action_pressed ("DEBUG_extralife")):			# FOR DEBUGGING ONLY.
 		print ("DEBUG: Extra life")
 		self.lives += 1
 
-	if (Input.is_action_pressed ("DEBUG_loserings")):
+	if (Input.is_action_pressed ("DEBUG_loserings")):			# FOR DEBUGGING ONLY.
 		print ("DEBUG: Lose rings")
 		self.rings = 0
 
-	if (Input.is_action_pressed ("DEBUG_gainrings")):
+	if (Input.is_action_pressed ("DEBUG_gainrings")):			# FOR DEBUGGING ONLY.
 		print ("DEBUG: Gain rings")
 		self.rings += 10
 

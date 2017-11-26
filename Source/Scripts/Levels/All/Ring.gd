@@ -1,10 +1,12 @@
+### Rings (aka collectibles).
+
 extends Area2D
 
 var ring_taken = false
 
 func _ready():
 	self.connect ("body_entered", self, "got_ring")
-	$AudioStreamPlayer2D.connect ("finished", self, "ring_got")
+	$"AudioStreamPlayer2D".connect ("finished", self, "ring_got")
 	return
 
 func got_ring (body):
@@ -12,7 +14,7 @@ func got_ring (body):
 		ring_taken = true
 		visible = false
 		body.rings += 1
-		$AudioStreamPlayer2D.play ()
+		$"AudioStreamPlayer2D".play ()
 	return
 
 # This doesn't really do much except remove the ring from the scene tree.
