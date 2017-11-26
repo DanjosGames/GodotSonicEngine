@@ -12,7 +12,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer_Level" type="Timer" parent="."]
 
 process_mode = 1
 wait_time = 1.0

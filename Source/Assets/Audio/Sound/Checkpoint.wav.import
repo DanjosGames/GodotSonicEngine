@@ -4,6 +4,10 @@ importer="wav"
 type="AudioStreamSample"
 path="res://.import/Checkpoint.wav-291087422a7e5ef106444c3206d933b8.sample"
 
+[deps]
+
+source_md5="b969c1bd4e15df3f1b9e5adc645ae125"
+
 [params]
 
 force/8_bit=false
