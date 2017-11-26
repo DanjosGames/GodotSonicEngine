@@ -90,6 +90,10 @@ func set_rings (value):
 	if (value < rings && !(lives < 0 || !get ("visible"))):	# Have lost rings through being hurt, as opposed to insta-kill etc.
 		sound_player.play_sound ("LoseRings")				# Play the jingle.
 	rings = value
+	if ($"/root/Level"):
+		if (rings >= $"/root/Level".rings_to_collect):	# Got enough rings to get an extra life!
+			$"/root/Level".rings_to_collect += game_space.RINGS_FOR_EXTRA_LIFE
+			self.lives += 1
 	if ($"../hud_layer/Ring_Count"):	# Make sure the HUD is up to date.
 		$"../hud_layer/Ring_Count".set_text (var2str (rings))
 	return

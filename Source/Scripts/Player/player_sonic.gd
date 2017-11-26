@@ -64,9 +64,9 @@ func _process (delta):
 			speed.x -= FRICTION * delta		# Slow Sonic down according to the friction rating.
 	# Change the animation, depending on what speed the player is moving at.
 	if (sprite_anim != "Die"):
-		if (speed.x > 0 && speed.x < 90):
+		if (speed.x > 0 && speed.x < 120):
 			change_anim ("Walk")
-		elif (speed.x >= 90):
+		elif (speed.x >= 120):
 			change_anim ("Jog")
 		else:
 			change_anim ("Idle")	# This is the default animation.

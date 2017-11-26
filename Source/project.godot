@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="Godot Sonic Engine"
-run/main_scene="res://Scenes/Levels/All/test_level.tscn"
+run/main_scene="res://Scenes/Levels/All/level_test.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -20,6 +20,7 @@ global_space="*res://Scenes/System/global_space.tscn"
 colour_space="*res://Scenes/System/colour_space.tscn"
 dice_engine="*res://Scenes/System/dice_engine.tscn"
 sound_player="*res://Scenes/System/sound_player.tscn"
+game_space="*res://Scripts/System/game_space.gd"
 
 [display]
 
