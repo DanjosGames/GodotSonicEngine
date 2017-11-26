@@ -19,7 +19,7 @@ func _ready():
 # The animation is now over, so return the player to normal (after resetting various values), set them to a checkpoint position and
 # resume control.
 func player_has_died (done, key):
-	if (game_space.player_character.lives >= 0):
+	if (game_space.lives >= 0):
 		game_space.player_character.get_node ("Camera2D").current = true			# Not game over yet, so...
 		game_space.player_character.set ("visible", true)			# ...re-enable the sprite and camera.
 		$"../hud_layer".set ("layer", 32)			# ...reveal the HUD layer.

@@ -15,7 +15,7 @@ func _ready():
 
 func _process (delta):
 	# Make sure that the ring counter is flashing if the player has no rings, otherwise have it normal.
-	if (game_space.player_character.rings == 0):
+	if (game_space.rings == 0):
 		if (!rings_zero):
 			$"Tweens/Tween_Rings".reset ($"Ring_Count", "custom_colors/font_color")
 			$"Tweens/Tween_Rings".resume ($"Ring_Count", "custom_colors/font_color")
@@ -26,7 +26,7 @@ func _process (delta):
 		# If the animation is stopped, you need to reset the property to normal otherwise it'll stay wherever the tween had got to!
 		$"Ring_Count".set ("custom_colors/font_color", Color ("#ffffff"))
 	# Make the lives count flash if it is zero.
-	if (game_space.player_character.lives < 1):	# The player is on their last life! Flash the lives counter!
+	if (game_space.lives < 1):	# The player is on their last life! Flash the lives counter!
 		if (!lives_zero):
 			$"Tweens/Tween_Lives".reset ($"Lives_Counter", "custom_colors/font_color")
 			$"Tweens/Tween_Lives".resume ($"Lives_Counter", "custom_colors/font_color")

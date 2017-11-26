@@ -15,9 +15,6 @@ const DECEL_RATE = 30
 const FRICTION = ACCEL_RATE
 var TOP_SPEED = Vector2 (0, 0)	# The fastest the player can go. Actual values are set in player_<character_name>.gd.
 
-export(int) var rings = 0 setget set_rings, get_rings		# Number of rings the player has.
-export(int) var lives = 3 setget set_lives, get_lives		# Lives left.
-export(int) var score = 0 setget set_score, get_score		# Score.
 export(Vector2) var checkpoint_pos = Vector2(0,0)			# Co-ordinates of the last checkpoint reached/starting position.
 
 var dir_sign = Vector2 (0, 0)	# These determine which direction the character is moving in.
@@ -53,59 +50,3 @@ func jingle_finished ():
 	if ($"/root/Level/Music_Player"):	# Restart the level's music player.
 		$"/root/Level/Music_Player".play ()
 	return
-
-## SETTERS and GETTERS.
-# get_ and set_ functions to allow the HUD counters to be updated. Nothing else needs to be done; these variables are automatically
-# called via the setget definition for the variable (outside of the class; inside it, remember to use self!).
-
-func get_lives ():
-	if ($"/root/Level/hud_layer/Lives_Counter"):	# Make sure the HUD is up to date.
-		$"/root/Level/hud_layer/Lives_Counter".set_text (var2str (lives))
-	return (lives)
-
-func set_lives (value):
-	if (value < lives):	# The player has died! Reset things to default values, set the player's position to the checkpoint etc.
-		rings = 0
-		dir_sign = Vector2 (0,0)	# Stop...
-		move_dir = Vector2 (0,0)	# ...the...
-		velocity = Vector2 (0,0)	# ...player...
-		speed = Vector2 (0,0)		# ...moving.
-		change_anim ("Die")
-		global_space.add_path_to_node ("res://Scenes/UI/dead_player.tscn", "/root/Level")
-		change_anim ("Idle")		# Commenting this line out makes for a fun little bug!
-		position = checkpoint_pos
-	elif (value > lives):	# The player has got an extra life! Play the relevant music (if possible)!
-		if ($"/root/Level/Music_Player"):
-			$"/root/Level/Music_Player".stop ()
-		if ($"Jingle_Player"):
-			$"Jingle_Player".stream = load ("res://Assets/Audio/Music/One_Up.ogg")
-			$"Jingle_Player".stop ()
-			$"Jingle_Player".play ()
-	lives = value
-	if ($"/root/Level/hud_layer/Lives_Counter"):	# Make sure the HUD is up to date.
-		$"/root/Level/hud_layer/Lives_Counter".set_text (var2str (lives))
-	return
-
-func get_rings ():
-	if ($"/root/Level/hud_layer/Ring_Count"):	# Make sure the HUD is up to date.
-		$"/root/Level/hud_layer/Ring_Count".set_text (var2str (rings))
-	return (rings)
-
-func set_rings (value):
-	if (value < rings && !(lives < 0 || !get ("visible"))):	# Have lost rings through being hurt, as opposed to insta-kill etc.
-		sound_player.play_sound ("LoseRings")				# Play the jingle.
-	rings = value
-	if ($"/root/Level"):
-		if (rings >= $"/root/Level".rings_to_collect):	# Got enough rings to get an extra life!
-			$"/root/Level".rings_to_collect += game_space.RINGS_FOR_EXTRA_LIFE
-			self.lives += 1
-	if ($"/root/Level/hud_layer/Ring_Count"):	# Make sure the HUD is up to date.
-		$"/root/Level/hud_layer/Ring_Count".set_text (var2str (rings))
-	return
-
-func set_score (value):
-	score = value
-	return
-
-func get_score ():
-	return (score)

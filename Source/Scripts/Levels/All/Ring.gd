@@ -13,7 +13,7 @@ func got_ring (body):
 	if (!ring_taken && body is preload ("res://Scripts/Player/player_generic.gd")):	# Player has picked up the ring!
 		ring_taken = true
 		visible = false
-		body.rings += 1
+		game_space.rings += 1
 		$"AudioStreamPlayer2D".play ()
 	return
 

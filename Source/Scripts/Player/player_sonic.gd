@@ -8,16 +8,16 @@ func _ready():
 	change_anim ("Idle")
 	checkpoint_pos = position	# FOR DEBUGGING ONLY. Should normally be set by the level.
 	TOP_SPEED = Vector2 (360, 360)	# Sonic's maximum speed.
-	get_lives ()
-	get_rings ()
-	get_score ()
+	game_space.get_lives ()
+	game_space.get_rings ()
+	game_space.get_score ()
 	return
 
 func _input (ev):
 	# Direction is -1 if Sonic is moving left/up, 1 if right/down, and 0 otherwise.
 	# Can only move in one direction at a time (so pressing left while holding down right won't work)!
 
-	if (lives < 0 || !get ("visible")):
+	if (game_space.lives < 0 || !get ("visible")):
 		return
 
 	if (Input.is_action_pressed ("move_left") && dir_sign.x != 1):
@@ -37,19 +37,19 @@ func _input (ev):
 	if (Input.is_action_pressed ("DEBUG_kill")):			# FOR DEBUGGING ONLY.
 		print ("DEBUG: Kill")
 		speed = Vector2(0, 0)
-		self.lives -= 1
+		game_space.lives -= 1
 
 	if (Input.is_action_pressed ("DEBUG_extralife")):			# FOR DEBUGGING ONLY.
 		print ("DEBUG: Extra life")
-		self.lives += 1
+		game_space.lives += 1
 
 	if (Input.is_action_pressed ("DEBUG_loserings")):			# FOR DEBUGGING ONLY.
 		print ("DEBUG: Lose rings")
-		self.rings = 0
+		game_space.rings = 0
 
 	if (Input.is_action_pressed ("DEBUG_gainrings")):			# FOR DEBUGGING ONLY.
 		print ("DEBUG: Gain rings")
-		self.rings += 10
+		game_space.rings += 10
 
 	return
 
