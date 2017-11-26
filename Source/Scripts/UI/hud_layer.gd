@@ -26,12 +26,12 @@ func _process (delta):
 		# If the animation is stopped, you need to reset the property to normal otherwise it'll stay wherever the tween had got to!
 		$"Ring_Count".set ("custom_colors/font_color", Color ("#ffffff"))
 	# Make the lives count flash if it is zero.
-	if ($"../Sonic".lives < 1):
+	if ($"../Sonic".lives < 1):	# The player is on their last life! Flash the lives counter!
 		if (!lives_zero):
 			$"Tweens/Tween_Lives".reset ($"Lives_Counter", "custom_colors/font_color")
 			$"Tweens/Tween_Lives".resume ($"Lives_Counter", "custom_colors/font_color")
 			lives_zero = true
-	else:
+	else:	# If the player has more than one life remaining, no need to make the lives counter flash.
 		lives_zero = false
 		$"Tweens/Tween_Lives".stop ($"Lives_Counter")
 		# If the animation is stopped, you need to reset the property to normal otherwise it'll stay wherever the tween had got to!
