@@ -8,7 +8,6 @@ func _ready():
 		$"/root/Level/Music_Player".stop ()	# Stop whatever other music is playing, and play the game over music instead.
 		$"/root/Level/Music_Player".stream = load ("res://Assets/Audio/Music/63_-_Game_Over.ogg")
 		$"/root/Level/Music_Player".play ()
-	game_space.reset_values ()	# Need to do this as singletons don't get reset by reload_current_scene.
 	get_tree ().set_pause (true)		# Pause the game in the background.
 	return
 
@@ -17,6 +16,7 @@ func _ready():
 func _unhandled_key_input(event):
 	if (event.pressed):
 		get_tree ().set_pause (false)
+		game_space.reset_values ()	# Need to do this as singletons don't get reset by reload_current_scene.
 		queue_free ()	# As this is queued, it'd be better put here than before reloading the main scene again.
 		get_tree ().reload_current_scene()
 	return
