@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/Levels/All/Checkpoint.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Graphics/2D/Sprites/Levels/All/Checkpoint.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Audio/Sound/Checkpoint.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Audio/Sound/Checkpoint.ogg" type="AudioStream" id=3]
 
 [sub_resource type="Animation" id=1]
 

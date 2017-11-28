@@ -1,0 +1,14 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/RingUp.ogg-520d37d37f63376f81743c450c312495.oggstr"
+
+[deps]
+
+source_md5="20d59eb911b9b6634c42c30fe618c372"
+
+[params]
+
+loop=false
+loop_offset=0

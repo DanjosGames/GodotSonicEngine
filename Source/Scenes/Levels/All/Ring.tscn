@@ -11,7 +11,7 @@
 [ext_resource path="res://Assets/Graphics/2D/Sprites/Levels/All/Rings/07.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Graphics/2D/Sprites/Levels/All/Rings/08.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Graphics/2D/Sprites/Levels/All/Rings/09.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Audio/Sound/RingUp.wav" type="AudioStream" id=12]
+[ext_resource path="res://Assets/Audio/Sound/RingUp.ogg" type="AudioStream" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 
