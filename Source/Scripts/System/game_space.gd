@@ -20,6 +20,7 @@ func _ready ():
 	return
 
 # Reset values to default. Note the lack of "self." here - otherwise it'd invoke the setters/getters!
+# This needs to be done like this because singletons don't get reset on application restart.
 func reset_values ():
 	rings = DEFAULT_RINGS
 	lives = DEFAULT_LIVES
@@ -72,7 +73,7 @@ func set_rings (value):
 		if (lives >= 0 && rings >= $"/root/Level".rings_to_collect):	# Got enough rings to get an extra life!
 			$"/root/Level".rings_to_collect += game_space.RINGS_FOR_EXTRA_LIFE
 			self.lives += 1
-	if ($"/root/Level/hud_layer/Ring_Count"):	# Make sure the HUD is up to date.
+	if ($"/root/Level/hud_layer/Ring_Count"):				# Make sure the HUD is up to date.
 		$"/root/Level/hud_layer/Ring_Count".set_text (var2str (rings))
 	return
 

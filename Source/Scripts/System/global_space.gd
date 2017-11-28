@@ -9,6 +9,11 @@ onready var root = get_tree ().get_root ()
 onready var current_scene = root.get_child (root.get_child_count () - 1)
 onready var new_scene = null
 
+# do_once_only uses this dictionary.
+onready var do_once_dictionary = {
+	NULL_DO_ONCE = "DO_NOT_DELETE",	# Keep me here!
+}
+
 func _ready ():
 	print ("Global script loaded.")
 	return
@@ -37,7 +42,7 @@ func add_path_to_node (Scene_Path = "", Node_to_Add_to = "/root"):
 
 # go_to_scene
 # global_space.go_to_scene (path)
-# Goes to the relevant scene; the scene is a file, so "res://<filename>". You should specify it as absolute wherever possible.
+# Goes to the relevant scene; the scene is a path, so "res://<filename>". You should specify the path as absolute wherever possible.
 # Returns the resultant scene node as well.
 func go_to_scene (path):
 	var s = ResourceLoader.load (path)					# Load and...
@@ -45,6 +50,19 @@ func go_to_scene (path):
 #	get_tree ().get_root ().add_child (new_scene)				# Add the scene to the current root of the scene tree.
 	add_child_to_node (new_scene, get_tree ().get_root ().get_name ())	# Add the scene to the current root of the scene tree.
 	get_tree ().set_current_scene (new_scene)				# Set the current scene being shown to the new scene...
-	current_scene.queue_free ()						# ...delete the old scene from the tree...
-	current_scene = new_scene						# ...and set the current_scene variable to be the new scene.
+	current_scene.queue_free ()								# ...delete the old scene from the tree...
+	current_scene = new_scene								# ...and set the current_scene variable to be the new scene.
 	return (current_scene)
+
+# do_once_only
+# global_space.do_once_only (<string>)
+# Does something once only (if the <string> given isn't in the dictionary for do_once_only). After that, it gets added so it won't
+# do it again.
+# Returns true first time round (because it hadn't been done before!), false afterwards.
+# Probably won't want to use this function too much, but I doubt it'd affect performance adversely in most use cases.
+func do_once_only (do_me):
+	if (do_me in do_once_dictionary):	# Already been done once!
+		return (false)			# Returns false as it has already been done before.
+	# Not been done, so add it to the dictionary and return true.
+	do_once_dictionary [do_me] = "I_AM_DONE"
+	return (true)
