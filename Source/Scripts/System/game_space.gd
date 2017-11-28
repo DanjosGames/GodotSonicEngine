@@ -66,6 +66,7 @@ func set_lives (value):
 	return
 
 func get_rings ():
+	update_hud ()
 	return (rings)
 
 func set_rings (value):
@@ -82,7 +83,9 @@ func set_rings (value):
 
 func set_score (value):
 	score = value
+	update_hud ()
 	return
 
 func get_score ():
+	update_hud ()
 	return (score)
