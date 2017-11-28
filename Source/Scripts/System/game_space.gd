@@ -27,13 +27,20 @@ func reset_values ():
 	score = DEFAULT_SCORE
 	return
 
+# Updates the HUD as required (for rings and lives and score, etc.).
+func update_hud ():
+	if ($"/root/Level/hud_layer/Lives_Counter"):	# Make sure the HUD is up to date.
+		$"/root/Level/hud_layer/Lives_Counter".set_text (var2str (lives))
+	if ($"/root/Level/hud_layer/Ring_Count"):	# Make sure the HUD is up to date.
+		$"/root/Level/hud_layer/Ring_Count".set_text (var2str (rings))
+	return
+
 ## SETTERS and GETTERS.
 # get_ and set_ functions to allow the HUD counters to be updated. Nothing else needs to be done; these variables are automatically
 # called via the setget definition for the variable (outside of the class; inside it, remember to use self!).
 
 func get_lives ():
-	if ($"/root/Level/hud_layer/Lives_Counter"):	# Make sure the HUD is up to date.
-		$"/root/Level/hud_layer/Lives_Counter".set_text (var2str (lives))
+	update_hud ()
 	return (lives)
 
 func set_lives (value):
@@ -55,13 +62,10 @@ func set_lives (value):
 			player_character.get_node ("Jingle_Player").stop ()
 			player_character.get_node ("Jingle_Player").play ()
 	lives = value
-	if ($"/root/Level/hud_layer/Lives_Counter"):	# Make sure the HUD is up to date.
-		$"/root/Level/hud_layer/Lives_Counter".set_text (var2str (lives))
+	update_hud ()
 	return
 
 func get_rings ():
-	if ($"/root/Level/hud_layer/Ring_Count"):	# Make sure the HUD is up to date.
-		$"/root/Level/hud_layer/Ring_Count".set_text (var2str (rings))
 	return (rings)
 
 func set_rings (value):
@@ -73,8 +77,7 @@ func set_rings (value):
 		if (lives >= 0 && rings >= $"/root/Level".rings_to_collect):	# Got enough rings to get an extra life!
 			$"/root/Level".rings_to_collect += game_space.RINGS_FOR_EXTRA_LIFE
 			self.lives += 1
-	if ($"/root/Level/hud_layer/Ring_Count"):				# Make sure the HUD is up to date.
-		$"/root/Level/hud_layer/Ring_Count".set_text (var2str (rings))
+	update_hud ()
 	return
 
 func set_score (value):
