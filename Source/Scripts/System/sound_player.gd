@@ -13,6 +13,7 @@ onready var Sound_Library = {
 	Death = preload ("res://Assets/Audio/Sound/Death.ogg"),
 	Ring = preload ("res://Assets/Audio/Sound/RingUp.ogg"),
 	LoseRings = preload ("res://Assets/Audio/Sound/RingLoss.ogg"),
+	Jump = preload ("res://Assets/Audio/Sound/Jump.ogg"),
 }
 
 func _ready():

@@ -47,8 +47,9 @@ func change_anim (new_anim):
 func jingle_finished ():
 	if ($"Jingle_Player"):	# Just in case!
 		$"Jingle_Player".stop ()
-	if ($"/root/Level/Music_Player"):	# Restart the level's music player.
-		$"/root/Level/Music_Player".play ()
+	if ($"/root/Level/Music_Player"):	# Restart the level's music player, if necessary.
+		if (!$"/root/Level/Music_Player".playing):
+			$"/root/Level/Music_Player".play ()
 	return
 
 func _input (ev):
@@ -66,6 +67,10 @@ func _input (ev):
 		sprite_anim_node.set_flip_h (false)
 	else:
 		dir_sign.x = 0
+
+	if (Input.is_action_pressed ("move_jump")):
+		print ("Jump")
+		sound_player.play_sound ("Jump")
 
 	if (Input.is_action_pressed ("DEBUG_resetpos")):			# FOR DEBUGGING ONLY.
 		print ("DEBUG: reset position to ", checkpoint_pos)

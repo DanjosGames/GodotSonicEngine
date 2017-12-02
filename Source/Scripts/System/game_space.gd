@@ -1,4 +1,4 @@
-### For use for game variables, constants etc. that will be accessed by every other scene/node/script throughout the game.
+### For use for game variables, constants etc. that will be accessed by other scenes/nodes/scripts throughout the game.
 # Also does some (basic) game management.
 
 extends Node
