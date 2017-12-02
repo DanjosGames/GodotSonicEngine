@@ -10,7 +10,10 @@ const DEFAULT_SCORE = 0			# Ditto score.
 
 var player_character = null		# Who is the player character? Set up by the player_<character name>.gd script in its _ready.
 
-# Set up variables for rings/collectibles, lives and score.
+onready var Game_Timer = Timer.new ()	# A universal timer.
+
+### Set up variables for rings/collectibles, lives and score.
+# These have setters and getters in order to allow gameplay-related events (extra lives, death etc.) to occur.
 var rings = DEFAULT_RINGS setget set_rings, get_rings		# Number of rings the player has.
 var lives = DEFAULT_LIVES setget set_lives, get_lives		# Lives left.
 var score = DEFAULT_SCORE setget set_score, get_score		# Score.
@@ -29,15 +32,16 @@ func reset_values ():
 
 # Updates the HUD as required (for rings and lives and score, etc.).
 func update_hud ():
-	if ($"/root/Level/hud_layer/Lives_Counter"):	# Make sure the HUD is up to date.
+	if ($"/root/Level/hud_layer/Lives_Counter"):
 		$"/root/Level/hud_layer/Lives_Counter".set_text (var2str (lives))
-	if ($"/root/Level/hud_layer/Ring_Count"):	# Make sure the HUD is up to date.
+	if ($"/root/Level/hud_layer/Ring_Count"):
 		$"/root/Level/hud_layer/Ring_Count".set_text (var2str (rings))
 	return
 
 ## SETTERS and GETTERS.
 # get_ and set_ functions to allow the HUD counters to be updated. Nothing else needs to be done; these variables are automatically
 # called via the setget definition for the variable (outside of the class; inside it, remember to use self!).
+# These also allow for events such as extra lives and death of the player.
 
 func get_lives ():
 	update_hud ()

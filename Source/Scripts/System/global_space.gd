@@ -1,6 +1,6 @@
-# This script is set up to use "/root/global_space" in the AutoLoad section of the project settings. This sets a global space for application-wide
-# settings, flags, variables etc. which need to be easily passed around from scene/node to scene/node. It'd be a better idea to set up other
-# singletons to use for actually gameplay-related stuff.
+# This script is set up to use "/root/global_space" in the AutoLoad section of the project settings. This sets a global space for
+# application-wide settings, flags, variables etc. which need to be easily passed around from scene/node to scene/node. It'd be a
+# better idea to set up other singletons to use for actually gameplay-related stuff.
 
 extends Node
 
@@ -47,7 +47,6 @@ func add_path_to_node (Scene_Path = "", Node_to_Add_to = "/root"):
 func go_to_scene (path):
 	var s = ResourceLoader.load (path)					# Load and...
 	new_scene = s.instance ()						# ...create an instance of the scene to go to.
-#	get_tree ().get_root ().add_child (new_scene)				# Add the scene to the current root of the scene tree.
 	add_child_to_node (new_scene, get_tree ().get_root ().get_path ())	# Add the scene to the current root of the scene tree.
 	get_tree ().set_current_scene (new_scene)				# Set the current scene being shown to the new scene...
 	current_scene.queue_free ()								# ...delete the old scene from the tree...
@@ -59,7 +58,7 @@ func go_to_scene (path):
 # Does something once only (if the <string> given isn't in the dictionary for do_once_only). After that, it gets added so it won't
 # do it again.
 # Returns true first time round (because it hadn't been done before!), false afterwards.
-# Probably won't want to use this function too much, but I doubt it'd affect performance adversely in most use cases.
+# Try and avoid using this overly in _process functions, but otherwise shouldn't make too much of an adverse impact on performance.
 func do_once_only (do_me):
 	if (do_me in do_once_dictionary):	# Already been done once!
 		return (false)			# Returns false as it has already been done before.
