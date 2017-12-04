@@ -14,6 +14,10 @@ const ACCEL_RATE = 50
 const DECEL_RATE = 30
 const FRICTION = ACCEL_RATE
 var TOP_SPEED = Vector2 (0, 0)	# The fastest the player can go. Actual values are set in player_<character_name>.gd.
+const GRAVITY_VEC = Vector2(0, 13440)
+const FLOOR_NORMAL = Vector2(0, -1)
+const SLOPE_SLIDE_STOP = 25.0
+const MIN_ONAIR_TIME = 0.1
 
 export(Vector2) var checkpoint_pos = Vector2(0,0)			# Co-ordinates of the last checkpoint reached/starting position.
 
@@ -23,6 +27,8 @@ var speed = Vector2 (0, 0)		# Speed...
 var velocity = Vector2 (0, 0)	# ...is controlled by these vectors.
 var brake_time = 0
 var anim_speed = Vector2 (0, 0)
+var onair_time = 0
+var on_floor = false
 
 func _ready ():
 	if ($"Jingle_Player"):
@@ -58,7 +64,6 @@ func _input (ev):
 
 	if (game_space.lives < 0 || !get ("visible")):
 		return
-
 	if (Input.is_action_pressed ("move_left") && dir_sign.x != 1):
 		dir_sign.x = -1
 		sprite_anim_node.set_flip_h (true)
@@ -124,7 +129,13 @@ func _process (delta):
 
 func _physics_process (delta):
 	## KEEP THESE AT THE BOTTOM OF THE FUNCTION, THESE ACTUALLY DO THE MOVEMENT AFTER EVERYTHING ELSE IS PROCESSED AND CALCULATED.
+	onair_time += delta
 	velocity = (speed * move_dir)					# Ensure movement is in the correct direction.
-#	print (velocity)								# FOR DEBUGGING ONLY.
-	move_and_slide (velocity)					# And move Sonic appropriately.
+	velocity += (GRAVITY_VEC * delta)
+	print (velocity)								# FOR DEBUGGING ONLY.
+	velocity = move_and_slide (velocity, FLOOR_NORMAL, SLOPE_SLIDE_STOP)
+	if (is_on_floor()):
+		onair_time = 0
+	on_floor = onair_time < MIN_ONAIR_TIME
 	return
+
