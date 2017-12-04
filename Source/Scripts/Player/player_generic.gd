@@ -107,6 +107,10 @@ func _process (delta):
 	else:
 		if (speed.x > 0):
 			speed.x -= FRICTION * delta		# Slow Sonic down according to the friction rating.
+
+	if (speed.x < 0):	# Ensure movement does come to a stop (rounding errors and all that), as <0 counts as movement!
+		speed.x = 0.0
+
 	# Change the animation, depending on what speed the player is moving at.
 	if (sprite_anim != "Die"):
 		if (speed.x > 0 && speed.x < 120):
