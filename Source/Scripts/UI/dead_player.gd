@@ -1,3 +1,5 @@
+### The player has gotten their character killed, this is what makes that work.
+
 extends Sprite
 
 var game_over_yeah = null	# Used to display the "game over" sprite.
@@ -5,7 +7,7 @@ var game_over_yeah = null	# Used to display the "game over" sprite.
 # Well, the player has had a death, so start the death animation playing.
 func _ready():
 	sound_player.play_sound ("Death")		# Play the death jingle.
-	$"../hud_layer".set ("layer", -99)		# Hide the HUD layer.
+	$"/root/Level/hud_layer".set ("layer", -99)		# Hide the HUD layer.
 	position = game_space.player_character.position			# Set the position of this to where the player is.
 	# Make sure that the player character is not visible and its camera is disabled during the animation.
 	game_space.player_character.set ("visible", false)
@@ -17,12 +19,12 @@ func _ready():
 	return
 
 # The animation is now over, so return the player to normal (after resetting various values), set them to a checkpoint position and
-# resume control.
+# resume control, unless they have no lives left in which case end the game.
 func player_has_died (done, key):
 	if (game_space.lives >= 0):
 		game_space.player_character.get_node ("Camera2D").current = true			# Not game over yet, so...
-		game_space.player_character.set ("visible", true)			# ...re-enable the sprite and camera.
-		$"../hud_layer".set ("layer", 32)			# ...reveal the HUD layer.
+		game_space.player_character.set ("visible", true)			# ...re-enable the sprite and camera...
+		$"/root/Level/hud_layer".set ("layer", 32)			# ...reveal the HUD layer.
 	else:
 		# The game is now over; all lives have been lost. Show the game over stuff.
 		game_over_yeah = global_space.add_path_to_node ("res://Scenes/UI/game_over.tscn", "/root/Level")

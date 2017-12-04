@@ -1,4 +1,4 @@
-This is a Sonic-inspired 2D game engine with [Godot Engine](https://godotengine.org/). It's not designed to be slavish (or even all that close) to "actual" Sonic physics, but more aiming towards being a fun experience to play.
+This is a Sonic-inspired 2D game engine powered by [Godot Engine](https://godotengine.org/). It's not designed to be slavish (or even all that close) to "actual" Sonic physics, but more aiming towards being a fun experience to play.
 
 This project's source code is released under the terms of [the MIT license](https://opensource.org/licenses/MIT); see LICENSE.md for further details.
 

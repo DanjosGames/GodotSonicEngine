@@ -45,8 +45,8 @@ func add_path_to_node (Scene_Path = "", Node_to_Add_to = "/root"):
 # Goes to the relevant scene; the scene is a path, so "res://<filename>". You should specify the path as absolute wherever possible.
 # Returns the resultant scene node as well.
 func go_to_scene (path):
-	var s = ResourceLoader.load (path)					# Load and...
-	new_scene = s.instance ()						# ...create an instance of the scene to go to.
+	var s = ResourceLoader.load (path)						# Load and...
+	new_scene = s.instance ()								# ...create an instance of the scene to go to.
 	add_child_to_node (new_scene, get_tree ().get_root ().get_path ())	# Add the scene to the current root of the scene tree.
 	get_tree ().set_current_scene (new_scene)				# Set the current scene being shown to the new scene...
 	current_scene.queue_free ()								# ...delete the old scene from the tree...
@@ -61,7 +61,7 @@ func go_to_scene (path):
 # Try and avoid using this overly in _process functions, but otherwise shouldn't make too much of an adverse impact on performance.
 func do_once_only (do_me):
 	if (do_me in do_once_dictionary):	# Already been done once!
-		return (false)			# Returns false as it has already been done before.
+		return (false)					# Returns false as it has already been done before.
 	# Not been done, so add it to the dictionary and return true.
 	do_once_dictionary [do_me] = "I_AM_DONE"
 	return (true)

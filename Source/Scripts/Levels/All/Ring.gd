@@ -11,8 +11,8 @@ func _ready():
 	return
 
 func got_ring (body):
-	if (!ring_taken && body is preload ("res://Scripts/Player/player_generic.gd")):	# Player has picked up the ring!
-		ring_taken = true				# So make sure this ring is set as taken.
+	if (!ring_taken && body is preload ("res://Scripts/Player/player_generic.gd")):
+		ring_taken = true				# Player has picked up the ring! So make sure this ring is set as taken.
 		visible = false					# And then as invisible, because of playing the sound.
 		game_space.rings += 1			# Increase the player's rings count.
 		$"AudioStreamPlayer2D".play ()	# And play the collected sound effect.

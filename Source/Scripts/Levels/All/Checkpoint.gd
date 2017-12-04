@@ -9,10 +9,10 @@ func _ready():
 
 func enter_checkpoint_body (body):
 	if (!taken && body is preload ("res://Scripts/Player/player_generic.gd")):
-		# The player has contacted the checkpoint, change the animation and set checkpoint_pos vector to the checkpoint's position.
+		# The player has passed the checkpoint, change the animation and set checkpoint_pos vector to the checkpoint's position.
 		taken = true
-		$"AudioStreamPlayer2D".play ()
 		print ("Checkpoint at ", position, " crossed.")
 		$"Sprite/AnimationPlayer".play_backwards ("spin_green")
 		body.checkpoint_pos = position
+		$"AudioStreamPlayer2D".play ()	# Play the checkpoint jingle.
 	return

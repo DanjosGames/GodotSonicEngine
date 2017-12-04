@@ -13,10 +13,6 @@ collision/safe_margin = 0.08
 animation = "Idle"
 playing = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-
-position = Vector2( 0, -0.5 )
-
 [node name="Jingle_Player" type="AudioStreamPlayer" parent="."]
 
 stream = null

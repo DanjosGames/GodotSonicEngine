@@ -1,5 +1,6 @@
 ### PLAYABLE CHARACTER: Sonic.
-# Sonic-only functionality goes in here. You should try avoiding referencing this script via collisions etc. unless there is no other option; use player_generic.gd instead.
+# Sonic-only functionality goes in here. You should try avoiding referencing this script via collisions etc. unless there is no
+# other option; use player_generic.gd instead.
 
 extends "res://Scripts/Player/player_generic.gd"
 
