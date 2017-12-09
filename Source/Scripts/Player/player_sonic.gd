@@ -8,6 +8,6 @@ func _ready():
 	print ("Sonic entered the world at ", position)
 	change_anim ("Idle")
 	checkpoint_pos = position			# FOR DEBUGGING ONLY. Should normally be set by the level.
-	TOP_SPEED = Vector2 (360, 360)		# Sonic's maximum speed.
+#	TOP_SPEED = Vector2 (360, 360)		# Sonic's maximum speed.
 	game_space.update_hud ()			# This needs to be in the player character's _ready script.
 	return

@@ -27,6 +27,8 @@ angular_damp = -1.0
 
 [node name="Sonic" parent="." instance=ExtResource( 5 )]
 
+position = Vector2( 187.267, 135.037 )
+
 [node name="Checkpoint" parent="." instance=ExtResource( 6 )]
 
 position = Vector2( 350, 140 )

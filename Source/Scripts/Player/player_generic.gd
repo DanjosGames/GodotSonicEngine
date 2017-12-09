@@ -2,7 +2,7 @@
 # All the variables, functions etc. that are common to all playable characters go in here.
 # Scripts should always check for nodes extending this script wherever possible.
 
-extends KinematicBody2D
+extends RigidBody2D
 
 # Set up sprite_anim and sprite_anim_node. The _node variable points to the animation node, of course.
 # sprite_anim contains the animation currently playing.
@@ -10,27 +10,31 @@ onready var sprite_anim_node = $"AnimatedSprite"
 onready var sprite_anim = sprite_anim_node.get_animation ()	# Make sure sprite_anim contains the default animation value.
 onready var sprite_anim_frames = sprite_anim_node.get_sprite_frames ()
 
-const ACCEL_RATE = 50
-const DECEL_RATE = 30
-const FRICTION = ACCEL_RATE
-var TOP_SPEED = Vector2 (0, 0)	# The fastest the player can go. Actual values are set in player_<character_name>.gd.
-const GRAVITY_VEC = Vector2(0, 13440)
-const FLOOR_NORMAL = Vector2(0, -1)
-const SLOPE_SLIDE_STOP = 25.0
-const MIN_ONAIR_TIME = 0.1
+var siding_left = false
+var jumping = false
+var stopping_jump = false
+var shooting = false
+
+var WALK_ACCEL = 800.0
+var WALK_DEACCEL = 800.0
+var WALK_MAX_VELOCITY = 200.0
+var AIR_ACCEL = 200.0
+var AIR_DEACCEL = 200.0
+var JUMP_VELOCITY = 460
+var STOP_JUMP_FORCE = 900.0
+
+var MAX_FLOOR_AIRBORNE_TIME = 0.15
+
+var airborne_time = 1e20
+var shoot_time = 1e20
+
+var MAX_SHOOT_POSE_TIME = 0.3
+
+var floor_h_velocity = 0.0
+
+var _new_anim = "Idle"
 
 export(Vector2) var checkpoint_pos = Vector2(0,0)			# Co-ordinates of the last checkpoint reached/starting position.
-
-var old_move = Vector2 (0, 0)	# These determine which direction the character is moving in.
-var move_dir = Vector2 (0, 0)	# These do the actual movement based on the direction.
-var speed = Vector2 (0, 0)		# Speed...
-var velocity = Vector2 (0, 0)	# ...is controlled by these vectors.
-var brake_time = 0
-var anim_speed = Vector2 (0, 0)
-var onair_time = 0
-var on_floor = false
-var is_moving = false
-var is_jumping = false
 
 func _ready ():
 	if ($"Jingle_Player"):
@@ -61,95 +65,128 @@ func jingle_finished ():
 	return
 
 func _input (ev):
-	is_moving = false
-	old_move = move_dir
-	# Direction is -1 if the player is moving left/up, 1 if right/down, and 0 otherwise.
-	# Can only move in one direction at a time (so pressing left while holding down right won't work)!
-
-	if (game_space.lives < 0 || !get ("visible")):
-		return
-	if (Input.is_action_pressed ("move_left")):
-#		sprite_anim_node.set_flip_h (true)
-		move_dir.x = -1
-		is_moving = true
-	elif (Input.is_action_pressed ("move_right")):
-#		sprite_anim_node.set_flip_h (false)
-		move_dir.x = 1
-		speed.y = 120
-		is_moving = true
-	if (Input.is_action_pressed ("move_jump")):
-		print ("Jump")
-		is_jumping = true
-		move_dir.y = -1
-		sound_player.play_sound ("Jump")
-
-	if (old_move.x != move_dir.x && is_moving):
-		speed.x = 0
-
-	if (Input.is_action_pressed ("DEBUG_resetpos")):			# FOR DEBUGGING ONLY.
-		print ("DEBUG: reset position to ", checkpoint_pos)
-		speed = Vector2(0, 0)
-		position = (checkpoint_pos)
-
-	if (Input.is_action_pressed ("DEBUG_kill")):			# FOR DEBUGGING ONLY.
-		print ("DEBUG: Kill")
-		speed = Vector2(0, 0)
-		game_space.lives -= 1
-
-	if (Input.is_action_pressed ("DEBUG_extralife")):			# FOR DEBUGGING ONLY.
-		print ("DEBUG: Extra life")
-		game_space.lives += 1
-
-	if (Input.is_action_pressed ("DEBUG_loserings")):			# FOR DEBUGGING ONLY.
-		print ("DEBUG: Lose rings")
-		game_space.rings = 0
-
-	if (Input.is_action_pressed ("DEBUG_gainrings")):			# FOR DEBUGGING ONLY.
-		print ("DEBUG: Gain rings")
-		game_space.rings += 10
-
 	return
 
 func _process (delta):
-	if (speed.x < 0):	# Ensure movement does come to a stop (rounding errors and all that), as <0 counts as movement!
-		speed.x = 0.0
-
-	if (is_moving):
-		if (speed.x < TOP_SPEED.x):
-			speed.x += ACCEL_RATE * delta	# Speed Sonic up until he is at top speed.
-	else:
-		if (speed.x > 0):
-			speed.x -= FRICTION * delta		# Slow Sonic down according to the friction rating.
-
-	if (is_jumping):
-		if (move_dir.y == -1):
-			speed.y += 120 * delta
-			print (onair_time)
-			if ((onair_time * 60) > 60):
-				move_dir.y = 1
-		elif (move_dir.y == 1):
-			speed.y = 120
-
-	# Change player animation depending on direction.
-	sprite_anim_node.set_flip_h (true if (move_dir.x) < 0 else false)
-	# Change the animation, depending on what speed the player is moving at.
-	if (sprite_anim != "Die"):
-		if (speed.x > 0 && speed.x < 120):
-			change_anim ("Walk")
-		elif (speed.x >= 120):
-			change_anim ("Jog")
-		else:
-			change_anim ("Idle")	# This is the default animation.
-
 	return
 
 func _physics_process (delta):
-	## KEEP THESE AT THE BOTTOM OF THE FUNCTION, THESE ACTUALLY DO THE MOVEMENT AFTER EVERYTHING ELSE IS PROCESSED AND CALCULATED.
-	onair_time += delta
-	velocity = (speed * move_dir) + (GRAVITY_VEC * delta)
-	velocity = move_and_slide (velocity, FLOOR_NORMAL, SLOPE_SLIDE_STOP)
-	if (is_on_floor ()):
-		onair_time = 0
-	on_floor = (onair_time < MIN_ONAIR_TIME)
 	return
 
+func _integrate_forces (s):
+	var lv = s.get_linear_velocity()
+	var step = s.get_step()
+	
+	var new_siding_left = siding_left
+	
+	# Get the controls
+	var move_left = Input.is_action_pressed ("move_left")
+	var move_right = Input.is_action_pressed ("move_right")
+	var jump = Input.is_action_pressed ("move_jump")
+	
+	# Deapply prev floor velocity
+	lv.x -= floor_h_velocity
+	floor_h_velocity = 0.0
+	
+	# Find the floor (a contact with upwards facing collision normal)
+	var found_floor = false
+	var floor_index = -1
+	
+	for x in range(s.get_contact_count()):
+		var ci = s.get_contact_local_normal(x)
+		if ci.dot(Vector2(0, -1)) > 0.6:
+			found_floor = true
+			floor_index = x
+	
+	# A good idea when implementing characters of all kinds,
+	# compensates for physics imprecision, as well as human reaction delay.
+	
+	if found_floor:
+		airborne_time = 0.0
+	else:
+		airborne_time += step # Time it spent in the air
+	
+	var on_floor = airborne_time < MAX_FLOOR_AIRBORNE_TIME
+
+	# Process jump
+	if jumping:
+		if lv.y > 0:
+			# Set off the jumping flag if going down
+			jumping = false
+		elif not jump:
+			stopping_jump = true
+		
+		if stopping_jump:
+			lv.y += STOP_JUMP_FORCE * step
+	
+	if on_floor:
+		# Process logic when character is on floor
+		if move_left and not move_right:
+			if lv.x > -WALK_MAX_VELOCITY:
+				lv.x -= WALK_ACCEL * step
+		elif move_right and not move_left:
+			if lv.x < WALK_MAX_VELOCITY:
+				lv.x += WALK_ACCEL * step
+		else:
+			var xv = abs(lv.x)
+			xv -= WALK_DEACCEL * step
+			if xv < 0:
+				xv = 0
+			lv.x = sign(lv.x) * xv
+		
+		# Check jump
+		if not jumping and jump:
+			lv.y = -JUMP_VELOCITY
+			jumping = true
+			stopping_jump = false
+#			$sound_jump.play()
+		
+		# Check siding
+		if lv.x < 0 and move_left:
+			new_siding_left = true
+		elif lv.x > 0 and move_right:
+			new_siding_left = false
+		if jumping:
+			print ("jumping")
+		elif abs(lv.x) < 0.1:
+			change_anim ("Idle")
+		else:
+			change_anim ("Jog")
+	else:
+		# Process logic when the character is in the air
+		if move_left and not move_right:
+			if lv.x > -WALK_MAX_VELOCITY:
+				lv.x -= AIR_ACCEL * step
+		elif move_right and not move_left:
+			if lv.x < WALK_MAX_VELOCITY:
+				lv.x += AIR_ACCEL * step
+		else:
+			var xv = abs(lv.x)
+			xv -= AIR_DEACCEL * step
+			if xv < 0:
+				xv = 0
+			lv.x = sign(lv.x) * xv
+		
+#		if lv.y < 0:
+#			_new_anim = "jumping"
+#		else:
+#			_new_anim = "falling"
+	
+	# Update siding
+	if new_siding_left != siding_left:
+		if new_siding_left:
+			sprite_anim_node.set_flip_h (true)
+		else:
+			sprite_anim_node.set_flip_h (false)
+		
+		siding_left = new_siding_left
+	
+	# Apply floor velocity
+	if found_floor:
+		floor_h_velocity = s.get_contact_collider_velocity_at_position(floor_index).x
+		lv.x += floor_h_velocity
+	
+	# Finally, apply gravity and set back the linear velocity
+	lv += s.get_total_gravity() * step
+	s.set_linear_velocity(lv)
+	return
