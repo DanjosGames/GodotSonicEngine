@@ -20,7 +20,7 @@ var WALK_DEACCEL = 800.0
 var WALK_MAX_VELOCITY = 200.0
 var AIR_ACCEL = 200.0
 var AIR_DEACCEL = 200.0
-var JUMP_VELOCITY = 460
+var JUMP_VELOCITY = 230
 var STOP_JUMP_FORCE = 900.0
 
 var MAX_FLOOR_AIRBORNE_TIME = 0.15
@@ -139,7 +139,7 @@ func _integrate_forces (s):
 			lv.y = -JUMP_VELOCITY
 			jumping = true
 			stopping_jump = false
-#			$sound_jump.play()
+			sound_player.play_sound ("Jump")
 		
 		# Check siding
 		if lv.x < 0 and move_left:
