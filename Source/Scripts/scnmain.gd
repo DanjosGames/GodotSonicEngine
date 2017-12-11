@@ -1,6 +1,6 @@
 ### Eventually, this'll be something considerably more fancy and involved than a "press any key" prompt...
 
-extends Label
+extends Control
 
 func _ready ():
 	print ("Main scene loaded...")

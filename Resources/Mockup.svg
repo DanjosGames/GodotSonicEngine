@@ -12,9 +12,9 @@
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.1"
    id="svg2"
-   width="2505"
+   width="2510"
    height="1160"
-   viewBox="0 0 2505 1160"
+   viewBox="0 0 2510 1160"
    sodipodi:docname="Mockup.svg"
    inkscape:version="0.92.2 (5c3e80d, 2017-08-06)">
   <metadata
@@ -32,46 +32,16 @@
   <defs
      id="defs6">
     <marker
-       inkscape:isstock="true"
-       style="overflow:visible"
-       id="marker1213"
-       refX="0"
-       refY="0"
-       orient="auto"
-       inkscape:stockid="Arrow1Lend">
-      <path
-         transform="matrix(-0.8,0,0,-0.8,-10,0)"
-         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
-         d="M 0,0 5,-5 -12.5,0 5,5 Z"
-         id="path1211"
-         inkscape:connector-curvature="0" />
-    </marker>
-    <marker
        inkscape:stockid="Arrow1Lstart"
        orient="auto"
        refY="0"
        refX="0"
-       id="Arrow1Lstart"
-       style="overflow:visible"
-       inkscape:isstock="true">
-      <path
-         id="path841"
-         d="M 0,0 5,-5 -12.5,0 5,5 Z"
-         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
-         transform="matrix(0.8,0,0,0.8,10,0)"
-         inkscape:connector-curvature="0" />
-    </marker>
-    <marker
-       inkscape:stockid="Arrow1Lstart"
-       orient="auto"
-       refY="0"
-       refX="0"
-       id="Arrow1Lstart-2"
+       id="Arrow1Lstart-2-3"
        style="overflow:visible"
        inkscape:isstock="true">
       <path
          inkscape:connector-curvature="0"
-         id="path841-9"
+         id="path841-9-6"
          d="M 0,0 5,-5 -12.5,0 5,5 Z"
          style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
          transform="matrix(0.8,0,0,0.8,10,0)" />
@@ -95,7 +65,7 @@
     <marker
        inkscape:isstock="true"
        style="overflow:visible"
-       id="marker1213-1"
+       id="marker1213-1-7"
        refX="0"
        refY="0"
        orient="auto"
@@ -105,7 +75,7 @@
          transform="matrix(-0.8,0,0,-0.8,-10,0)"
          style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
          d="M 0,0 5,-5 -12.5,0 5,5 Z"
-         id="path1211-2" />
+         id="path1211-2-5" />
     </marker>
   </defs>
   <sodipodi:namedview
@@ -121,15 +91,15 @@
      inkscape:window-height="1001"
      id="namedview4"
      showgrid="false"
-     inkscape:zoom="0.5"
-     inkscape:cx="856"
-     inkscape:cy="498"
+     inkscape:zoom="0.68358714"
+     inkscape:cx="1259"
+     inkscape:cy="579"
      inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg2" />
   <g
-     transform="translate(407.67187,1.6822701)"
+     transform="matrix(0.99876403,0,0,0.99858602,411.21606,2.4999998)"
      id="g1311">
     <image
        y="0"
@@ -166,7 +136,7 @@
        inkscape:connector-curvature="0"
        id="path34"
        d="m -42,168 h -242 l -8,724 256,42"
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow1Lstart-2);marker-end:url(#Arrow1Lend)" />
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#Arrow1Lstart-2-3);marker-end:url(#Arrow1Lend)" />
     <text
        id="text14-3-7"
        y="232.32812"
@@ -187,7 +157,7 @@
        inkscape:connector-curvature="0"
        id="path1203"
        d="M 1940,350 H 1488"
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker1213-1)" />
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker1213-1-7)" />
     <text
        id="text14-3-7-3"
        y="1057.9896"
