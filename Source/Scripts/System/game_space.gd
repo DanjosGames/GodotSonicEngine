@@ -50,14 +50,11 @@ func get_lives ():
 func set_lives (value):
 	if (value < lives):	# The player has died! Reset things to default values, set the player's position to the checkpoint etc.
 		rings = 0
-#		player_character.dir_sign = Vector2 (0,0)	# Stop...
-		player_character.move_dir = Vector2 (0,0)	# ...the...
-		player_character.velocity = Vector2 (0,0)	# ...player...
-		player_character.speed = Vector2 (0,0)		# ...moving.
+		player_character.set_linear_velocity (Vector2 (0,0))	# Stop the player moving.
+		print (player_character.checkpoint_pos)
 		player_character.change_anim ("Die")
 		global_space.add_path_to_node ("res://Scenes/UI/dead_player.tscn", "/root/Level")
 		player_character.change_anim ("Idle")		# Commenting this line out makes for a fun little bug!
-		player_character.position = player_character.checkpoint_pos
 	elif (value > lives):	# The player has got an extra life! Play the relevant music (if possible)!
 		if ($"/root/Level/Music_Player"):
 			$"/root/Level/Music_Player".stop ()

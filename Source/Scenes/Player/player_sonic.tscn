@@ -59,6 +59,8 @@ height = 20.0
 
 [node name="Sonic" instance=ExtResource( 1 )]
 
+position = Vector2( 187, 137 )
+mass = 30.0
 script = ExtResource( 2 )
 checkpoint_pos = Vector2( 0, 0 )
 
