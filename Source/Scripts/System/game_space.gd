@@ -51,7 +51,6 @@ func set_lives (value):
 	if (value < lives):	# The player has died! Reset things to default values, set the player's position to the checkpoint etc.
 		rings = 0
 		player_character.set_linear_velocity (Vector2 (0,0))	# Stop the player moving.
-		print (player_character.checkpoint_pos)
 		player_character.change_anim ("Die")
 		global_space.add_path_to_node ("res://Scenes/UI/dead_player.tscn", "/root/Level")
 		player_character.change_anim ("Idle")		# Commenting this line out makes for a fun little bug!
