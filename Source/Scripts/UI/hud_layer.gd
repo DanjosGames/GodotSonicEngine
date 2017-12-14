@@ -7,8 +7,8 @@ func _ready():
 	# Make sure the tweens are set up whenever this scene is instantiated.
 	$"Tweens/Tween_Rings".set_tween_process_mode (Tween.TWEEN_PROCESS_IDLE)
 	$"Tweens/Tween_Lives".set_tween_process_mode (Tween.TWEEN_PROCESS_IDLE)
-	$"Tweens/Tween_Rings".interpolate_property ($"Ring_Count", "custom_colors/font_color", Color ("#ff0000"), Color ("#ffff00"), 1.75, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN, 0.25)
-	$"Tweens/Tween_Lives".interpolate_property ($"Lives_Counter", "custom_colors/font_color", Color ("#ff0000"), Color ("#ffff00"), 1.75, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN, 0.25)
+	$"Tweens/Tween_Rings".interpolate_property ($"Ring_Count", "custom_colors/font_color", Color ("#ff0000"), Color ("#ffff00"), 1.0, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN, 0.25)
+	$"Tweens/Tween_Lives".interpolate_property ($"Lives_Counter", "custom_colors/font_color", Color ("#ff0000"), Color ("#ffff00"), 1.0, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN, 0.25)
 	$"Tweens/Tween_Rings".set_repeat (true)
 	$"Tweens/Tween_Lives".set_repeat (true)
 	return

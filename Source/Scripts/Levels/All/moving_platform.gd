@@ -1,4 +1,5 @@
-### Taken from the Godot demo suite, this implements a moving platform without too much trouble.
+### Taken from the Godot demo suite, this implements a moving platform without too much trouble. Allows x and y movement.
+# Motion is a range, remember. Cycle determines how fast it moves.
 
 extends Node2D
 
@@ -15,6 +16,6 @@ func _physics_process (delta):
 	accum = fmod (accum, PI * 2.0)
 	var d = sin (accum)
 	var xf = Transform2D ()
-	xf [2]= motion * d
+	xf [2] = motion * d
 	$platform.transform = xf
 	return

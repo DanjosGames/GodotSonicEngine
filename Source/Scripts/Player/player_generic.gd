@@ -69,9 +69,9 @@ func jingle_finished ():
 	return
 
 func _input (ev):
-	move_left = false
-	move_right = false
-	jump = false
+#	move_left = false
+#	move_right = false
+#	jump = false
 	# Get the controls
 	if (visible == false):
 		return
