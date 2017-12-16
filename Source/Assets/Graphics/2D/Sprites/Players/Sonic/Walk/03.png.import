@@ -2,7 +2,11 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Walk.png-464b1ded375f41e8a517a117aeda3b98.stex"
+path="res://.import/03.png-69ec687d981e8832660c7ef9d556b45b.stex"
+
+[deps]
+
+source_md5="3dfeb67bab2e658550f22d0b71b51f38"
 
 [params]
 
