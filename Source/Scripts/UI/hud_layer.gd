@@ -1,3 +1,6 @@
+### The HUD layer controller.
+# Plays animations as necessary, otherwise most of this is controlled in the game space script.
+
 extends CanvasLayer
 
 var rings_zero = false	# To make sure the flashing animation for no rings is only called as needed.

@@ -43,10 +43,12 @@ func add_path_to_node (Scene_Path = "", Node_to_Add_to = "/root"):
 # go_to_scene
 # global_space.go_to_scene (path)
 # Goes to the relevant scene; the scene is a path, so "res://<filename>". You should specify the path as absolute wherever possible.
-# Returns the resultant scene node as well.
+# Note that it deletes the previous scene!
+# Returns the resultant scene node.
 func go_to_scene (path):
 	var s = ResourceLoader.load (path)						# Load and...
 	new_scene = s.instance ()								# ...create an instance of the scene to go to.
+	print ("Changing from ", current_scene.get_name (), " to ", new_scene.get_name (), ".")	# FOR DEBUGGING ONLY.
 	add_child_to_node (new_scene, get_tree ().get_root ().get_path ())	# Add the scene to the current root of the scene tree.
 	get_tree ().set_current_scene (new_scene)				# Set the current scene being shown to the new scene...
 	current_scene.queue_free ()								# ...delete the old scene from the tree...

@@ -4,9 +4,9 @@
 extends Node
 
 const RINGS_FOR_EXTRA_LIFE = 100	# Number of rings before an extra life. Don't use this directly...
-const DEFAULT_RINGS = 0			# Default number of player rings.
-const DEFAULT_LIVES = 3			# Ditto lives.
-const DEFAULT_SCORE = 0			# Ditto score.
+const DEFAULT_RINGS = 0				# Default number of player rings.
+const DEFAULT_LIVES = 3				# Ditto lives.
+const DEFAULT_SCORE = 0				# Ditto score.
 
 var player_character = null		# Who is the player character? Set up by the player_<character name>.gd script in its _ready.
 
@@ -30,7 +30,7 @@ func reset_values ():
 	score = DEFAULT_SCORE
 	return
 
-# Updates the HUD as required (for rings and lives and score, etc.).
+# Updates the HUD as required (for rings and lives and score, etc.). Called by the setters/getters for rings/score/time/lives.
 func update_hud ():
 	if ($"/root/Level/hud_layer/Lives_Counter"):
 		$"/root/Level/hud_layer/Lives_Counter".set_text (var2str (lives))
@@ -49,7 +49,7 @@ func get_lives ():
 
 func set_lives (value):
 	if (value < lives):	# The player has died! Reset things to default values, set the player's position to the checkpoint etc.
-		rings = 0
+		rings = 0	# Remove any and all rings the player had on them.
 		player_character.set_linear_velocity (Vector2 (0,0))	# Stop the player moving.
 		player_character.change_anim ("Die")
 		global_space.add_path_to_node ("res://Scenes/UI/dead_player.tscn", "/root/Level")

@@ -2,7 +2,7 @@
 
 extends Sprite
 
-var game_over_yeah = null	# Used to display the "game over" sprite.
+var game_over_yeah = null	# Used to handle the game over node.
 
 # Well, the player has had a death, so start the death animation playing.
 func _ready():
@@ -24,7 +24,7 @@ func player_has_died (done, key):
 	if (game_space.lives >= 0):
 		game_space.player_character.get_node ("Camera2D").current = true			# Not game over yet, so...
 		game_space.player_character.set ("visible", true)			# ...re-enable the sprite and camera...
-		$"/root/Level/hud_layer".set ("layer", 32)			# ...reveal the HUD layer.
+		$"/root/Level/hud_layer".set ("layer", 32)			# ...and re-reveal the HUD layer.
 	else:
 		# The game is now over; all lives have been lost. Show the game over stuff.
 		game_over_yeah = global_space.add_path_to_node ("res://Scenes/UI/game_over.tscn", "/root/Level")

@@ -13,7 +13,6 @@ onready var sprite_anim_frames = sprite_anim_node.get_sprite_frames ()
 var siding_left = false
 var jumping = false
 var stopping_jump = false
-var shooting = false
 
 var move_left = false
 var move_right = false
@@ -30,13 +29,8 @@ var STOP_JUMP_FORCE = 900.0
 var MAX_FLOOR_AIRBORNE_TIME = 0.15
 
 var airborne_time = 1e20
-var shoot_time = 1e20
-
-var MAX_SHOOT_POSE_TIME = 0.3
 
 var floor_h_velocity = 0.0
-
-var _new_anim = "Idle"
 
 export(Vector2) var checkpoint_pos = Vector2(0,0)			# Co-ordinates of the last checkpoint reached/starting position.
 
@@ -69,26 +63,30 @@ func jingle_finished ():
 	return
 
 func _input (ev):
-#	move_left = false
-#	move_right = false
-#	jump = false
 	# Get the controls
-	if (visible == false):
+	if (visible == false || sprite_anim == "Die"):	# Player has died, so movement should not be possible!
+		move_left = false	# Make sure...
+		move_right = false	# ...the player cannot...
+		jump = false		# ...be moving or jumping etc. once they're respawned.
 		return
 	move_left = Input.is_action_pressed ("move_left")
 	move_right = Input.is_action_pressed ("move_right")
 	jump = Input.is_action_pressed ("move_jump")
 
-	if (Input.is_action_pressed ("DEBUG_kill")):
+	if (Input.is_action_pressed ("DEBUG_kill")):	# FOR DEBUGGING ONLY. Kill the player!
+		print ("DEBUG: kill player.")
 		game_space.lives -=1
 
-	if (Input.is_action_pressed ("DEBUG_extralife")):
+	if (Input.is_action_pressed ("DEBUG_extralife")):	# FOR DEBUGGING ONLY. Give an extra life.
+		print ("DEBUG: extra life.")
 		game_space.lives += 1
 
-	if (Input.is_action_pressed ("DEBUG_gainrings")):
+	if (Input.is_action_pressed ("DEBUG_gainrings")):	# FOR DEBUGGING ONLY. Gain 10 rings.
+		print ("DEBUG: gain rings.")
 		game_space.rings += 10
 
-	if (Input.is_action_pressed ("DEBUG_loserings")):
+	if (Input.is_action_pressed ("DEBUG_loserings")):	# FOR DEBUGGING ONLY. Lose all rings.
+		print ("DEBUG: lose rings.")
 		game_space.rings = 0
 
 	return
@@ -100,9 +98,18 @@ func _physics_process (delta):
 	return
 
 func _integrate_forces (s):
-	if (visible == false || Input.is_action_pressed ("DEBUG_resetpos")):
-		s.set_linear_velocity (Vector2 (0,0))
-		s.set_transform (Transform2D (0, checkpoint_pos))
+	if (sprite_anim == "Die" || visible == false):	# Player's dead, make sure they don't move, reset to start/checkpoint position.
+		s.set_linear_velocity (Vector2 (0,0))	# Bring any remaining movement speed to a halt.
+		s.set_transform (Transform2D (0, checkpoint_pos))	# Move the player back to the start/the last checkpoint passed.
+		return
+	if (Input.is_action_pressed ("DEBUG_resetpos")):	# FOR DEBUGGING ONLY. Reset player to last checkpoint crossed, or start.
+		print ("DEBUG: move player to last good checkpoint position.")
+		move_left = false	# Make sure...
+		move_right = false	# ...the player cannot...
+		jump = false		# ...be moving or jumping etc. once they're respawned.
+		s.set_linear_velocity (Vector2 (0,0))	# Bring any remaining movement speed to a halt.
+		s.set_transform (Transform2D (0, checkpoint_pos))	# Move the player back to the start/the last checkpoint passed.
+		change_anim ("Idle")
 		return
 	var lv = s.get_linear_velocity()
 	var step = s.get_step()
@@ -117,9 +124,9 @@ func _integrate_forces (s):
 	var found_floor = false
 	var floor_index = -1
 
-	for x in range(s.get_contact_count()):
-		var ci = s.get_contact_local_normal(x)
-		if ci.dot(Vector2(0, -1)) > 0.6:
+	for x in range (s.get_contact_count ()):
+		var ci = s.get_contact_local_normal (x)
+		if ci.dot (Vector2 (0, -1)) > 0.6:
 			found_floor = true
 			floor_index = x
 
@@ -192,9 +199,9 @@ func _integrate_forces (s):
 			lv.x = sign(lv.x) * xv
 		
 #		if lv.y < 0:
-#			_new_anim = "jumping"
+#			change_anim ("Jumping")
 #		else:
-#			_new_anim = "falling"
+#			change_anim ("Falling")
 
 	# Update siding
 	if new_siding_left != siding_left:
