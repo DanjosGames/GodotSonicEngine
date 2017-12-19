@@ -8,7 +8,7 @@
 extends AudioStreamPlayer
 
 onready var Sound_Library = {
-	# ADD SOUND EFFECTS HERE.
+	# Put all the sound effects to be used globally here.
 	No_Sound = preload ("res://Assets/Audio/Sound/No_Sound.ogg"),	# LEAVE ME HERE. KEEP ME AS THE FIRST ITEM IN THE LIST.
 	Death = preload ("res://Assets/Audio/Sound/Death.ogg"),
 	Jump = preload ("res://Assets/Audio/Sound/Jump.ogg"),
