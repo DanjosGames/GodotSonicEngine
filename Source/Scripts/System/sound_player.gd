@@ -33,3 +33,9 @@ func play_sound (item = "No_Sound"):
 	# Sound not found, so give an error.
 	print ("ERROR: \"", item, "\" not found!")
 	return (false)
+
+# stop_sound
+# Stops the sound player (if you're using looped sound effects, for example).
+func stop_sound ():
+	stop ()
+	return
