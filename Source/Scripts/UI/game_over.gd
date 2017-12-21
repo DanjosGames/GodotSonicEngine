@@ -5,7 +5,9 @@
 extends Sprite
 
 func _ready():
-	if ($"/root/Level/Music_Player"):
+	print ("Game over!")
+	$"/root/Level/hud_layer".set ("layer", -99)
+	if (has_node ("/root/Level/Music_Player")):
 		$"/root/Level/Music_Player".stop ()	# Stop whatever other music is playing, and play the game over music instead.
 		music_player.play_music ("res://Assets/Audio/Music/63_-_Game_Over.ogg")
 	get_tree ().set_pause (true)		# Pause the game in the background.

@@ -35,7 +35,7 @@ var floor_h_velocity = 0.0
 export(Vector2) var checkpoint_pos = Vector2(0,0)			# Co-ordinates of the last checkpoint reached/starting position.
 
 func _ready ():
-	if ($"Jingle_Player"):
+	if (has_node ("Jingle_Player")):
 		$"Jingle_Player".connect ("finished", self, "jingle_finished")
 	print ("Generic player functions initialised.")
 	game_space.player_character = $"."	# Figure out who the current player character is...
@@ -55,9 +55,9 @@ func change_anim (new_anim):
 
 # If whatever Jingle_Player is playing was finished, resume the level's Music_Player.
 func jingle_finished ():
-	if ($"Jingle_Player"):	# Just in case!
+	if (has_node ("Jingle_Player")):	# Just in case!
 		$"Jingle_Player".stop ()
-	if ($"/root/Level/Music_Player"):	# Restart the level's music player, if necessary.
+	if (has_node ("/root/Level/Music_Player")):	# Restart the level's music player, if necessary.
 		if (!$"/root/Level/Music_Player".playing):
 			$"/root/Level/Music_Player".play ()
 	return

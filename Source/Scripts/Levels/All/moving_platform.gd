@@ -3,9 +3,8 @@
 
 extends Node2D
 
-# Member variables
 export var motion = Vector2 ()	# The range of movement that the platform moves around with.
-export var cycle = 1.0
+export var cycle = 1.0		# Controls the speed of movement.
 var accum = 0.0
 
 func _ready ():

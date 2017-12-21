@@ -4,8 +4,6 @@
 extends AudioStreamPlayer
 
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
 	print ("Music player ready.")
 	return
 
@@ -19,9 +17,9 @@ func play_music (path_to_music = ""):
 		play_me = load (path_to_music)
 	else:	# No path was specified, so use whatever is in the stream to play.
 		play_me = stream
-	if (stream == null && play_me == null):	# Nothing to play - the stream was empty and no file was specified to play.
+	if (stream == null && play_me == null):	# Nothing to play - the stream was empty and no valid file was specified to play.
 		# Can't play nothing, so error out!
-		print ("ERROR: Can't play nothing; no file was specified to play and/or there was no stream set up before.")
+		print ("ERROR: Can't play nothing; no valid file was specified to play and/or there was no stream set up before.")
 		return (false)
 	stream = play_me	# Everything's OK, so set the stream as needed...
 	play ()				# ...play the music...

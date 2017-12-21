@@ -32,9 +32,9 @@ func reset_values ():
 
 # Updates the HUD as required (for rings and lives and score, etc.). Called by the setters/getters for rings/score/time/lives.
 func update_hud ():
-	if ($"/root/Level/hud_layer/Lives_Counter"):
+	if (has_node ("/root/Level/hud_layer/Lives_Counter")):
 		$"/root/Level/hud_layer/Lives_Counter".set_text (var2str (lives))
-	if ($"/root/Level/hud_layer/Ring_Count"):
+	if (has_node ("/root/Level/hud_layer/Ring_Count")):
 		$"/root/Level/hud_layer/Ring_Count".set_text (var2str (rings))
 	return
 
@@ -55,7 +55,7 @@ func set_lives (value):
 		global_space.add_path_to_node ("res://Scenes/UI/dead_player.tscn", "/root/Level")
 		player_character.change_anim ("Idle")		# Commenting this line out makes for a fun little bug!
 	elif (value > lives):	# The player has got an extra life! Play the relevant music (if possible)!
-		if ($"/root/Level/Music_Player"):
+		if (has_node ("/root/Level/Music_Player")):
 			$"/root/Level/Music_Player".stop ()
 		if (player_character.has_node ("Jingle_Player")):
 			player_character.get_node ("Jingle_Player").stream = load ("res://Assets/Audio/Music/One_Up.ogg")
@@ -74,7 +74,7 @@ func set_rings (value):
 		# Have lost rings through being hurt, as opposed to insta-kill etc.
 		sound_player.play_sound ("LoseRings")				# Play the jingle.
 	rings = value
-	if ($"/root/Level"):
+	if (has_node ("/root/Level")):
 		if (lives >= 0 && rings >= $"/root/Level".rings_to_collect):	# Got enough rings to get an extra life!
 			$"/root/Level".rings_to_collect += game_space.RINGS_FOR_EXTRA_LIFE
 			self.lives += 1

@@ -357,3 +357,7 @@ const LightGrey = Color8 (211,211,211)
 const DarkGray = Color8 (169,169,169)
 const LightSlateGray = Color8 (119,136,153)
 const SlateGray = Color8 (112,128,144)
+
+func _ready ():
+	print ("Colour space variables loaded.")
+	return
