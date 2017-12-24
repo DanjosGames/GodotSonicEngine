@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/Graphics/2D/Sprites/UI/Sonic_Lives_Icon.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Graphics/2D/Sprites/UI/stopwatch.png" type="Texture" id=5]
 
-[node name="hud_layer" type="CanvasLayer" index="0"]
+[node name="hud_layer" type="CanvasLayer"]
 
 layer = 32
 offset = Vector2( 0, 0 )
