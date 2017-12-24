@@ -13,6 +13,13 @@ func _ready():
 	print ("Generic level functionality ready.")
 	if (has_node ("/root/Level/hud_layer")):
 		$"/root/Level/hud_layer".set ("layer", 32)
+	if (has_node ("/root/Level/Timer_Level")):
+		$"Timer_Level".connect ("timeout", self, "timer_add")
 	return
 
-### Might be a good idea to try and avoid _process functions here! Might not be avoidable, but keep it to a minimum.
+# Controls the level timer. So long as the timer isn't paused, it'll add a second on to it.
+func timer_add ():
+	if (game_space.timer_paused):	# If the timer has been paused, don't add to the game time.
+		return
+	game_space.seconds += 1
+	return

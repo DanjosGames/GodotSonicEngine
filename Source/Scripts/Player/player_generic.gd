@@ -91,8 +91,8 @@ func _input (ev):
 
 	if (Input.is_action_pressed ("DEBUG_timeover")):	# FOR DEBUGGING ONLY. Time over!
 		print ("DEBUG: time over.")
-		$"/root/Level".minutes = 99
-		$"/root/Level".seconds = 99
+		game_space.minutes = 99
+		game_space.seconds = 99
 
 	return
 
@@ -225,4 +225,23 @@ func _integrate_forces (s):
 	# Finally, apply gravity and set back the linear velocity
 	lv += s.get_total_gravity() * step
 	s.set_linear_velocity(lv)
+	return
+
+# reset_player
+# Resets player info either at the point of a new game, or after they've died.
+# is_new_game == false, player has died, otherwise it's a new game, so do the extra stuff needed.
+# Note that this does NOT control the level timer(s); if they're paused or not, or the time they're set to.
+func reset_player (is_new_game):
+	if (is_new_game):
+		print ("NEW GAME")
+		game_space.score = 0
+		game_space.lives = game_space.DEFAULT_LIVES
+		# TODO: Start position code here.
+	else:	# Stuff that is for losing a life.
+		print ("PLAYER DEATH")
+		position = checkpoint_pos
+	# Everything else is common to both death and a new game.
+	game_space.rings = 0
+	set_linear_velocity (Vector2 (0, 0))	# Shouldn't be moving, but just in case.
+	change_anim ("Idle")
 	return

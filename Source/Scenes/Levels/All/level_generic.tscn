@@ -4,7 +4,7 @@
 
 [node name="Level" type="Node"]
 
-[node name="Music_Player" type="AudioStreamPlayer" parent="."]
+[node name="Music_Player" type="AudioStreamPlayer" parent="." index="0"]
 
 stream = null
 volume_db = 0.0
@@ -12,13 +12,13 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="Timer_Level" type="Timer" parent="."]
+[node name="Timer_Level" type="Timer" parent="." index="1"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = false
-autostart = false
+autostart = true
 
-[node name="hud_layer" parent="." instance=ExtResource( 1 )]
+[node name="hud_layer" parent="." index="2" instance=ExtResource( 1 )]
 
 

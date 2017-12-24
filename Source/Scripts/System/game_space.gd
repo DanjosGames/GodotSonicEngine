@@ -18,6 +18,11 @@ var rings = DEFAULT_RINGS setget set_rings, get_rings		# Number of rings the pla
 var lives = DEFAULT_LIVES setget set_lives, get_lives		# Lives left.
 var score = DEFAULT_SCORE setget set_score, get_score		# Score.
 
+# These variables control the timer. Probably not the most efficient way to do it, but it works, so...
+var seconds = 0 setget set_seconds, get_seconds
+var minutes = 0
+var timer_paused = false
+
 func _ready ():
 	print ("Game-space functionality ready.")
 	return
@@ -36,6 +41,8 @@ func update_hud ():
 		$"/root/Level/hud_layer/Lives_Counter".set_text (var2str (lives))
 	if (has_node ("/root/Level/hud_layer/Ring_Count")):
 		$"/root/Level/hud_layer/Ring_Count".set_text (var2str (rings))
+	if (has_node ("/root/Level/hud_layer/Time_Count")):
+		$"/root/Level/hud_layer/Time_Count".text = (var2str (minutes) + ":" + var2str (seconds))
 	return
 
 ## SETTERS and GETTERS.
@@ -49,13 +56,14 @@ func get_lives ():
 
 func set_lives (value):
 	if (value < lives):	# The player has died! Reset things to default values, set the player's position to the checkpoint etc.
-		rings = 0	# Remove any and all rings the player had on them.
+		timer_paused = true
+		minutes = 0
+		seconds = 0
 		player_character.set_linear_velocity (Vector2 (0,0))	# Stop the player moving.
 		player_character.change_anim ("Die")
 		global_space.add_path_to_node ("res://Scenes/UI/dead_player.tscn", "/root/Level")
-		player_character.change_anim ("Idle")		# Commenting this line out makes for a fun little bug!
-		$"/root/Level".minutes = 0
-		$"/root/Level".seconds = 0
+		player_character.reset_player (false)
+		timer_paused = false
 	elif (value > lives):	# The player has got an extra life! Play the relevant music (if possible)!
 		if (has_node ("/root/Level/Music_Player")):
 			$"/root/Level/Music_Player".stop ()
@@ -91,3 +99,21 @@ func set_score (value):
 func get_score ():
 	update_hud ()
 	return (score)
+
+func get_seconds ():
+	update_hud ()
+	return (seconds)
+
+func set_seconds (value):
+	if (timer_paused):	# Timer is paused, so don't increment the timer.
+		return
+	seconds = value
+	if (seconds > 59):	# A minute has passed, so update that!
+		if (minutes >= 9):	# Ten minutes have passed, in fact, so kill the player.
+			timer_paused = true
+			self.lives -= 1
+			return
+		seconds = 0
+		minutes += 1
+	update_hud ()
+	return
