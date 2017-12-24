@@ -1,5 +1,6 @@
 ### Taken from the Godot demo suite, this implements a moving platform without too much trouble. Allows x and y movement.
-# Motion is a range, remember. Cycle determines how fast it moves.
+# Motion is a range, remember. So (0, 100) moves 50<-0->50.
+# Cycle determines how fast it moves.
 
 extends Node2D
 

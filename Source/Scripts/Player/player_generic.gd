@@ -89,6 +89,11 @@ func _input (ev):
 		print ("DEBUG: lose rings.")
 		game_space.rings = 0
 
+	if (Input.is_action_pressed ("DEBUG_timeover")):	# FOR DEBUGGING ONLY. Time over!
+		print ("DEBUG: time over.")
+		$"/root/Level".minutes = 99
+		$"/root/Level".seconds = 99
+
 	return
 
 func _process (delta):

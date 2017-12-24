@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/Graphics/2D/Sprites/UI/Sonic_Lives_Icon.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Graphics/2D/Sprites/UI/stopwatch.png" type="Texture" id=5]
 
-[node name="hud_layer" type="CanvasLayer"]
+[node name="hud_layer" type="CanvasLayer" index="0"]
 
 layer = 32
 offset = Vector2( 0, 0 )
@@ -44,13 +44,13 @@ anchor_bottom = 0.0
 margin_left = 29.0
 margin_top = 23.0
 margin_right = 82.0
-margin_bottom = 42.0
+margin_bottom = 45.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 2
 size_flags_horizontal = 2
 size_flags_vertical = 0
 theme = ExtResource( 2 )
-text = "9:59.99"
+text = "x:xx.xx"
 valign = 1
 percent_visible = 1.0
 lines_skipped = 0

@@ -54,6 +54,8 @@ func set_lives (value):
 		player_character.change_anim ("Die")
 		global_space.add_path_to_node ("res://Scenes/UI/dead_player.tscn", "/root/Level")
 		player_character.change_anim ("Idle")		# Commenting this line out makes for a fun little bug!
+		$"/root/Level".minutes = 0
+		$"/root/Level".seconds = 0
 	elif (value > lives):	# The player has got an extra life! Play the relevant music (if possible)!
 		if (has_node ("/root/Level/Music_Player")):
 			$"/root/Level/Music_Player".stop ()
