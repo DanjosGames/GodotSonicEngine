@@ -6,7 +6,11 @@ path="res://.import/Checkpoint.png-b90170f48eef205f444e37c87e537e48.stex"
 
 [deps]
 
+source_file="res://Assets/Graphics/2D/Sprites/Levels/All/Checkpoint.png"
 source_md5="f7e2ee06331857fb0ee18925e22c0dbf"
+
+dest_files=[ "res://.import/Checkpoint.png-b90170f48eef205f444e37c87e537e48.stex" ]
+dest_md5="0822ffbd6748477faf30bd4ebca8c3fc"
 
 [params]
 

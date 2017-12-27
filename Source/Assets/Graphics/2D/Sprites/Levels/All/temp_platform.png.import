@@ -6,7 +6,11 @@ path="res://.import/temp_platform.png-c045f62890219db986d3b937ddf39e56.stex"
 
 [deps]
 
+source_file="res://Assets/Graphics/2D/Sprites/Levels/All/temp_platform.png"
 source_md5="76d539fbc3d321e21f72108a38a5e654"
+
+dest_files=[ "res://.import/temp_platform.png-c045f62890219db986d3b937ddf39e56.stex" ]
+dest_md5="21498f7c8be137a759d5f68f92df0604"
 
 [params]
 

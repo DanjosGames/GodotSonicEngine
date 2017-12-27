@@ -6,7 +6,11 @@ path="res://.import/Death.ogg-dd15b261e1d06f7bdbf752c0fe0762a4.oggstr"
 
 [deps]
 
+source_file="res://Assets/Audio/Sound/Death.ogg"
 source_md5="9df39cae330cfbff62c8beffcee6cf87"
+
+dest_files=[ "res://.import/Death.ogg-dd15b261e1d06f7bdbf752c0fe0762a4.oggstr" ]
+dest_md5="f048dd4856ad65d20a134da786be41c4"
 
 [params]
 

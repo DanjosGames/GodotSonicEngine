@@ -6,7 +6,11 @@ path="res://.import/No_Sound.ogg-ea6659f47b76ab7f4805dbc6d1c10d7a.oggstr"
 
 [deps]
 
+source_file="res://Assets/Audio/Sound/No_Sound.ogg"
 source_md5="40b729ac174bcd508989f0c05ed05f61"
+
+dest_files=[ "res://.import/No_Sound.ogg-ea6659f47b76ab7f4805dbc6d1c10d7a.oggstr" ]
+dest_md5="eb2c815717b403023bfa82f198034a29"
 
 [params]
 

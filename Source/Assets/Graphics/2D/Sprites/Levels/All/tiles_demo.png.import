@@ -6,7 +6,11 @@ path="res://.import/tiles_demo.png-31173eea9e7bf415de0b55c29fe85e06.stex"
 
 [deps]
 
+source_file="res://Assets/Graphics/2D/Sprites/Levels/All/tiles_demo.png"
 source_md5="34392fef9536a0df0c258a8cba521bf3"
+
+dest_files=[ "res://.import/tiles_demo.png-31173eea9e7bf415de0b55c29fe85e06.stex" ]
+dest_md5="50bcf4fa0ff63c13469a9f9bba31f1a4"
 
 [params]
 

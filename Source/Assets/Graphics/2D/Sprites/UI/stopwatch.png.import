@@ -6,7 +6,11 @@ path="res://.import/stopwatch.png-d51227be653af601e85409f3027175d3.stex"
 
 [deps]
 
+source_file="res://Assets/Graphics/2D/Sprites/UI/stopwatch.png"
 source_md5="cd0f3cabe5d691fee74920386dba5de2"
+
+dest_files=[ "res://.import/stopwatch.png-d51227be653af601e85409f3027175d3.stex" ]
+dest_md5="24954aed7bedd43362503012f86cbc2f"
 
 [params]
 

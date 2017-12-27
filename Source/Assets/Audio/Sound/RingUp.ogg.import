@@ -6,7 +6,11 @@ path="res://.import/RingUp.ogg-520d37d37f63376f81743c450c312495.oggstr"
 
 [deps]
 
+source_file="res://Assets/Audio/Sound/RingUp.ogg"
 source_md5="20d59eb911b9b6634c42c30fe618c372"
+
+dest_files=[ "res://.import/RingUp.ogg-520d37d37f63376f81743c450c312495.oggstr" ]
+dest_md5="ac8c3431ae32f2f5468fd819557b23e4"
 
 [params]
 

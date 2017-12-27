@@ -6,7 +6,11 @@ path="res://.import/63_-_Game_Over.ogg-dc32d8bc66204e9de6a1121e6e134c5d.oggstr"
 
 [deps]
 
+source_file="res://Assets/Audio/Music/63_-_Game_Over.ogg"
 source_md5="498d26b4c28e0b04b660e5397bcf5d63"
+
+dest_files=[ "res://.import/63_-_Game_Over.ogg-dc32d8bc66204e9de6a1121e6e134c5d.oggstr" ]
+dest_md5="8735200a03e762c862c0baf664885059"
 
 [params]
 

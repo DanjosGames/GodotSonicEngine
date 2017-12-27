@@ -6,7 +6,11 @@ path="res://.import/05.png-adf1ec19466913b4e46b8517249ebbb1.stex"
 
 [deps]
 
+source_file="res://Assets/Graphics/2D/Sprites/Levels/All/Rings/05.png"
 source_md5="9cd74cb95cae2dc66f02f56cdb5ec963"
+
+dest_files=[ "res://.import/05.png-adf1ec19466913b4e46b8517249ebbb1.stex" ]
+dest_md5="9a32b260ce94381be91f3705c05a1333"
 
 [params]
 

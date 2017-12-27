@@ -6,7 +6,11 @@ path="res://.import/Time_Over.svg.png-3ddde0bf73080935663bd7f15746f150.stex"
 
 [deps]
 
+source_file="res://Assets/Graphics/2D/Sprites/UI/Time_Over.svg.png"
 source_md5="1e62f64154dca4ee45a6cbe8693ac5b2"
+
+dest_files=[ "res://.import/Time_Over.svg.png-3ddde0bf73080935663bd7f15746f150.stex" ]
+dest_md5="864df4e1ba5d080fe1b57e44e69807bc"
 
 [params]
 

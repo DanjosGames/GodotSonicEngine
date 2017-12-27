@@ -6,7 +6,11 @@ path="res://.import/One_Up.ogg-745ef74f735f505088a99a1068d93748.oggstr"
 
 [deps]
 
+source_file="res://Assets/Audio/Music/One_Up.ogg"
 source_md5="5f9236f6ade0a38eedd8914a86d6d898"
+
+dest_files=[ "res://.import/One_Up.ogg-745ef74f735f505088a99a1068d93748.oggstr" ]
+dest_md5="516204655f49ab7c7273fc98cf26c473"
 
 [params]
 

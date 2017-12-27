@@ -6,7 +6,11 @@ path="res://.import/05.png-f4d81429e2af36c1b3d49b9106197de5.stex"
 
 [deps]
 
+source_file="res://Assets/Graphics/2D/Sprites/Players/Sonic/Walk/05.png"
 source_md5="3adea679fa164e45cc239c367bb51f56"
+
+dest_files=[ "res://.import/05.png-f4d81429e2af36c1b3d49b9106197de5.stex" ]
+dest_md5="86067150b282a849bc8cfce89daf99b2"
 
 [params]
 

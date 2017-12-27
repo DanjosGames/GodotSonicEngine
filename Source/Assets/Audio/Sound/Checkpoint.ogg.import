@@ -6,7 +6,11 @@ path="res://.import/Checkpoint.ogg-d845c2736a85001f47e34cf896673ba5.oggstr"
 
 [deps]
 
+source_file="res://Assets/Audio/Sound/Checkpoint.ogg"
 source_md5="3152d30f20465c64c19b756936579862"
+
+dest_files=[ "res://.import/Checkpoint.ogg-d845c2736a85001f47e34cf896673ba5.oggstr" ]
+dest_md5="c9820f2f654c68781d3ea46593bef36b"
 
 [params]
 

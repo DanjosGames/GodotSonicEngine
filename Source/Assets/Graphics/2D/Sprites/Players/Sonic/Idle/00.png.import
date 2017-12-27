@@ -6,7 +6,11 @@ path="res://.import/00.png-d1c452cd8785621f1d6e1e0f688a9992.stex"
 
 [deps]
 
+source_file="res://Assets/Graphics/2D/Sprites/Players/Sonic/Idle/00.png"
 source_md5="b9b1620e9a8bf53b0f5d13fe9f1a1eb5"
+
+dest_files=[ "res://.import/00.png-d1c452cd8785621f1d6e1e0f688a9992.stex" ]
+dest_md5="32aa202ac25ab21e2185dde6877b023f"
 
 [params]
 

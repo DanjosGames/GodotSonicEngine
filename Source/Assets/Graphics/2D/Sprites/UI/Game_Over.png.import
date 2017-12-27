@@ -6,7 +6,11 @@ path="res://.import/Game_Over.png-7334e34c9db37ffdfa5cdd0e1d6e5dd6.stex"
 
 [deps]
 
+source_file="res://Assets/Graphics/2D/Sprites/UI/Game_Over.png"
 source_md5="6d8d6c88a10e5abb030aca7896fe4941"
+
+dest_files=[ "res://.import/Game_Over.png-7334e34c9db37ffdfa5cdd0e1d6e5dd6.stex" ]
+dest_md5="db788506195e2b51a1ec492833bb9364"
 
 [params]
 

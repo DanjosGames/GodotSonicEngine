@@ -6,7 +6,11 @@ path="res://.import/02.png-3b6d3dc8cf82fb7bad343473b954479c.stex"
 
 [deps]
 
+source_file="res://Assets/Graphics/2D/Sprites/Players/Sonic/Jog/02.png"
 source_md5="dc49a4444559a08cc5d6a809ba38067b"
+
+dest_files=[ "res://.import/02.png-3b6d3dc8cf82fb7bad343473b954479c.stex" ]
+dest_md5="df64496f379249a36693af43a42daf02"
 
 [params]
 

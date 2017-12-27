@@ -6,7 +6,11 @@ path="res://.import/Sonic_Pieces.png-f3b1979181eb9c00d643ef2170b48f53.stex"
 
 [deps]
 
+source_file="res://Assets/Graphics/2D/Backdrops/Sonic_Pieces.png"
 source_md5="338414b19f30ec66122a06795556be0e"
+
+dest_files=[ "res://.import/Sonic_Pieces.png-f3b1979181eb9c00d643ef2170b48f53.stex" ]
+dest_md5="216b2ee5f11e0c68b13b84ab68683350"
 
 [params]
 

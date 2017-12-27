@@ -6,7 +6,11 @@ path="res://.import/moving_platform.png-d94d227e985d49e2bec9ac56286a7388.stex"
 
 [deps]
 
+source_file="res://Assets/Graphics/2D/Sprites/Levels/All/moving_platform.png"
 source_md5="74fa54bee3a490d5d6fe994b86afbd84"
+
+dest_files=[ "res://.import/moving_platform.png-d94d227e985d49e2bec9ac56286a7388.stex" ]
+dest_md5="29c699de72254d58c334c7f634ee4256"
 
 [params]
 

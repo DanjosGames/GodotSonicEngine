@@ -6,7 +6,11 @@ path="res://.import/43-Final_Dreadnought_2.ogg-38eec67ac2a04ad6fc90fcf91b480976.
 
 [deps]
 
+source_file="res://Assets/Audio/Music/43-Final_Dreadnought_2.ogg"
 source_md5="3253c76178e4c94b3c7f82104dd3b8b1"
+
+dest_files=[ "res://.import/43-Final_Dreadnought_2.ogg-38eec67ac2a04ad6fc90fcf91b480976.oggstr" ]
+dest_md5="ec173af30b52806abc268910bdfed2f6"
 
 [params]
 

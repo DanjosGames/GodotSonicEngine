@@ -6,7 +6,11 @@ path="res://.import/Jump.ogg-e3198f1fe7a185752021ce956bdf7577.oggstr"
 
 [deps]
 
+source_file="res://Assets/Audio/Sound/Jump.ogg"
 source_md5="73f062d5eb1dc9af120f4d7811ba1c88"
+
+dest_files=[ "res://.import/Jump.ogg-e3198f1fe7a185752021ce956bdf7577.oggstr" ]
+dest_md5="714628ea454996e901a34ca429d7d3e6"
 
 [params]
 
