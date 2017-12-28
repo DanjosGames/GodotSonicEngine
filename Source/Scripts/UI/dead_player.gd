@@ -32,3 +32,11 @@ func player_has_died (done, key):
 		game_over_yeah.position = game_space.player_character.get_node ("Camera2D").get_camera_position ()
 	queue_free ()	# This instance is no longer required, so delete it.
 	return
+
+func _on_dead_sonic_tree_entered():
+	print ("AAAA")
+	return
+
+func _on_dead_sonic_tree_exited():
+	print ("BBBB")
+	return
