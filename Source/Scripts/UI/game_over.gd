@@ -23,3 +23,8 @@ func _unhandled_key_input(event):
 		queue_free ()	# As this is queued, it'd be better put here than before reloading the main scene again.
 		get_tree ().reload_current_scene()
 	return
+
+func _process (delta):
+	game_space.player_character.set ("visible", false)
+	$"/root/Level/hud_layer".set ("layer", -99)
+	return
