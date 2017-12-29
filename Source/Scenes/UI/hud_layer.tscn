@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/Graphics/2D/Sprites/UI/Sonic_Lives_Icon.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Graphics/2D/Sprites/UI/stopwatch.png" type="Texture" id=5]
 
-[node name="hud_layer" type="CanvasLayer"]
+[node name="hud_layer" type="CanvasLayer" index="0"]
 
 layer = 32
 offset = Vector2( 0, 0 )
@@ -65,6 +65,7 @@ texture = ExtResource( 3 )
 [node name="Lives_Symbol" type="Sprite" parent="." index="3"]
 
 position = Vector2( 14, 211 )
+scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 4 )
 
 [node name="Lives_Counter" type="Label" parent="." index="4"]

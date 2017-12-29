@@ -7,10 +7,10 @@ path="res://.import/Sonic_Lives_Icon.png-2c92907e406f65f75b456bfb106879cc.stex"
 [deps]
 
 source_file="res://Assets/Graphics/2D/Sprites/UI/Sonic_Lives_Icon.png"
-source_md5="6350cc51808de6bcd6ddf1c20bb6de05"
+source_md5="7e7f8799c2627979da29b7e0b6780f4b"
 
 dest_files=[ "res://.import/Sonic_Lives_Icon.png-2c92907e406f65f75b456bfb106879cc.stex" ]
-dest_md5="e4619c16760a31d5f9f20c282037a8f6"
+dest_md5="e52ee6a1c515cb26fb7ade6b333a0acf"
 
 [params]
 

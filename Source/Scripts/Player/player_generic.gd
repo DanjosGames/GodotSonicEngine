@@ -91,8 +91,8 @@ func _input (ev):
 
 	if (Input.is_action_pressed ("DEBUG_timeover")):	# FOR DEBUGGING ONLY. Time over!
 		print ("DEBUG: time over.")
-		game_space.minutes = 99
-		game_space.seconds = 99
+		game_space.minutes = 9
+		game_space.seconds = 59
 
 	return
 
