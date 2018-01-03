@@ -31,7 +31,8 @@ func player_has_died (done, key):
 	queue_free ()	# This instance is no longer required, so delete it.
 	return
 
-func _on_dead_sonic_tree_entered():
+func _on_dead_sonic_tree_entered ():
+	print ("ENTERED DEAD SONIC")
 	$"/root/Level/Timer_Level".stop ()
 	sound_player.play_sound ("Death")		# Play the death jingle.
 	$"/root/Level/hud_layer".set ("layer", -99)		# Hide the HUD layer.
@@ -41,9 +42,10 @@ func _on_dead_sonic_tree_entered():
 	game_space.player_character.get_node ("Camera2D").current = false
 	return
 
-func _on_dead_sonic_tree_exited():
+func _on_dead_sonic_tree_exited ():
 	game_space.minutes = 0
 	game_space.seconds = 0
 	$"/root/Level/Timer_Level".start ()
 	$"/root/Level/hud_layer".set ("layer", 32)			# ...and re-reveal the HUD layer.
+	print ("EXITED DEAD SONIC")
 	return
