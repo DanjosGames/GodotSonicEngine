@@ -1,6 +1,6 @@
 [gd_scene format=2]
 
-[node name="generic" type="RigidBody2D"]
+[node name="generic" type="RigidBody2D" index="0"]
 
 position = Vector2( 187.267, 137.037 )
 input_pickable = false
@@ -22,12 +22,12 @@ linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
 animation = "Idle"
 playing = true
 
-[node name="Jingle_Player" type="AudioStreamPlayer" parent="."]
+[node name="Jingle_Player" type="AudioStreamPlayer" parent="." index="1"]
 
 stream = null
 volume_db = 0.0
@@ -35,7 +35,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." index="2"]
 
 anchor_mode = 1
 rotating = false
@@ -58,7 +58,7 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 
-[node name="Timer_Player" type="Timer" parent="."]
+[node name="Timer_Player" type="Timer" parent="." index="3"]
 
 process_mode = 1
 wait_time = 1.0

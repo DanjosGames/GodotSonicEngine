@@ -72,6 +72,6 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray(  )
+tile_data = PoolIntArray( 327718, 12, 0, 393255, 12, 0, 458792, 12, 0, 524329, 12, 0, 589866, 12, 0, 655403, 14, 0, 655404, 14, 0, 655405, 14, 0, 655406, 14, 0, 655407, 14, 0 )
 
 

@@ -51,11 +51,10 @@ animations = [ {
 "speed": 0.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="RayShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 10.0
-height = 20.0
+length = 20.0
 
 [node name="Sonic" instance=ExtResource( 1 )]
 
@@ -64,12 +63,18 @@ mass = 30.0
 script = ExtResource( 2 )
 checkpoint_pos = Vector2( 0, 0 )
 
-[node name="AnimatedSprite" parent="."]
+[node name="AnimatedSprite" parent="." index="0"]
 
 frames = SubResource( 1 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]
 
+position = Vector2( 1.84465, -1.89873 )
 shape = SubResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="5"]
+
+build_mode = 0
+polygon = PoolVector2Array( 10.2773, -18.4602, 12.649, 19.2232, -5.0069, 19.2232, -6.06097, -17.6696 )
 
 
