@@ -14,10 +14,9 @@ func _unhandled_key_input (event):
 		music_player.stop_music ()
 		$"/root/Level/Music_Player".play ()
 		$"/root/Level/hud_layer".set ("layer", 32)
-		# FIXME? Is the next line below in the wrong place? Probably.
-		queue_free ()	# As this is queued, it'd be better put here than before reloading the main scene again.
 		game_space.player_character.set ("visible", true)
 		get_tree ().set_pause (false)		# Pause the game in the background.
+		queue_free ()	# Make sure this is removed when the time comes.
 	return
 
 func _process (delta):

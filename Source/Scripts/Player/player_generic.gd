@@ -233,12 +233,12 @@ func _integrate_forces (s):
 # Note that this does NOT control the level timer(s); if they're paused or not, or the time they're set to.
 func reset_player (is_new_game):
 	if (is_new_game):
-		print ("NEW GAME")
+		print ("NEW GAME")	# FOR DEBUGGING ONLY.
 		game_space.score = 0
 		game_space.lives = game_space.DEFAULT_LIVES
 		# TODO: Start position code here.
 	else:	# Stuff that is for losing a life.
-		print ("PLAYER DEATH")
+		print ("PLAYER DEATH")	# FOR DEBUGGING ONLY.
 		position = checkpoint_pos
 	# Everything else is common to both death and a new game.
 	game_space.rings = 0

@@ -8,10 +8,11 @@ func _ready():
 	return
 
 # play_music
-# music_player.play_music (path_to_music)
+# music_player.play_music (path_to_music, play_from)
 # Plays a specified music file (path_to_music). If it's left blank, it'll just play (assuming there was a music file loaded before).
+# Will play from a specific point in the music (in seconds) if told to.
 # Returns true if it plays something, otherwise false.
-func play_music (path_to_music = ""):
+func play_music (path_to_music = "", play_from = 0.0):
 	var play_me = null	# This will be used to set the stream data.
 	if (path_to_music != ""):	# A path was specified, so load that up.
 		play_me = load (path_to_music)
@@ -22,7 +23,7 @@ func play_music (path_to_music = ""):
 		print ("ERROR: Can't play nothing; no valid file was specified to play and/or there was no stream set up before.")
 		return (false)
 	stream = play_me	# Everything's OK, so set the stream as needed...
-	play ()				# ...play the music...
+	play (play_from)				# ...play the music...
 	return (true)		# ...and return true.
 
 # stop_music

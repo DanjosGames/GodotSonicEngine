@@ -16,7 +16,8 @@ func _ready():
 # resume control, unless they have no lives left in which case end the game.
 func player_has_died (done, key):
 	if (game_space.minutes >= 9 && game_space.seconds > 59 && game_space.lives >= 0):
-		print ("TIME OVER")
+		# Over ten minutes have passed, so time over applies. Load the time over scene, show it and continue.
+		print ("TIME OVER")	# FOR DEBUGGING ONLY.
 		game_over_yeah = global_space.add_path_to_node ("res://Scenes/UI/time_over.tscn", "/root/Level")
 		game_over_yeah.get_node ("Camera2D").current = true
 		game_over_yeah.position = game_space.player_character.get_node ("Camera2D").get_camera_position ()
@@ -31,8 +32,9 @@ func player_has_died (done, key):
 	queue_free ()	# This instance is no longer required, so delete it.
 	return
 
+# Make sure certain things happen as soon as this scene is added to the tree.
 func _on_dead_sonic_tree_entered ():
-	print ("ENTERED DEAD SONIC")
+	print ("ENTERED DEAD PLAYER")	# FOR DEBUGGING ONLY.
 	$"/root/Level/Timer_Level".stop ()
 	sound_player.play_sound ("Death")		# Play the death jingle.
 	$"/root/Level/hud_layer".set ("layer", -99)		# Hide the HUD layer.
@@ -42,10 +44,11 @@ func _on_dead_sonic_tree_entered ():
 	game_space.player_character.get_node ("Camera2D").current = false
 	return
 
+# When leaving the scene (it's being removed from the tree), do these things (reset values and so on).
 func _on_dead_sonic_tree_exited ():
 	game_space.minutes = 0
 	game_space.seconds = 0
 	$"/root/Level/Timer_Level".start ()
 	$"/root/Level/hud_layer".set ("layer", 32)			# ...and re-reveal the HUD layer.
-	print ("EXITED DEAD SONIC")
+	print ("EXITED DEAD PLAYER")	# FOR DEBUGGING ONLY.
 	return

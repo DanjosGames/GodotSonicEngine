@@ -17,6 +17,7 @@ func _ready():
 	print ("HUD set up.")
 	return
 
+# Makes sure that if lives and/or rings counters need to flash, that they do.
 func _process (delta):
 	# Make sure that the ring counter is flashing if the player has no rings, otherwise have it normal.
 	if (game_space.rings == 0):

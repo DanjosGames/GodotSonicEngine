@@ -1,3 +1,6 @@
+### Kill zones. For things like bottomless pits or the like.
+# Want to use them for other things? Size them as necessary in the object/scene you want - DON'T RESCALE!
+
 extends Area2D
 
 func _ready ():
@@ -6,5 +9,6 @@ func _ready ():
 
 func in_the_killzone (body):
 	if (body is preload ("res://Scripts/Player/player_generic.gd")):
+		print ("Player entered killzone!")	# FOR DEBUGGING ONLY.
 		game_space.lives -=1
 	return

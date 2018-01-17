@@ -4,6 +4,7 @@ extends Control
 
 func _ready ():
 	print ("Main scene loaded...")
+	music_player.play_music ("res://Assets/Audio/Music/Title_Theme.ogg")
 	return
 
 # If any key is pressed, start the game.
@@ -11,6 +12,7 @@ func _ready ():
 # TODO: Restarting the game from level_test.tscn doesn't restart from here (because this scene will have been unloaded).
 func _unhandled_key_input (event):
 	if (event.pressed):
+		music_player.stop_music ()
 		game_space.reset_values ()
 		global_space.go_to_scene ("res://Scenes/Levels/All/level_test.tscn")
 	return

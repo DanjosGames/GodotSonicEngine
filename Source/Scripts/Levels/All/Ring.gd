@@ -20,6 +20,6 @@ func got_ring (body):
 
 # This doesn't really do much except remove the ring from the scene tree once the sound has finished playing.
 func ring_got ():
-	print ("Ring got at ", position)
+	print ("Ring got at ", position)	# FOR DEBUGGING ONLY.
 	queue_free ()
 	return

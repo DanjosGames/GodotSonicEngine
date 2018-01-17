@@ -48,12 +48,11 @@ func update_hud ():
 			prettied_time += "0"
 		prettied_time += var2str (seconds)
 		$"/root/Level/hud_layer/Time_Count".text = prettied_time
-#		$"/root/Level/hud_layer/Time_Count".text = (var2str (minutes) + ":" + var2str (seconds))
 	return
 
 ## SETTERS and GETTERS.
 # get_ and set_ functions to allow the HUD counters to be updated. Nothing else needs to be done; these variables are automatically
-# called via the setget definition for the variable (outside of the class; inside it, remember to use self!).
+# called via the setget definition for the variable (outside of the class; inside it, remember to use self if needed!).
 # These also allow for events such as extra lives and death of the player.
 
 func get_lives ():
