@@ -9,7 +9,7 @@ onready var path_to_here = $".".get_path ()
 export(int) onready var rings_to_collect = game_space.RINGS_FOR_EXTRA_LIFE
 
 # Set up the world node (i.e., the node containing the level stuff) and sub-nodes as necessary here.
-func _ready():
+func _ready ():
 	print ("Generic level functionality ready.")
 	if (has_node ("/root/Level/hud_layer")):
 		$"/root/Level/hud_layer".set ("layer", 32)

@@ -16,7 +16,7 @@ onready var Sound_Library = {
 	Ring = preload ("res://Assets/Audio/Sound/RingUp.ogg"),
 }
 
-func _ready():
+func _ready ():
 	print ("Sound player ready.")
 	return
 

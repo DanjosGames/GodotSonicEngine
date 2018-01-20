@@ -5,7 +5,7 @@ extends Area2D
 
 var taken = false
 
-func _ready():
+func _ready ():
 	$"Sprite/AnimationPlayer".play ("spin_red")
 	self.connect ("body_entered", self, "enter_checkpoint_body")
 	return

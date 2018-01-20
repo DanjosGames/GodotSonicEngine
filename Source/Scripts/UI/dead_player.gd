@@ -5,7 +5,7 @@ extends Sprite
 var game_over_yeah = null	# Used to handle the game over node.
 
 # Well, the player has had a death, so start the death animation playing.
-func _ready():
+func _ready ():
 	$Tween.connect ("tween_completed", self, "player_has_died")
 	$Tween.interpolate_property ($".", "position", position, Vector2 (position.x, position.y+290), 1.50, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	$Tween.set_repeat (false)
@@ -42,12 +42,14 @@ func _on_dead_sonic_tree_entered ():
 	# Make sure that the player character is not visible and its camera is disabled during the animation.
 	game_space.player_character.set ("visible", false)
 	game_space.player_character.get_node ("Camera2D").current = false
+	game_space.player_controlling_character = false
 	return
 
 # When leaving the scene (it's being removed from the tree), do these things (reset values and so on).
 func _on_dead_sonic_tree_exited ():
 	game_space.minutes = 0
 	game_space.seconds = 0
+	game_space.player_controlling_character = true
 	$"/root/Level/Timer_Level".start ()
 	$"/root/Level/hud_layer".set ("layer", 32)			# ...and re-reveal the HUD layer.
 	print ("EXITED DEAD PLAYER")	# FOR DEBUGGING ONLY.

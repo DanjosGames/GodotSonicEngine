@@ -4,7 +4,7 @@
 
 extends "res://Scripts/Player/player_generic.gd"
 
-func _ready():
+func _ready ():
 	print ("Sonic entered the world at ", position)	# FOR DEBUGGING ONLY.
 	checkpoint_pos = position			# FOR DEBUGGING ONLY. Should normally be set by the level.
 	game_space.update_hud ()			# This needs to be in the player character's _ready script.

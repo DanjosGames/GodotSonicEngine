@@ -4,7 +4,7 @@ extends Area2D
 
 var ring_taken = false
 
-func _ready():
+func _ready ():
 	self.connect ("body_entered", self, "got_ring")
 	$"AudioStreamPlayer2D".connect ("finished", self, "ring_got")
 	$"Sprite".play ()

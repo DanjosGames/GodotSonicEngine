@@ -6,7 +6,7 @@ extends CanvasLayer
 var rings_zero = false	# To make sure the flashing animation for no rings is only called as needed.
 var lives_zero = false	# To make sure the flashing animation for being on your last life is only called as needed.
 
-func _ready():
+func _ready ():
 	# Make sure the tweens are set up whenever this scene is instantiated.
 	$"Tweens/Tween_Rings".set_tween_process_mode (Tween.TWEEN_PROCESS_IDLE)
 	$"Tweens/Tween_Lives".set_tween_process_mode (Tween.TWEEN_PROCESS_IDLE)

@@ -4,7 +4,7 @@
 
 extends Sprite
 
-func _ready():
+func _ready ():
 	print ("Game over!")	# FOR DEBUGGING ONLY.
 	$"/root/Level/hud_layer".set ("layer", -99)
 	if (has_node ("/root/Level/Music_Player")):
@@ -15,7 +15,7 @@ func _ready():
 
 # If any key is pressed, restart the game.
 # TODO: Something a bit more refined than just restarting the whole program, but for now it'll do.
-func _unhandled_key_input(event):
+func _unhandled_key_input (event):
 	if (event.pressed):
 		music_player.stop_music ()
 		get_tree ().set_pause (false)

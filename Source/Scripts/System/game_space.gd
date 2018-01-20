@@ -9,10 +9,11 @@ const DEFAULT_LIVES = 3				# Ditto lives.
 const DEFAULT_SCORE = 0				# Ditto score.
 
 var player_character = null		# Who is the player character? Set up by the player_<character name>.gd script in its _ready.
+var player_controlling_character = true	# Is the player controlling the character? Normally true.
 
 onready var Game_Timer = Timer.new ()	# A universal timer.
 
-### Set up variables for rings/collectibles, lives and score.
+## Set up variables for rings/collectibles, lives and score.
 # These have setters and getters in order to allow gameplay-related events (extra lives, death etc.) to occur.
 var rings = DEFAULT_RINGS setget set_rings, get_rings		# Number of rings the player has.
 var lives = DEFAULT_LIVES setget set_lives, get_lives		# Lives left.
@@ -43,6 +44,7 @@ func update_hud ():
 	if (has_node ("/root/Level/hud_layer/Ring_Count")):
 		$"/root/Level/hud_layer/Ring_Count".set_text (var2str (rings))
 	if (has_node ("/root/Level/hud_layer/Time_Count")):
+		# Put the timer together.
 		prettied_time += var2str (minutes) + ":"
 		if (seconds < 10):
 			prettied_time += "0"
