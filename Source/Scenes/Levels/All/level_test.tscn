@@ -85,18 +85,18 @@ editor/display_folded = true
 
 [node name="kill_zone" parent="kill_zones" index="0" instance=ExtResource( 10 )]
 
-position = Vector2( 1001.23, 667 )
+position = Vector2( 960, 670 )
 
 [node name="kill_zone2" parent="kill_zones" index="1" instance=ExtResource( 10 )]
 
-position = Vector2( -556.417, 667 )
+position = Vector2( -580, 670 )
 
 [node name="kill_zone3" parent="kill_zones" index="2" instance=ExtResource( 10 )]
 
-position = Vector2( -2114.06, 667 )
+position = Vector2( -2120, 670 )
 
 [node name="kill_zone4" parent="kill_zones" index="3" instance=ExtResource( 10 )]
 
-position = Vector2( 2558.94, 667 )
+position = Vector2( 2500, 670 )
 
 

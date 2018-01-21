@@ -17,7 +17,7 @@ onready var do_once_dictionary = {
 func _ready ():
 	print ("Global script loaded.")
 	if (OS.is_debug_build ()):	# FOR DEBUGGING ONLY.
-		print ("DEBUG BUILD")
+		OS.alert ("Debug mode is ENABLED", "DEBUG BUILD")
 	return
 
 # add_child_to_node

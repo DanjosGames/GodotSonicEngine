@@ -8,8 +8,10 @@ const DEFAULT_RINGS = 0				# Default number of player rings.
 const DEFAULT_LIVES = 3				# Ditto lives.
 const DEFAULT_SCORE = 0				# Ditto score.
 
+## These control the player character, and if anything needs to be done to/with it.
 var player_character = null		# Who is the player character? Set up by the player_<character name>.gd script in its _ready.
 var player_controlling_character = true	# Is the player controlling the character? Normally true.
+var reset_player_to_checkpoint = false	# Reset the player to the last checkpoint/start position if true.
 
 onready var Game_Timer = Timer.new ()	# A universal timer.
 
@@ -29,7 +31,7 @@ func _ready ():
 	return
 
 # Reset values to default. Note the lack of "self." here - otherwise it'd invoke the setters/getters!
-# This needs to be done like this because singletons don't get reset on application restart.
+# This needs to be done like this because singletons don't get reset on application/scene restart.
 func reset_values ():
 	rings = DEFAULT_RINGS
 	lives = DEFAULT_LIVES
@@ -46,10 +48,12 @@ func update_hud ():
 	if (has_node ("/root/Level/hud_layer/Time_Count")):
 		# Put the timer together.
 		prettied_time += var2str (minutes) + ":"
-		if (seconds < 10):
+		if (seconds < 10):	# Add a relevant 0 (to keep the timer looking consistent).
 			prettied_time += "0"
 		prettied_time += var2str (seconds)
 		$"/root/Level/hud_layer/Time_Count".text = prettied_time
+	if (has_node ("/root/Level/hud_layer/Score_Value")):
+		print ("AAAA")	# FIXME: Add score stuff!
 	return
 
 ## SETTERS and GETTERS.
@@ -74,7 +78,7 @@ func set_lives (value):
 			$"/root/Level/Music_Player".stop ()
 		if (player_character.has_node ("Jingle_Player")):
 			player_character.get_node ("Jingle_Player").stream = load ("res://Assets/Audio/Music/One_Up.ogg")
-			player_character.get_node ("Jingle_Player").stop ()
+			player_character.get_node ("Jingle_Player").stop ()	# Collecting multiple lives can make things sound odd.
 			player_character.get_node ("Jingle_Player").play ()
 	lives = value
 	update_hud ()

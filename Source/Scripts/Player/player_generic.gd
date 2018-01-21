@@ -108,6 +108,10 @@ func _integrate_forces (s):
 	if (visible == false && !game_space.player_controlling_character):	# Player is currently not controlling the character.
 		s.set_linear_velocity (Vector2 (0,0))	# Bring any remaining movement speed to a halt.
 		s.set_transform (Transform2D (0, checkpoint_pos))	# Move the player back to the start/the last checkpoint passed.
+		move_left = false	# Make sure...
+		move_right = false	# ...the player cannot...
+		jump = false		# ...be moving or jumping etc. once they're respawned.
+		s.set_linear_velocity (Vector2 (0,0))	# Bring any remaining movement speed to a halt.
 		return
 	if (Input.is_action_pressed ("DEBUG_resetpos")):	# FOR DEBUGGING ONLY. Reset player to last checkpoint crossed, or start.
 		print ("DEBUG: move player to last good checkpoint position.")
@@ -205,6 +209,7 @@ func _integrate_forces (s):
 				xv = 0
 			lv.x = sign (lv.x) * xv
 
+# TODO: Add animations!
 #		if lv.y < 0:
 #			change_anim ("Jumping")
 #		else:
