@@ -12,6 +12,7 @@ config_version=3
 
 config/name="Godot Sonic Engine"
 run/main_scene="res://Scenes/scnmain.tscn"
+boot_splash/image="res://Assets/Graphics/2D/Backdrops/splash.svg.png"
 config/icon="res://icon.png"
 
 [autoload]

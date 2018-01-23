@@ -19,7 +19,6 @@ func _ready ():
 
 # Controls the level timer. So long as the timer isn't paused, it'll add a second on to it.
 func timer_add ():
-	if (game_space.timer_paused):	# If the timer has been paused, don't add to the game time.
-		return
-	game_space.seconds += 1
+	if (!game_space.timer_paused):	# If the timer has been paused, don't add to the game time, otherwise do.
+		game_space.seconds += 1
 	return
