@@ -49,7 +49,7 @@ func _on_dead_sonic_tree_entered ():
 func _on_dead_sonic_tree_exited ():
 	game_space.minutes = 0
 	game_space.seconds = 0
-	game_space.player_controlling_character = true
+	game_space.reset_player_to_checkpoint = true
 	$"/root/Level/Timer_Level".start ()
 	$"/root/Level/hud_layer".set ("layer", 32)			# ...and re-reveal the HUD layer.
 	print ("EXITED DEAD PLAYER")	# FOR DEBUGGING ONLY.

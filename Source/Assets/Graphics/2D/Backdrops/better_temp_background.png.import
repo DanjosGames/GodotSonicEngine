@@ -7,10 +7,10 @@ path="res://.import/better_temp_background.png-7f2d0539f83529c700835a670de63d32.
 [deps]
 
 source_file="res://Assets/Graphics/2D/Backdrops/better_temp_background.png"
-source_md5="12b52863b4d4bf2e6ee7a2fb3b1fede8"
+source_md5="96072a016ab89ab49f570fd31df135fc"
 
 dest_files=[ "res://.import/better_temp_background.png-7f2d0539f83529c700835a670de63d32.stex" ]
-dest_md5="07be44fde0c8ab2d79f4c91de4508752"
+dest_md5="071f5b2f4b3d0bd97514eca5f8cca7fd"
 
 [params]
 

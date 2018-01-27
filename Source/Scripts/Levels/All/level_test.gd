@@ -7,4 +7,3 @@ func _ready ():
 	$"Music_Player".play ()
 	print ("Level ready to go!")
 	return
-

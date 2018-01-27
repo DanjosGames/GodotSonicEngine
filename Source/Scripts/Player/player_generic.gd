@@ -105,9 +105,12 @@ func _physics_process (delta):
 
 func _integrate_forces (s):
 #	if (sprite_anim == "Die" || ):	# Player's dead, make sure they don't move, reset to start/checkpoint position.
-	if (visible == false && !game_space.player_controlling_character):	# Player is currently not controlling the character.
-		s.set_linear_velocity (Vector2 (0,0))	# Bring any remaining movement speed to a halt.
-		s.set_transform (Transform2D (0, checkpoint_pos))	# Move the player back to the start/the last checkpoint passed.
+	if (!game_space.player_controlling_character):	# Player is currently not controlling the character.
+		if (game_space.reset_player_to_checkpoint):
+			s.set_linear_velocity (Vector2 (0,0))	# Bring any remaining movement speed to a halt.
+			s.set_transform (Transform2D (0, checkpoint_pos))	# Move the player back to the start/the last checkpoint passed.
+			game_space.reset_player_to_checkpoint = false
+			game_space.player_controlling_character = true
 		move_left = false	# Make sure...
 		move_right = false	# ...the player cannot...
 		jump = false		# ...be moving or jumping etc. once they're respawned.

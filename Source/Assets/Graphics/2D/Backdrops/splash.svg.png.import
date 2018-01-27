@@ -7,10 +7,10 @@ path="res://.import/splash.svg.png-27bc0e3607cdeb960a3394681d938bf5.stex"
 [deps]
 
 source_file="res://Assets/Graphics/2D/Backdrops/splash.svg.png"
-source_md5="0c4f67b84710a647b35b033990105bf6"
+source_md5="dac560c0a0a327b6515bad3f21bc27b8"
 
 dest_files=[ "res://.import/splash.svg.png-27bc0e3607cdeb960a3394681d938bf5.stex" ]
-dest_md5="36a08757094aeea05a91cc143d7d4abb"
+dest_md5="c56cdfd37970995931e9f913802cfaed"
 
 [params]
 
