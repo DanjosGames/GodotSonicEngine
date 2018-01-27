@@ -9,6 +9,7 @@ func _ready ():
 
 func in_the_killzone (body):
 	if (body is preload ("res://Scripts/Player/player_generic.gd")):
-		print ("Player entered killzone!")	# FOR DEBUGGING ONLY.
+		if (OS.is_debug_build()):
+			print ("Player entered killzone at ", body.position, "!")	# FOR DEBUGGING ONLY.
 		game_space.lives -=1
 	return

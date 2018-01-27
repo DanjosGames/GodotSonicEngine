@@ -64,7 +64,12 @@ func jingle_finished ():
 
 func _input (ev):
 	# Get the controls
-#	if (visible == false || ):	# Player has died, so movement should not be possible!
+	if (game_space.cutscene_playing):	# Control is not possible during cutscenes.
+		move_left = false	# Make sure...
+		move_right = false	# ...the player cannot...
+		jump = false		# ...be moving or jumping etc.
+		return
+
 	if (!game_space.player_controlling_character):	# Player is currently not in control of the character.
 		move_left = false	# Make sure...
 		move_right = false	# ...the player cannot...
@@ -74,26 +79,27 @@ func _input (ev):
 	move_right = Input.is_action_pressed ("move_right")
 	jump = Input.is_action_pressed ("move_jump")
 
-	if (Input.is_action_pressed ("DEBUG_kill")):	# FOR DEBUGGING ONLY. Kill the player!
-		print ("DEBUG: kill player.")
-		game_space.lives -=1
+	if (OS.is_debug_build()):	# FOR DEBUGGING ONLY.
+		if (Input.is_action_pressed ("DEBUG_kill")):	# FOR DEBUGGING ONLY. Kill the player!
+			print ("DEBUG: kill player.")
+			game_space.lives -=1
 
-	if (Input.is_action_pressed ("DEBUG_extralife")):	# FOR DEBUGGING ONLY. Give an extra life.
-		print ("DEBUG: extra life.")
-		game_space.lives += 1
+		if (Input.is_action_pressed ("DEBUG_extralife")):	# FOR DEBUGGING ONLY. Give an extra life.
+			print ("DEBUG: extra life.")
+			game_space.lives += 1
 
-	if (Input.is_action_pressed ("DEBUG_gainrings")):	# FOR DEBUGGING ONLY. Gain 10 rings.
-		print ("DEBUG: gain rings.")
-		game_space.rings += 10
+		if (Input.is_action_pressed ("DEBUG_gainrings")):	# FOR DEBUGGING ONLY. Gain 10 rings.
+			print ("DEBUG: gain rings.")
+			game_space.rings += 10
 
-	if (Input.is_action_pressed ("DEBUG_loserings")):	# FOR DEBUGGING ONLY. Lose all rings.
-		print ("DEBUG: lose rings.")
-		game_space.rings = 0
+		if (Input.is_action_pressed ("DEBUG_loserings")):	# FOR DEBUGGING ONLY. Lose all rings.
+			print ("DEBUG: lose rings.")
+			game_space.rings = 0
 
-	if (Input.is_action_pressed ("DEBUG_timeover")):	# FOR DEBUGGING ONLY. Time over!
-		print ("DEBUG: time over.")
-		game_space.minutes = 9
-		game_space.seconds = 59
+		if (Input.is_action_pressed ("DEBUG_timeover")):	# FOR DEBUGGING ONLY. Time over!
+			print ("DEBUG: time over.")
+			game_space.minutes = 9
+			game_space.seconds = 59
 
 	return
 
@@ -104,11 +110,17 @@ func _physics_process (delta):
 	return
 
 func _integrate_forces (s):
-#	if (sprite_anim == "Die" || ):	# Player's dead, make sure they don't move, reset to start/checkpoint position.
+	if (game_space.cutscene_playing):
+		move_left = false	# Make sure...
+		move_right = false	# ...the player cannot...
+		jump = false		# ...be moving or jumping etc.
+		s.set_linear_velocity (Vector2 (0,0))
+		return
 	if (!game_space.player_controlling_character):	# Player is currently not controlling the character.
 		if (game_space.reset_player_to_checkpoint):
 			s.set_linear_velocity (Vector2 (0,0))	# Bring any remaining movement speed to a halt.
 			s.set_transform (Transform2D (0, checkpoint_pos))	# Move the player back to the start/the last checkpoint passed.
+			visible = true
 			game_space.reset_player_to_checkpoint = false
 			game_space.player_controlling_character = true
 		move_left = false	# Make sure...
@@ -117,14 +129,15 @@ func _integrate_forces (s):
 		s.set_linear_velocity (Vector2 (0,0))	# Bring any remaining movement speed to a halt.
 		return
 	if (Input.is_action_pressed ("DEBUG_resetpos")):	# FOR DEBUGGING ONLY. Reset player to last checkpoint crossed, or start.
-		print ("DEBUG: move player to last good checkpoint position.")
-		move_left = false	# Make sure...
-		move_right = false	# ...the player cannot...
-		jump = false		# ...be moving or jumping etc. once they're respawned.
-		s.set_linear_velocity (Vector2 (0,0))	# Bring any remaining movement speed to a halt.
-		s.set_transform (Transform2D (0, checkpoint_pos))	# Move the player back to the start/the last checkpoint passed.
-		change_anim ("Idle")
-		return
+		if (OS.is_debug_build()):
+			print ("DEBUG: move player to last good checkpoint position.")
+			move_left = false	# Make sure...
+			move_right = false	# ...the player cannot...
+			jump = false		# ...be moving or jumping etc. once they're respawned.
+			s.set_linear_velocity (Vector2 (0,0))	# Bring any remaining movement speed to a halt.
+			s.set_transform (Transform2D (0, checkpoint_pos))	# Move the player back to the start/the last checkpoint passed.
+			change_anim ("Idle")
+			return
 	var lv = s.get_linear_velocity ()
 	var step = s.get_step ()
 
@@ -243,12 +256,14 @@ func _integrate_forces (s):
 # Note that this does NOT control the level timer(s); if they're paused or not, or the time they're set to.
 func reset_player (is_new_game):
 	if (is_new_game):
-		print ("NEW GAME")	# FOR DEBUGGING ONLY.
+		if (OS.is_debug_build()):	# FOR DEBUGGING ONLY.
+			print ("NEW GAME")
 		game_space.score = 0
 		game_space.lives = game_space.DEFAULT_LIVES
 		# TODO: Start position code here.
 	else:	# Stuff that is for losing a life.
-		print ("PLAYER DEATH")	# FOR DEBUGGING ONLY.
+		if (OS.is_debug_build()):	# FOR DEBUGGING ONLY.
+			print ("PLAYER DEATH")
 		position = checkpoint_pos
 	# Everything else is common to both death and a new game.
 	game_space.rings = 0

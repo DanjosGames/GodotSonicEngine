@@ -14,7 +14,7 @@ func _unhandled_key_input (event):
 		music_player.stop_music ()
 		$"/root/Level/Music_Player".play ()
 		$"/root/Level/hud_layer".set ("layer", 32)
-		game_space.player_character.set ("visible", true)
+#		game_space.player_character.set ("visible", true)
 		get_tree ().set_pause (false)		# Pause the game in the background.
 		queue_free ()	# Make sure this is removed when the time comes.
 	return

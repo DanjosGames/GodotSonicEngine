@@ -12,6 +12,7 @@ const DEFAULT_SCORE = 0				# Ditto score.
 var player_character = null		# Who is the player character? Set up by the player_<character name>.gd script in its _ready.
 var player_controlling_character = true	# Is the player controlling the character? Normally true.
 var reset_player_to_checkpoint = false	# Reset the player to the last checkpoint/start position if true.
+var cutscene_playing = false			# Is a cutscene playing? Set to true if so.
 
 onready var Game_Timer = Timer.new ()	# A universal timer.
 
