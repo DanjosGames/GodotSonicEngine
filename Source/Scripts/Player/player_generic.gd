@@ -64,12 +64,6 @@ func jingle_finished ():
 
 func _input (ev):
 	# Get the controls
-	if (game_space.cutscene_playing):	# Control is not possible during cutscenes.
-		move_left = false	# Make sure...
-		move_right = false	# ...the player cannot...
-		jump = false		# ...be moving or jumping etc.
-		return
-
 	if (!game_space.player_controlling_character):	# Player is currently not in control of the character.
 		move_left = false	# Make sure...
 		move_right = false	# ...the player cannot...
@@ -110,23 +104,16 @@ func _physics_process (delta):
 	return
 
 func _integrate_forces (s):
-	if (game_space.cutscene_playing):
-		move_left = false	# Make sure...
-		move_right = false	# ...the player cannot...
-		jump = false		# ...be moving or jumping etc.
-		s.set_linear_velocity (Vector2 (0,0))
-		return
 	if (!game_space.player_controlling_character):	# Player is currently not controlling the character.
-		if (game_space.reset_player_to_checkpoint):
-			s.set_linear_velocity (Vector2 (0,0))	# Bring any remaining movement speed to a halt.
-			s.set_transform (Transform2D (0, checkpoint_pos))	# Move the player back to the start/the last checkpoint passed.
-			visible = true
-			game_space.reset_player_to_checkpoint = false
-			game_space.player_controlling_character = true
 		move_left = false	# Make sure...
 		move_right = false	# ...the player cannot...
 		jump = false		# ...be moving or jumping etc. once they're respawned.
 		s.set_linear_velocity (Vector2 (0,0))	# Bring any remaining movement speed to a halt.
+		if (game_space.reset_player_to_checkpoint):	# Reset the player to the last known checkpoint, allow player control again.
+			s.set_transform (Transform2D (0, checkpoint_pos))	# Move the player back to the start/the last checkpoint passed.
+			game_space.reset_player_to_checkpoint = false	# No need for moving the player to the checkpoint, now.
+			game_space.player_controlling_character = true	# Let the player resume control.
+			visible = true	# Make sure the player character is visible!
 		return
 	if (Input.is_action_pressed ("DEBUG_resetpos")):	# FOR DEBUGGING ONLY. Reset player to last checkpoint crossed, or start.
 		if (OS.is_debug_build()):

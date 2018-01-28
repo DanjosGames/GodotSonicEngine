@@ -42,7 +42,7 @@ func _on_dead_sonic_tree_entered ():
 	$"/root/Level/hud_layer".set ("layer", -99)		# Hide the HUD layer.
 	position = game_space.player_character.position			# Set the position of this to where the player is.
 	# Make sure that the player character is not visible and its camera is disabled during the animation.
-	game_space.player_character.set ("visible", false)
+#	game_space.player_character.set ("visible", false)
 	game_space.player_character.get_node ("Camera2D").current = false
 	game_space.player_controlling_character = false
 	return

@@ -10,9 +10,8 @@ const DEFAULT_SCORE = 0				# Ditto score.
 
 ## These control the player character, and if anything needs to be done to/with it.
 var player_character = null		# Who is the player character? Set up by the player_<character name>.gd script in its _ready.
-var player_controlling_character = true	# Is the player controlling the character? Normally true.
+var player_controlling_character = true	# Is the player controlling the character? Normally true. False for death/cutscenes/etc.
 var reset_player_to_checkpoint = false	# Reset the player to the last checkpoint/start position if true.
-var cutscene_playing = false			# Is a cutscene playing? Set to true if so.
 
 onready var Game_Timer = Timer.new ()	# A universal timer.
 
@@ -71,6 +70,7 @@ func set_lives (value):
 		timer_paused = true
 		player_character.set_linear_velocity (Vector2 (0,0))	# Stop the player moving.
 		player_character.change_anim ("Die")
+		player_character.set ("visible", false)
 		global_space.add_path_to_node ("res://Scenes/UI/dead_player.tscn", "/root/Level")
 		player_character.reset_player (false)
 		timer_paused = false
@@ -90,7 +90,7 @@ func get_rings ():
 	return (rings)
 
 func set_rings (value):
-	if (value < rings && !(lives < 0 || !player_character.get ("visible"))):
+	if (value < rings && !(lives < 0 || !player_controlling_character)):
 		# Have lost rings through being hurt, as opposed to insta-kill etc.
 		sound_player.play_sound ("LoseRings")				# Play the jingle.
 	rings = value

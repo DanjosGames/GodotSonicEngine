@@ -26,6 +26,6 @@ func _unhandled_key_input (event):
 	return
 
 func _process (delta):
-	game_space.player_character.set ("visible", false)
+#	game_space.player_character.set ("visible", false)
 	$"/root/Level/hud_layer".set ("layer", -99)
 	return

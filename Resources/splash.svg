@@ -20,6 +20,8 @@
    inkscape:export-ydpi="96"
    inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
    sodipodi:docname="splash.svg">
+  <title
+     id="title25">Splash screen</title>
   <defs
      id="defs26" />
   <sodipodi:namedview
@@ -49,7 +51,12 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title>Splash screen</dc:title>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Stuart Moore</dc:title>
+          </cc:Agent>
+        </dc:creator>
       </cc:Work>
     </rdf:RDF>
   </metadata>
