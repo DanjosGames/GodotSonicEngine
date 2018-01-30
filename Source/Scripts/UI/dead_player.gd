@@ -17,14 +17,11 @@ func _ready ():
 func player_has_died (done, key):
 	if (game_space.minutes >= 9 && game_space.seconds > 59 && game_space.lives >= 0):
 		# Over ten minutes have passed, so time over applies. Load the time over scene, show it and continue.
-		if (OS.is_debug_build()):	# FOR DEBUGGING ONLY.
-			print ("TIME OVER")
 		game_over_yeah = global_space.add_path_to_node ("res://Scenes/UI/time_over.tscn", "/root/Level")
 		game_over_yeah.get_node ("Camera2D").current = true
 		game_over_yeah.position = game_space.player_character.get_node ("Camera2D").get_camera_position ()
 	if (game_space.lives >= 0):
 		game_space.player_character.get_node ("Camera2D").current = true			# Not game over yet, so...
-#		game_space.player_character.set ("visible", true)			# ...re-enable the sprite and camera...
 	else:
 		# The game is now over; all lives have been lost. Show the game over stuff.
 		game_over_yeah = global_space.add_path_to_node ("res://Scenes/UI/game_over.tscn", "/root/Level")
@@ -41,8 +38,7 @@ func _on_dead_sonic_tree_entered ():
 	sound_player.play_sound ("Death")		# Play the death jingle.
 	$"/root/Level/hud_layer".set ("layer", -99)		# Hide the HUD layer.
 	position = game_space.player_character.position			# Set the position of this to where the player is.
-	# Make sure that the player character is not visible and its camera is disabled during the animation.
-#	game_space.player_character.set ("visible", false)
+	# Make sure that the player character's camera is disabled during the animation.
 	game_space.player_character.get_node ("Camera2D").current = false
 	game_space.player_controlling_character = false
 	return
@@ -54,6 +50,6 @@ func _on_dead_sonic_tree_exited ():
 	game_space.reset_player_to_checkpoint = true
 	$"/root/Level/Timer_Level".start ()
 	$"/root/Level/hud_layer".set ("layer", 32)			# ...and re-reveal the HUD layer.
-	if (OS.is_debug_build()):
-		print ("EXITED DEAD PLAYER")	# FOR DEBUGGING ONLY.
+	if (OS.is_debug_build()):	# FOR DEBUGGING ONLY.
+		print ("EXITED DEAD PLAYER")
 	return

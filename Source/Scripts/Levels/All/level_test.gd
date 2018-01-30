@@ -6,4 +6,6 @@ func _ready ():
 	$"Music_Player".stream = load ("res://Assets/Audio/Music/Level_Test.ogg")
 	$"Music_Player".play ()
 	print ("Level ready to go!")
+	game_space.player_character.checkpoint_pos = $start_position.position
+	game_space.player_character.position = $start_position.position
 	return

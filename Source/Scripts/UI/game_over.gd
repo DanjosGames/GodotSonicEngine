@@ -5,8 +5,8 @@
 extends Sprite
 
 func _ready ():
-	if (OS.is_debug_build()):
-		print ("Game over!")	# FOR DEBUGGING ONLY.
+	if (OS.is_debug_build()):	# FOR DEBUGGING ONLY.
+		print ("Game over!")
 	$"/root/Level/hud_layer".set ("layer", -99)
 	if (has_node ("/root/Level/Music_Player")):
 		$"/root/Level/Music_Player".stop ()	# Stop whatever other music is playing, and play the game over music instead.

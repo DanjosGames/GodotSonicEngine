@@ -1,6 +1,6 @@
 # This script is set up to use "/root/global_space" in the AutoLoad section of the project settings. This sets a global space for
-# application-wide settings, flags, variables etc. which need to be easily passed around from scene/node to scene/node. It'd be a
-# better idea to set up other singletons to use for actually gameplay-related stuff.
+# application-wide settings, flags, variables etc. which need to be easily passed around from scene/node to scene/node. It'd be
+# better to set up other singletons to use for actual gameplay-related stuff.
 
 extends Node
 
@@ -50,7 +50,8 @@ func add_path_to_node (Scene_Path = "", Node_to_Add_to = "/root"):
 func go_to_scene (path):
 	var s = ResourceLoader.load (path)						# Load and...
 	new_scene = s.instance ()								# ...create an instance of the scene to go to.
-	print ("Changing from ", current_scene, " to ", new_scene, ".")	# FOR DEBUGGING ONLY.
+	if (OS.is_debug_build ()):	# FOR DEBUGGING ONLY.
+		print ("Changing from ", current_scene, " to ", new_scene, ".")
 	add_child_to_node (new_scene, get_tree ().get_root ().get_path ())	# Add the scene to the current root of the scene tree.
 	get_tree ().set_current_scene (new_scene)				# Set the current scene being shown to the new scene...
 	current_scene.queue_free ()								# ...delete the old scene from the tree...

@@ -3,6 +3,8 @@
 extends Sprite
 
 func _ready ():
+	if (OS.is_debug_build()):	# FOR DEBUGGING ONLY.
+		print ("TIME OVER")
 	if (has_node ("/root/Level/Music_Player")):
 		$"/root/Level/Music_Player".stop ()	# Stop whatever other music is playing, and play the game over music instead.
 		music_player.play_music ("res://Assets/Audio/Music/63_-_Game_Over.ogg")
