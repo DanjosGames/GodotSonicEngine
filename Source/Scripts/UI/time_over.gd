@@ -6,7 +6,7 @@ func _ready ():
 	if (has_node ("/root/Level/Music_Player")):
 		$"/root/Level/Music_Player".stop ()	# Stop whatever other music is playing, and play the game over music instead.
 		music_player.play_music ("res://Assets/Audio/Music/63_-_Game_Over.ogg")
-	get_tree ().set_pause (true)		# Pause the game in the background.
+	get_tree ().set_pause (true)		# Pause the game.
 	return
 
 func _unhandled_key_input (event):
@@ -14,11 +14,10 @@ func _unhandled_key_input (event):
 		music_player.stop_music ()
 		$"/root/Level/Music_Player".play ()
 		$"/root/Level/hud_layer".set ("layer", 32)
-		get_tree ().set_pause (false)		# Pause the game in the background.
+		get_tree ().set_pause (false)		# Unpause the game.
 		queue_free ()	# Make sure this is removed when the time comes.
 	return
 
 func _process (delta):
-#	game_space.player_character.set ("visible", false)
 	$"/root/Level/hud_layer".set ("layer", -99)
 	return
