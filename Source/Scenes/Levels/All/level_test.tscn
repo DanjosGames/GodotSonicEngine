@@ -32,8 +32,6 @@ texture = ExtResource( 3 )
 [node name="platform_TEST" parent="." index="4" instance=ExtResource( 4 )]
 
 position = Vector2( 177, 173 )
-linear_damp = -1.0
-angular_damp = -1.0
 
 [node name="Sonic" parent="." index="5" instance=ExtResource( 5 )]
 
@@ -105,7 +103,7 @@ position = Vector2( 2500, 670 )
 
 [node name="start_position" parent="." index="11" instance=ExtResource( 11 )]
 
-position = Vector2( -830, 140 )
+position = Vector2( -830, 136 )
 scale = Vector2( 0.1875, 0.1875 )
 
 

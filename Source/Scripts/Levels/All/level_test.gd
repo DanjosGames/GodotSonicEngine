@@ -6,6 +6,8 @@ func _ready ():
 	$"Music_Player".stream = load ("res://Assets/Audio/Music/Level_Test.ogg")
 	$"Music_Player".play ()
 	print ("Level ready to go!")
+	# As this is called when the level is loaded, set the checkpoint position to the start position.
 	game_space.player_character.checkpoint_pos = $start_position.position
-	game_space.player_character.position = $start_position.position
+	game_space.player_controlling_character = false
+	game_space.reset_player_to_checkpoint = true	# Move the player character into position.
 	return
