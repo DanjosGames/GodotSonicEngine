@@ -59,7 +59,7 @@
      id="layer1"
      transform="translate(0,-195.39998)">
     <g
-       transform="matrix(0.46098373,0,0,0.46098373,1.2417896,138.56029)"
+       transform="matrix(0.46098373,0,0,0.46098373,10.061685,138.56029)"
        id="layer1-3"
        inkscape:label="Layer 1">
       <g
@@ -159,30 +159,30 @@
     </g>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:39.37343979px;line-height:125%;font-family:Vipnagorgialla;-inkscape-font-specification:'Vipnagorgialla Bold';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.32291666;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;"
-       x="201.24113"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:39.37343979px;line-height:125%;font-family:Vipnagorgialla;-inkscape-font-specification:'Vipnagorgialla Bold';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.32291663;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       x="210.06104"
        y="231.41525"
        id="text55"><tspan
          sodipodi:role="line"
          id="tspan53"
-         x="201.24113"
+         x="210.06104"
          y="231.41525"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:39.37343979px;font-family:Vipnagorgialla;-inkscape-font-specification:'Vipnagorgialla Bold';text-align:center;text-anchor:middle;stroke-width:1.32291666;stroke:#000000;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;fill:#ffffff;fill-opacity:1;">TEST</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:39.37343979px;font-family:Vipnagorgialla;-inkscape-font-specification:'Vipnagorgialla Bold';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.32291663;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">TEST</tspan><tspan
          sodipodi:role="line"
-         x="201.24113"
+         x="210.06104"
          y="280.63205"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:39.37343979px;font-family:Vipnagorgialla;-inkscape-font-specification:'Vipnagorgialla Bold';text-align:center;text-anchor:middle;stroke-width:1.32291666;stroke:#000000;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;fill:#ffffff;fill-opacity:1;"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:39.37343979px;font-family:Vipnagorgialla;-inkscape-font-specification:'Vipnagorgialla Bold';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.32291663;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="tspan57">ZONE</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:19.01268196px;line-height:125%;font-family:'Bitstream Vera Sans';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.78243887px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
-       x="195.19188"
+       style="font-style:normal;font-weight:normal;font-size:19.01268196px;line-height:125%;font-family:'Bitstream Vera Sans';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.78243887px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="204.01178"
        y="253.31387"
        id="text61"><tspan
          sodipodi:role="line"
          id="tspan59"
-         x="195.19188"
+         x="204.01178"
          y="253.31387"
-         style="stroke-width:1.78243887px;-inkscape-font-specification:'Bitstream Vera Sans Bold';font-family:'Bitstream Vera Sans';font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;stroke:#000000;stroke-opacity:1;fill:#ffffff;fill-opacity:1;">1</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Bitstream Vera Sans';-inkscape-font-specification:'Bitstream Vera Sans Bold';fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.78243887px;stroke-opacity:1">1</tspan></text>
   </g>
 </svg>

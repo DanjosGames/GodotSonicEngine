@@ -4,12 +4,14 @@
 extends Node
 
 onready var path_to_here = $".".get_path ()
+var act_card_shown = false	# Has the act card been shown yet?
 
 # The default number of rings to collect to get an extra life. Set per-level for convenience.
 export(int) onready var rings_to_collect = game_space.RINGS_FOR_EXTRA_LIFE
 
 # Set up the world node (i.e., the node containing the level stuff) and sub-nodes as necessary here.
 func _ready ():
+	game_space.player_controlling_character = false
 	print ("Generic level functionality ready.")
 	if (has_node ("/root/Level/hud_layer")):
 		$"/root/Level/hud_layer".set ("layer", 32)
