@@ -41,19 +41,17 @@ func reset_values ():
 # Updates the HUD as required (for rings and lives and score, etc.). Called by the setters/getters for rings/score/time/lives.
 func update_hud ():
 	var prettied_time = ""	# Use this for the timer.
-	if (has_node ("/root/Level/hud_layer/Lives_Counter")):
-		$"/root/Level/hud_layer/Lives_Counter".set_text (var2str (lives))
-	if (has_node ("/root/Level/hud_layer/Ring_Count")):
-		$"/root/Level/hud_layer/Ring_Count".set_text (var2str (rings))
-	if (has_node ("/root/Level/hud_layer/Time_Count")):
-		# Put the timer together.
-		prettied_time += var2str (minutes) + ":"
-		if (seconds < 10):	# Add a relevant 0 (to keep the timer looking consistent).
-			prettied_time += "0"
-		prettied_time += var2str (seconds)
-		$"/root/Level/hud_layer/Time_Count".text = prettied_time
-	if (has_node ("/root/Level/hud_layer/Score_Value")):
-		print ("AAAA")	# FIXME: Add score stuff!
+	if (!has_node ("/root/Level/hud_layer")):	# Can't update a HUD that is not there!
+		return
+	$"/root/Level/hud_layer/Lives_Counter".set_text (var2str (lives))
+	$"/root/Level/hud_layer/Ring_Count".set_text (var2str (rings))
+	# Put the timer together.
+	prettied_time += var2str (minutes) + ":"
+	if (seconds < 10):	# Add a relevant 0 (to keep the timer looking consistent).
+		prettied_time += "0"
+	prettied_time += var2str (seconds)
+	$"/root/Level/hud_layer/Time_Count".text = prettied_time
+#	print ("AAAA")	# FIXME: Add score stuff!
 	return
 
 ## SETTERS and GETTERS.
@@ -101,14 +99,14 @@ func set_rings (value):
 	update_hud ()
 	return
 
+func get_score ():
+	update_hud ()
+	return (score)
+
 func set_score (value):
 	score = value
 	update_hud ()
 	return
-
-func get_score ():
-	update_hud ()
-	return (score)
 
 func get_seconds ():
 	update_hud ()

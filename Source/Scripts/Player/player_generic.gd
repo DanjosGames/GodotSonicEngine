@@ -41,27 +41,6 @@ func _ready ():
 	game_space.player_character = $"."	# Figure out who the current player character is...
 	return
 
-# change_anim
-# func change_anim (new_anim)
-# Changes the currently playing animation to one specified (by new_anim). Won't change the animation if it's already playing.
-# Returns true if the animation has changed, false otherwise.
-# TODO: Maybe make this function able to change direction animation plays in, etc.?
-func change_anim (new_anim):
-	if (new_anim != sprite_anim):	# This is a new animation...
-		sprite_anim = new_anim		# ...so set sprite_anim to new_anim.
-		sprite_anim_node.set_animation (sprite_anim)	# And make the sprite animation node play the new animation.
-		return (true)
-	return (false)
-
-# If whatever Jingle_Player is playing was finished, resume the level's Music_Player.
-func jingle_finished ():
-	if (has_node ("Jingle_Player")):	# Just in case!
-		$"Jingle_Player".stop ()
-	if (has_node ("/root/Level/Music_Player")):	# Restart the level's music player, if necessary.
-		if (!$"/root/Level/Music_Player".playing):
-			$"/root/Level/Music_Player".play ()
-	return
-
 func _input (ev):
 	# Get the controls
 	if (!game_space.player_controlling_character):	# Player is currently not in control of the character.
@@ -113,6 +92,7 @@ func _integrate_forces (s):
 			s.set_transform (Transform2D (0, checkpoint_pos))	# Move the player back to the start/the last checkpoint passed.
 			game_space.reset_player_to_checkpoint = false	# No need for moving the player to the checkpoint, now.
 			game_space.player_controlling_character = true	# Let the player resume control.
+			change_anim ("Idle")
 			visible = true	# Make sure the player character is visible!
 		return
 	if (Input.is_action_pressed ("DEBUG_resetpos")):	# FOR DEBUGGING ONLY. Reset player to last checkpoint crossed, or start.
@@ -256,4 +236,25 @@ func reset_player (is_new_game):
 	game_space.rings = 0
 	set_linear_velocity (Vector2 (0, 0))	# Shouldn't be moving, but just in case.
 	change_anim ("Idle")
+	return
+
+# change_anim
+# func change_anim (new_anim)
+# Changes the currently playing animation to one specified (by new_anim). Won't change the animation if it's already playing.
+# Returns true if the animation has changed, false otherwise.
+# TODO: Maybe make this function able to change direction animation plays in, etc.?
+func change_anim (new_anim):
+	if (new_anim != sprite_anim):	# This is a new animation...
+		sprite_anim = new_anim		# ...so set sprite_anim to new_anim.
+		sprite_anim_node.set_animation (sprite_anim)	# And make the sprite animation node play the new animation.
+		return (true)
+	return (false)
+
+# If whatever Jingle_Player is playing was finished, resume the level's Music_Player.
+func jingle_finished ():
+	if (has_node ("Jingle_Player")):	# Just in case!
+		$"Jingle_Player".stop ()
+	if (has_node ("/root/Level/Music_Player")):	# Restart the level's music player, if necessary.
+		if (!$"/root/Level/Music_Player".playing):
+			$"/root/Level/Music_Player".play ()
 	return
