@@ -2,14 +2,14 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Ring_single.png-bbea749e9ed87204c80b43da782c667b.stex"
+path="res://.import/Ring_single.png-3193609c6b23e6d8d148c102f9f4b7e0.stex"
 
 [deps]
 
-source_file="res://Assets/Graphics/2D/Sprites/UI/Ring_single.png"
+source_file="res://Assets/Graphics/2D/Sprites/UI/HUD/Ring_single.png"
 source_md5="1553df4fc762924ee9e8c0bca747662e"
 
-dest_files=[ "res://.import/Ring_single.png-bbea749e9ed87204c80b43da782c667b.stex" ]
+dest_files=[ "res://.import/Ring_single.png-3193609c6b23e6d8d148c102f9f4b7e0.stex" ]
 dest_md5="a219373f6d21b4b1a40b78eaaee9178d"
 
 [params]

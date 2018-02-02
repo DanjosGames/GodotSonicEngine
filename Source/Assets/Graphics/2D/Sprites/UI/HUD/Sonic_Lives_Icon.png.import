@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/stopwatch.png-d51227be653af601e85409f3027175d3.stex"
+path="res://.import/Sonic_Lives_Icon.png-3545eb21f20aecab870e74eb07ad2a00.stex"
 
 [deps]
 
-source_file="res://Assets/Graphics/2D/Sprites/UI/stopwatch.png"
-source_md5="cd0f3cabe5d691fee74920386dba5de2"
+source_file="res://Assets/Graphics/2D/Sprites/UI/HUD/Sonic_Lives_Icon.png"
+source_md5="7e7f8799c2627979da29b7e0b6780f4b"
 
-dest_files=[ "res://.import/stopwatch.png-d51227be653af601e85409f3027175d3.stex" ]
-dest_md5="24954aed7bedd43362503012f86cbc2f"
+dest_files=[ "res://.import/Sonic_Lives_Icon.png-3545eb21f20aecab870e74eb07ad2a00.stex" ]
+dest_md5="e52ee6a1c515cb26fb7ade6b333a0acf"
 
 [params]
 

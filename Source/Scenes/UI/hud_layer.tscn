@@ -2,9 +2,9 @@
 
 [ext_resource path="res://Scripts/UI/hud_layer.gd" type="Script" id=1]
 [ext_resource path="res://Assets/UI/default.tres" type="Theme" id=2]
-[ext_resource path="res://Assets/Graphics/2D/Sprites/UI/Ring_single.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Graphics/2D/Sprites/UI/Sonic_Lives_Icon.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Graphics/2D/Sprites/UI/stopwatch.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Graphics/2D/Sprites/UI/HUD/Ring_single.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Graphics/2D/Sprites/UI/HUD/Sonic_Lives_Icon.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Graphics/2D/Sprites/UI/HUD/stopwatch.png" type="Texture" id=5]
 
 [node name="hud_layer" type="CanvasLayer" index="0"]
 
