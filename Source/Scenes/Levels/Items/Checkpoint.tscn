@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Scripts/Levels/All/Checkpoint.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Levels/Items/Checkpoint.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Graphics/2D/Sprites/Levels/All/Checkpoint.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Audio/Sound/Checkpoint.ogg" type="AudioStream" id=3]
 
@@ -74,7 +74,6 @@ playback_speed = 1.0
 anims/spin_green = SubResource( 1 )
 anims/spin_red = SubResource( 2 )
 blend_times = [  ]
-autoplay = ""
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 

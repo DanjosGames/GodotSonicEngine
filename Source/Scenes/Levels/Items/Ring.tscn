@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://Scripts/Levels/All/Ring.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Levels/Items/Ring.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Graphics/2D/Sprites/Levels/All/Rings/00.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Graphics/2D/Sprites/Levels/All/Rings/01.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Graphics/2D/Sprites/Levels/All/Rings/02.png" type="Texture" id=4]
@@ -27,7 +27,7 @@ animations = [ {
 custom_solver_bias = 0.0
 radius = 9.29151
 
-[node name="Ring" type="Area2D"]
+[node name="Ring" type="Area2D" index="0"]
 
 input_pickable = false
 gravity_vec = Vector2( 0, 1 )
