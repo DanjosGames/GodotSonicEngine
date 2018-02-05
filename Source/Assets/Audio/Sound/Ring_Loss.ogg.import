@@ -2,14 +2,14 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/RingLoss.ogg-7819b2bd72eb55ed9e13230efdcfb589.oggstr"
+path="res://.import/Ring_Loss.ogg-c92f2ef499a3a82dd5f1ac2e604a113d.oggstr"
 
 [deps]
 
 source_file="res://Assets/Audio/Sound/Ring_Loss.ogg"
 source_md5="7ab5069d7a1f0d055c8724f7a794ecab"
 
-dest_files=[ "res://.import/RingLoss.ogg-7819b2bd72eb55ed9e13230efdcfb589.oggstr" ]
+dest_files=[ "res://.import/Ring_Loss.ogg-c92f2ef499a3a82dd5f1ac2e604a113d.oggstr" ]
 dest_md5="fb8021da92cd6fcc781088264b5879e3"
 
 [params]

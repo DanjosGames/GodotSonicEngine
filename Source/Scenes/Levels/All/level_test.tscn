@@ -12,7 +12,6 @@
 [ext_resource path="res://Scenes/Levels/Items/kill_zone.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Levels/Items/start_position.tscn" type="PackedScene" id=11]
 
-
 [node name="Level" index="0" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )

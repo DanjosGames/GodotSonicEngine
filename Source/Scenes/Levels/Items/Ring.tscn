@@ -52,7 +52,7 @@ volume_db = 0.0
 autoplay = false
 max_distance = 2000.0
 attenuation = 1.0
-bus = "Master"
+bus = "SFX"
 area_mask = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]

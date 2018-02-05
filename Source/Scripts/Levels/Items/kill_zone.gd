@@ -1,5 +1,4 @@
 ### Kill zones. For things like bottomless pits or the like.
-# Want to use them for other things? Size them as necessary in the object/scene you want - DON'T RESCALE!
 
 extends Area2D
 
