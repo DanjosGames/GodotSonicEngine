@@ -6,7 +6,7 @@ path="res://.import/RingLoss.ogg-7819b2bd72eb55ed9e13230efdcfb589.oggstr"
 
 [deps]
 
-source_file="res://Assets/Audio/Sound/RingLoss.ogg"
+source_file="res://Assets/Audio/Sound/Ring_Loss.ogg"
 source_md5="7ab5069d7a1f0d055c8724f7a794ecab"
 
 dest_files=[ "res://.import/RingLoss.ogg-7819b2bd72eb55ed9e13230efdcfb589.oggstr" ]

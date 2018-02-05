@@ -9,11 +9,11 @@ extends AudioStreamPlayer
 
 onready var Sound_Library = {
 	# Put all the sound effects to be used globally here.
-	No_Sound = preload ("res://Assets/Audio/Sound/No_Sound.ogg"),	# LEAVE ME HERE. KEEP ME AS THE FIRST ITEM IN THE LIST.
+	No_Sound = preload ("res://Assets/Audio/Sound/No_Sound.ogg"),	# Keep this as the first item in the list.
 	Death = preload ("res://Assets/Audio/Sound/Death.ogg"),
 	Jump = preload ("res://Assets/Audio/Sound/Jump.ogg"),
-	LoseRings = preload ("res://Assets/Audio/Sound/RingLoss.ogg"),
-	Ring = preload ("res://Assets/Audio/Sound/RingUp.ogg"),
+	LoseRings = preload ("res://Assets/Audio/Sound/Ring_Loss.ogg"),
+	Ring = preload ("res://Assets/Audio/Sound/Ring_Up.ogg"),
 }
 
 func _ready ():
@@ -26,11 +26,11 @@ func _ready ():
 # Returns true if the item was found and the sound played, false otherwise.
 func play_sound (item = "No_Sound"):
 	if (item in Sound_Library):
-		# The sound exists in the library, so play it out.
+		# The sound exists in the library, so play it out and return true.
 		stream = Sound_Library [item]
 		play ()
 		return (true)
-	# Sound not found, so give an error.
+	# Sound not found, so give an error and return false.
 	print ("ERROR: \"", item, "\" not found!")
 	return (false)
 
