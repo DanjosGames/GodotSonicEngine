@@ -1,0 +1,22 @@
+<Project Name> - project root. Design notes and the like are kept in here.
+	Builds - executable builds are created here.
+	Resources - Raw resources used by the project. NOT used directly by the project source.
+	Source - the source files for the project.
+		addons - do not use directly; used for external Godot addons (e.g. FSM or dialogue plugins) that are NOT GDNative.
+		Assets - All physical assets - graphics, models, shaders, music etc. Use sub-dirs named by character, concept, usage etc.
+			Graphics - All graphical elements here.
+				2D - All 2D elements are stored here.
+				3D - Same principle with 2D elements.
+				Shaders - screen-based or other shaders here. Indicate use for shader in filename, e.g. 2d/3d/screenspace etc.
+				Fonts - fonts used throughout the game.
+			Audio - All sound files.
+				Ambient - all looped sound effects.
+				Sound - all non-looped sound effects.
+				Music - all music, looped or non-looped. Might be a good idea to indicate music intended to be NON-looped in the filename. Looped filenames could include loop offset.
+			UI - Theme definitions for the user interface are stored here.
+			Other - any other resource that might not fit any of the other categories. NO UI ELEMENTS.
+		GDNative - do not use directly; used for external Godot addons (e.g. FSM or dialogue plugins) that ARE GDNative (e.g. external libraries, other languages).
+		Scenes - all the "scenes" used in the game. Handled by having all scenes in sub-dirs related to their purpose/type/etc (game objects, player movement, Save/Load etc). Should mirror Scripts.
+			System - non-game(play) related scenes. Primarily for autoload/general-purpose singletons that contain nodes/scripts for convenience use.
+		Scripts - all the scripts used in the game. Handled by having all scripts in sub-dirs related to their purpose/type/etc (game objects, player movement, Save/Load etc). Should mirror Scenes.
+			System - non-game(play) related scripts. Primarily for autoload/general-purpose singletons that contain nodes/scripts for convenience use.

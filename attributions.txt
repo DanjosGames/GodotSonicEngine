@@ -3,3 +3,4 @@ If there is anything NOT listed in here it means that it MAY NOT be used commerc
 tl;dr - Only assets listed here are (legally) safe to use commercially.
 
 Asset - Author(s) - License (if known/applicable)
+Godot 2D Platformer tileset - Godot team - CC-BY 3.0

@@ -31,7 +31,7 @@ func play_sound (item = "No_Sound"):
 		play ()
 		return (true)
 	# Sound not found, so give an error and return false.
-	print ("ERROR: \"", item, "\" not found!")
+	printerr ("ERROR: \"", item, "\" not found!")
 	return (false)
 
 # stop_sound

@@ -14,7 +14,8 @@ func _ready ():
 	$"Tweens/Tween_Lives".interpolate_property ($"Lives_Counter", "custom_colors/font_color", Color ("#ff0000"), Color ("#ffff00"), 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, 0.25)
 	$"Tweens/Tween_Rings".set_repeat (true)
 	$"Tweens/Tween_Lives".set_repeat (true)
-	print ("HUD set up.")
+	if (OS.is_debug_build ()):
+		printerr ("HUD set up.")
 	return
 
 # Makes sure that if lives and/or rings counters need to flash, that they do.

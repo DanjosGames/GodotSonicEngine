@@ -12,5 +12,4 @@ func _ready ():
 	if (!act_card_shown):
 		global_space.add_path_to_node ("res://Scenes/UI/act_card_TEST.tscn", get_path ())
 		act_card_shown = true
-#	game_space.reset_player_to_checkpoint = true	# Move the player character into position.
 	return

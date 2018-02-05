@@ -20,7 +20,7 @@ func play_music (path_to_music = "", play_from = 0.0):
 		play_me = stream
 	if (stream == null && play_me == null):	# Nothing to play - the stream was empty and no valid file was specified to play.
 		# Can't play nothing, so error out!
-		print ("ERROR: Can't play nothing; no valid file was specified to play and/or there was no stream set up before.")
+		printerr ("ERROR: Can't play nothing; no valid file was specified to play and/or there was no stream set up before.")
 		return (false)
 	stream = play_me	# Everything's OK, so set the stream as needed...
 	play (play_from)				# ...play the music...

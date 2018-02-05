@@ -13,8 +13,6 @@ export(int) onready var rings_to_collect = game_space.RINGS_FOR_EXTRA_LIFE
 func _ready ():
 	game_space.player_controlling_character = false
 	print ("Generic level functionality ready.")
-	if (has_node ("/root/Level/hud_layer")):
-		$"/root/Level/hud_layer".set ("layer", 32)
 	if (has_node ("/root/Level/Timer_Level")):
 		$"Timer_Level".connect ("timeout", self, "timer_add")
 	return

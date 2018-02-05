@@ -33,10 +33,10 @@ func player_has_died (done, key):
 # Make sure certain things happen as soon as this scene is added to the tree.
 func _on_dead_sonic_tree_entered ():
 	if (OS.is_debug_build()):	# FOR DEBUGGING ONLY.
-		print ("ENTERED DEAD PLAYER")
+		printerr ("ENTERED DEAD PLAYER")
+	$"/root/Level/hud_layer".set ("layer", -99)		# Hide the HUD layer.
 	$"/root/Level/Timer_Level".stop ()
 	sound_player.play_sound ("Death")		# Play the death jingle.
-	$"/root/Level/hud_layer".set ("layer", -99)		# Hide the HUD layer.
 	position = game_space.player_character.position			# Set the position of this to where the player is.
 	# Make sure that the player character's camera is disabled during the animation.
 	game_space.player_character.get_node ("Camera2D").current = false
@@ -49,7 +49,6 @@ func _on_dead_sonic_tree_exited ():
 	game_space.seconds = 0
 	game_space.reset_player_to_checkpoint = true
 	$"/root/Level/Timer_Level".start ()
-	$"/root/Level/hud_layer".set ("layer", 32)			# ...and re-reveal the HUD layer.
 	if (OS.is_debug_build()):	# FOR DEBUGGING ONLY.
-		print ("EXITED DEAD PLAYER")
+		printerr ("EXITED DEAD PLAYER")
 	return

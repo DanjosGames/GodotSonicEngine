@@ -54,23 +54,23 @@ func _input (ev):
 
 	if (OS.is_debug_build()):	# FOR DEBUGGING ONLY.
 		if (Input.is_action_pressed ("DEBUG_kill")):	# FOR DEBUGGING ONLY. Kill the player!
-			print ("DEBUG: kill player.")
+			printerr ("DEBUG: kill player.")
 			game_space.lives -=1
 
 		if (Input.is_action_pressed ("DEBUG_extralife")):	# FOR DEBUGGING ONLY. Give an extra life.
-			print ("DEBUG: extra life.")
+			printerr ("DEBUG: extra life.")
 			game_space.lives += 1
 
 		if (Input.is_action_pressed ("DEBUG_gainrings")):	# FOR DEBUGGING ONLY. Gain 10 rings.
-			print ("DEBUG: gain rings.")
+			printerr ("DEBUG: gain rings.")
 			game_space.rings += 10
 
 		if (Input.is_action_pressed ("DEBUG_loserings")):	# FOR DEBUGGING ONLY. Lose all rings.
-			print ("DEBUG: lose rings.")
+			printerr ("DEBUG: lose rings.")
 			game_space.rings = 0
 
 		if (Input.is_action_pressed ("DEBUG_timeover")):	# FOR DEBUGGING ONLY. Time over!
-			print ("DEBUG: time over.")
+			printerr ("DEBUG: time over.")
 			game_space.minutes = 9
 			game_space.seconds = 59
 
@@ -94,10 +94,11 @@ func _integrate_forces (s):
 			game_space.player_controlling_character = true	# Let the player resume control.
 			change_anim ("Idle")
 			visible = true	# Make sure the player character is visible!
+			$"/root/Level/hud_layer".set ("layer", 32)		# Reveal the HUD layer.
 		return
 	if (Input.is_action_pressed ("DEBUG_resetpos")):	# FOR DEBUGGING ONLY. Reset player to last checkpoint crossed, or start.
 		if (OS.is_debug_build()):
-			print ("DEBUG: move player to last good checkpoint position.")
+			printerr ("DEBUG: move player to last good checkpoint position.")
 			move_left = false	# Make sure...
 			move_right = false	# ...the player cannot...
 			jump = false		# ...be moving or jumping etc. once they're respawned.
