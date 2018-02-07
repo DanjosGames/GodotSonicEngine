@@ -7,9 +7,4 @@ func _ready ():
 	$"Music_Player".play ()
 	print ("Level ready to go!")
 	# As this is called when the level is loaded, set the checkpoint position to the start position.
-	game_space.player_character.checkpoint_pos = $start_position.position
-	game_space.player_controlling_character = false
-	if (!act_card_shown):
-		global_space.add_path_to_node ("res://Scenes/UI/act_card_TEST.tscn", get_path ())
-		act_card_shown = true
 	return

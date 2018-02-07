@@ -15,6 +15,12 @@ func _ready ():
 	print ("Generic level functionality ready.")
 	if (has_node ("/root/Level/Timer_Level")):
 		$"Timer_Level".connect ("timeout", self, "timer_add")
+	game_space.player_character.checkpoint_pos = $start_position.position
+	game_space.player_character.visible = false
+	game_space.player_controlling_character = false
+	if (!act_card_shown):
+		global_space.add_path_to_node ("res://Scenes/UI/act_card_TEST.tscn", get_path ())
+		act_card_shown = true
 	return
 
 # Controls the level timer. So long as the timer isn't paused, it'll add a second on to it.
