@@ -3,7 +3,7 @@
 # (Or <name> = preload ("<filename>"), your choice.) (Or "<name>": load ("<filename>") etc etc.)
 # Sound effects can be played using sound_player.play_sound ([<name>])
 
-# Note it uses neither 2D or 3D effects, so should be kept primarily for UI or similar stuff.
+# Note it uses neither 2D or 3D effects; it's best used for UI sounds or other sounds that don't need to consider their positions.
 
 extends AudioStreamPlayer
 

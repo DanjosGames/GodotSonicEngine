@@ -5,7 +5,7 @@
 extends Sprite
 
 func _ready ():
-	if (OS.is_debug_build()):	# FOR DEBUGGING ONLY.
+	if (OS.is_debug_build ()):	# FOR DEBUGGING ONLY.
 		printerr ("Game over!")
 	if (has_node ("/root/Level/Music_Player")):
 		$"/root/Level/Music_Player".stop ()	# Stop whatever other music is playing, and play the game over music instead.
