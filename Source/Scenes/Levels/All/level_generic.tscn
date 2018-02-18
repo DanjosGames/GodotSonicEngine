@@ -10,7 +10,7 @@ stream = null
 volume_db = 0.0
 autoplay = false
 mix_target = 0
-bus = "Master"
+bus = "Music"
 
 [node name="Timer_Level" type="Timer" parent="." index="1"]
 
@@ -20,5 +20,7 @@ one_shot = false
 autostart = true
 
 [node name="hud_layer" parent="." index="2" instance=ExtResource( 1 )]
+
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 

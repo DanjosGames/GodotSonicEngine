@@ -6,7 +6,7 @@ func _ready():
 	if (OS.is_debug_build ()):
 		printerr ("Showing act card.")
 	if (has_node ("/root/Level/hud_layer")):
-		$"/root/Level/hud_layer".set ("layer", -99)		# Hide the HUD layer.
+		$"/root/Level/hud_layer".layer = -99
 	position = $"/root/Level/start_position".position
 	yield (get_tree ().create_timer (2.0), "timeout")
 	game_space.reset_player_to_checkpoint = true

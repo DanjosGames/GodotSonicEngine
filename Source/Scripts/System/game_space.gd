@@ -123,5 +123,7 @@ func set_seconds (value):
 			return
 		seconds = 0
 		minutes += 1
+		if (OS.is_debug_build ()):	# FOR DEBUGGING ONLY.
+			printerr ("Minutes are now ", minutes, ".")
 	update_hud ()
 	return

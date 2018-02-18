@@ -2,9 +2,10 @@
 
 extends Sprite
 
-var game_over_yeah = null	# Used to handle the game over node.
+var game_over_yeah = null	# Used to handle the game/time over node if needed.
 
 # Well, the player has had a death, so start the death animation playing.
+# TODO: It's the _ready function that should tell this scene what sprite(s) to use in the animation (via game_space.player_character).
 func _ready ():
 	$Tween.connect ("tween_completed", self, "player_has_died")
 	$Tween.interpolate_property ($".", "position", position, Vector2 (position.x, position.y+290), 1.50, Tween.TRANS_LINEAR, Tween.EASE_IN)
@@ -31,10 +32,10 @@ func player_has_died (done, key):
 	return
 
 # Make sure certain things happen as soon as this scene is added to the tree.
-func _on_dead_sonic_tree_entered ():
+func _on_dead_player_tree_entered ():
 	if (OS.is_debug_build()):	# FOR DEBUGGING ONLY.
 		printerr ("ENTERED DEAD PLAYER")
-	$"/root/Level/hud_layer".set ("layer", -99)		# Hide the HUD layer.
+	$"/root/Level/hud_layer".layer = -99		# Hide the HUD layer.
 	$"/root/Level/Timer_Level".stop ()
 	sound_player.play_sound ("Death")		# Play the death jingle.
 	position = game_space.player_character.position			# Set the position of this to where the player is.
@@ -43,8 +44,8 @@ func _on_dead_sonic_tree_entered ():
 	game_space.player_controlling_character = false
 	return
 
-# When leaving the scene (it's being removed from the tree), do these things (reset values and so on).
-func _on_dead_sonic_tree_exited ():
+# When the scene is being removed from the tree, reset values and so on.
+func _on_dead_player_tree_exited ():
 	game_space.minutes = 0
 	game_space.seconds = 0
 	game_space.reset_player_to_checkpoint = true

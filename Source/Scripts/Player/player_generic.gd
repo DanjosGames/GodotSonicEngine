@@ -94,7 +94,7 @@ func _integrate_forces (s):
 			game_space.player_controlling_character = true	# Let the player resume control.
 			change_anim ("Idle")
 			visible = true	# Make sure the player character is visible!
-			$"/root/Level/hud_layer".set ("layer", 32)		# Reveal the HUD layer.
+			$"/root/Level/hud_layer".layer = 32		# Reveal the HUD layer.
 		return
 	if (Input.is_action_pressed ("DEBUG_resetpos")):	# FOR DEBUGGING ONLY. Reset player to last checkpoint crossed, or start.
 		if (OS.is_debug_build()):

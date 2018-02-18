@@ -20,3 +20,9 @@
 			System - non-game(play) related scenes. Primarily for autoload/general-purpose singletons that contain nodes/scripts for convenience use.
 		Scripts - all the scripts used in the game. Handled by having all scripts in sub-dirs related to their purpose/type/etc (game objects, player movement, Save/Load etc). Should mirror Scenes.
 			System - non-game(play) related scripts. Primarily for autoload/general-purpose singletons that contain nodes/scripts for convenience use.
+
+Audio bus structure:
+
+Master
+	Music
+	SFX - including ambient or looped sound effects. Anything that isn't music.

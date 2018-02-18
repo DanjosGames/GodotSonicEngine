@@ -22,8 +22,8 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[connection signal="tree_entered" from="." to="." method="_on_dead_sonic_tree_entered"]
+[connection signal="tree_entered" from="." to="." method="_on_dead_player_tree_entered"]
 
-[connection signal="tree_exiting" from="." to="." method="_on_dead_sonic_tree_exited"]
+[connection signal="tree_exiting" from="." to="." method="_on_dead_player_tree_exited"]
 
 
