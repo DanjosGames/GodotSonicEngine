@@ -91,23 +91,19 @@ func _integrate_forces (s):
 		if (game_space.reset_player_to_checkpoint):	# Reset the player to the last known checkpoint, allow player control again.
 			s.set_transform (Transform2D (0, checkpoint_pos))	# Move the player back to the start/the last checkpoint passed.
 			game_space.reset_player_to_checkpoint = false	# No need for moving the player to the checkpoint, now.
-			game_space.player_controlling_character = true	# Let the player resume control.
 			change_anim ("Idle")
 			visible = true	# Make sure the player character is visible!
 			$"/root/Level/hud_layer".layer = 32		# Reveal the HUD layer.
+			game_space.player_controlling_character = true	# Let the player resume control.
 		return
 	if (Input.is_action_pressed ("DEBUG_resetpos")):	# FOR DEBUGGING ONLY. Reset player to last checkpoint crossed, or start.
 		if (OS.is_debug_build()):
 			printerr ("DEBUG: move player to last good checkpoint position.")
-			move_left = false	# Make sure...
-			move_right = false	# ...the player cannot...
-			jump = false		# ...be moving or jumping etc. once they're respawned.
-			s.set_linear_velocity (Vector2 (0,0))	# Bring any remaining movement speed to a halt.
-			s.set_transform (Transform2D (0, checkpoint_pos))	# Move the player back to the start/the last checkpoint passed.
-			change_anim ("Idle")
+			game_space.player_controlling_character = false
+			game_space.reset_player_to_checkpoint = true
 			return
-	var lv = s.get_linear_velocity ()
-	var step = s.get_step ()
+	var lv = s.get_linear_velocity ()	# Get the linear velocity to work on it.
+	var step = s.get_step ()		# Ditto with "step".
 
 	var new_siding_left = siding_left
 
