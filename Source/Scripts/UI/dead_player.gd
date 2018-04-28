@@ -14,8 +14,8 @@ func _ready ():
 	$Tween.start ()
 	return
 
-# The animation is now over, so return the player to normal (after resetting various values), set them to a checkpoint position and
-# resume control, unless they have no lives left in which case end the game.
+# The animation is now over, so return the player to normal (after resetting various values) unless they have no lives left in which
+# case end the game.
 func player_has_died (done, key):
 	if (game_space.minutes >= 9 && game_space.seconds > 59 && game_space.lives >= 0):
 		# Over ten minutes have passed, so time over applies. Load the time over scene, show it and continue.
@@ -45,7 +45,7 @@ func _on_dead_player_tree_entered ():
 	game_space.player_controlling_character = false
 	return
 
-# When the scene is being removed from the tree, reset values and so on.
+# When the scene is being removed from the tree, reset values, restore player's position and control and so on.
 func _on_dead_player_tree_exited ():
 	game_space.minutes = 0
 	game_space.seconds = 0

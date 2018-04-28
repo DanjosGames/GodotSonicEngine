@@ -18,4 +18,3 @@ func _unhandled_key_input (event):
 		get_tree ().set_pause (false)		# Unpause the game.
 		queue_free ()	# Make sure this is removed when the time comes.
 	return
-

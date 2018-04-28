@@ -23,4 +23,3 @@ func _unhandled_key_input (event):
 		queue_free ()	# As this is queued, it'd be better put here than before reloading the main scene again.
 		get_tree ().reload_current_scene()
 	return
-
