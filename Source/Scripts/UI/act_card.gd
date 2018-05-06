@@ -2,8 +2,8 @@
 
 extends Sprite
 
-func _ready():
-	if (OS.is_debug_build ()):
+func _ready ():
+	if (OS.is_debug_build ()):	# FOR DEBUGGING ONLY.
 		printerr ("Showing act card.")
 	if (has_node ("/root/Level/hud_layer")):
 		$"/root/Level/hud_layer".layer = -99

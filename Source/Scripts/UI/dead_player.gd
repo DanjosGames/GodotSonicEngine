@@ -17,7 +17,7 @@ func _ready ():
 # The animation is now over, so return the player to normal (after resetting various values) unless they have no lives left in which
 # case end the game.
 func player_has_died (done, key):
-	if (game_space.minutes >= 9 && game_space.seconds > 59 && game_space.lives >= 0):
+	if ((game_space.minutes >= 9 && game_space.seconds > 59) && game_space.lives >= 0):
 		# Over ten minutes have passed, so time over applies. Load the time over scene, show it and continue.
 		game_over_yeah = global_space.add_path_to_node ("res://Scenes/UI/time_over.tscn", "/root/Level")
 		game_over_yeah.get_node ("Camera2D").current = true
