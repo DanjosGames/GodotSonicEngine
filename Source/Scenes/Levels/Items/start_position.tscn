@@ -1,5 +1,5 @@
 [gd_scene format=2]
 
-[node name="start_position" type="Node2D"]
+[node name="start_position" type="Position2D" index="0"]
 
 

@@ -65,6 +65,8 @@ func go_to_scene (path):
 # Returns true first time round (because it hadn't been done before!), false afterwards.
 # Try and avoid using this overly in _process functions, but otherwise shouldn't make too much of an adverse impact on performance.
 func do_once_only (do_me):
+	if (OS.is_debug_build ()):	# FOR DEBUGGING ONLY.
+		printerr ("Looking for ", do_me, ".")
 	if (do_me in do_once_dictionary):	# Already been done once!
 		return (false)					# Returns false as it has already been done before.
 	# Not been done, so add it to the dictionary and return true.

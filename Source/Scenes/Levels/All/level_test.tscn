@@ -94,7 +94,7 @@ position = Vector2( -2120, 670 )
 
 position = Vector2( 2500, 670 )
 
-[node name="start_position" parent="." index="10" instance=ExtResource( 10 )]
+[node name="start_position" type="Position2D" parent="." index="10" instance=ExtResource( 10 )]
 
 position = Vector2( -1460, 140 )
 scale = Vector2( 0.1875, 0.1875 )

@@ -48,8 +48,8 @@ func _input (ev):
 		move_right = false	# ...the player cannot...
 		jump = false		# ...be moving or jumping etc. once they're respawned.
 		return
-	move_left = Input.is_action_pressed ("move_left")
-	move_right = Input.is_action_pressed ("move_right")
+	move_left = (Input.is_action_pressed ("move_left") && !move_right)
+	move_right = (Input.is_action_pressed ("move_right") && !move_left)
 	jump = Input.is_action_pressed ("move_jump")
 
 	if (OS.is_debug_build()):	# FOR DEBUGGING ONLY.
@@ -71,7 +71,7 @@ func _input (ev):
 
 		if (Input.is_action_pressed ("DEBUG_timeover")):	# FOR DEBUGGING ONLY. Time over!
 			printerr ("DEBUG: time over.")
-			game_space.minutes = 9
+			game_space.minutes = 9				# Sets the timer to 1 second before time over.
 			game_space.seconds = 59
 
 	return
@@ -121,8 +121,7 @@ func _integrate_forces (s):
 			found_floor = true
 			floor_index = x
 
-	# A good idea when implementing characters of all kinds,
-	# compensates for physics imprecision, as well as human reaction delay.
+	# A good idea when implementing characters of all kinds, compensates for physics imprecision, as well as human reaction delay.
 	if (found_floor):
 		airborne_time = 0.0
 	else:
